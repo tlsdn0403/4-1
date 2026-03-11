@@ -85,5 +85,6 @@ int main(int argc, char **argv)
 	delete g_Renderer;
 
     return 0;
+
 }
 
