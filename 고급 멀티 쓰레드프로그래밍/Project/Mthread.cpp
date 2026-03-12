@@ -1,4 +1,4 @@
-#include<iostream>	
+﻿#include<iostream>	
 #include<thread>
 #include<mutex>
 #include<chrono>
@@ -59,8 +59,9 @@ void optimal_add(int num_thread) {
 }
 int main()
 {
+
 	{
-		std::cout << "start" << std::endl;
+		std::cout << "시작" << std::endl;
 		auto start = high_resolution_clock::now();
 		for (auto i = 0; i < 5000'0000; ++i) sum = sum + 2;
 		std::cout << "Single thread Sum = " << sum << std::endl;
