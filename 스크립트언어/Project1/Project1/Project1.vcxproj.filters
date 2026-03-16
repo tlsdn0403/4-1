@@ -16,6 +16,9 @@
     <Filter Include="소스 파일\Homework_1">
       <UniqueIdentifier>{176918bc-09fd-4a7e-8104-1c6fc2c073cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Homework_2">
+      <UniqueIdentifier>{b745b10d-7881-4516-8368-60c4bca37579}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="baekjoon1100.cpp">
@@ -38,6 +41,15 @@
     </ClCompile>
     <ClCompile Include="Programers17682.cpp">
       <Filter>소스 파일\Homework_1</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon11047.cpp">
+      <Filter>소스 파일\Homework_2</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon2798.cpp">
+      <Filter>소스 파일\Homework_2</Filter>
+    </ClCompile>
+    <ClCompile Include="TU0067.cpp">
+      <Filter>소스 파일\Homework_2</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
