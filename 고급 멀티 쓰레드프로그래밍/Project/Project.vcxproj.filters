@@ -24,5 +24,11 @@
     <ClCompile Include="Mthread.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Peterson.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CountError.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
