@@ -14,7 +14,7 @@ std::mutex mylock;
 using namespace std::chrono;
 
 
-void add() {
+void mutexAdd() {
 	auto loop = 5000'0000 / 2;
 	for (auto i = 0; i < loop; ++i)
 	{
@@ -71,7 +71,7 @@ int main()
 			sum = 0;
 			std::vector<std::thread> threads;
 			for (int i = 0; i < num; ++i) {
-				threads.emplace_back(add); // 인자 제거
+				threads.emplace_back(mutexAdd); // 인자 제거
 			}
 			for (auto& t : threads)t.join();
 
