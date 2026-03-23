@@ -13,7 +13,12 @@ std::mutex mylock;
 
 using namespace std::chrono;
 
-
+void add(int num) {
+	auto loop = 5000'0000 / num;
+	for (auto i = 0; i < loop; ++i) {
+		sum = sum + 2;
+	}
+}
 void mutexAdd(int num) {
 	auto loop = 5000'0000 / num;
 	for (auto i = 0; i < loop; ++i)
@@ -26,29 +31,29 @@ void mutexAdd(int num) {
 }
 
 
- std::vector<std::atomic<bool>> flag;
- std::vector<std::atomic<int>> label;
+ std::vector<std::atomic<bool>> a_flag;
+ std::vector<std::atomic<int>> a_label;
 
 void atomic_b_lock(int threadID ,int threadNum){
-	flag[threadID] = true;
+	a_flag[threadID] = true;
 	int maxNum = 0;
 	for (int i = 0; i < threadNum; ++i) {
 		// 내 대기표는 가장큰 대기표 + 1
-		int currentNum = label[i];
+		int currentNum = a_label[i];
 		maxNum = std::max(currentNum, maxNum);
 	}
-	label[threadID] = maxNum +1 ;
+	a_label[threadID] = maxNum +1 ;
 	for (int i = 0; i < threadNum; ++i) {
 		if (i == threadID)
 			continue;
 		// i가 대기표를 가지고 있고 , 대기표의 번호가 나보다 작거나, 만약에 같다면 , 나의 쓰레드 아이디가 더 크다면 기다리자.
-		while (flag[i] &&(label[i] < label[threadID] ||(label[i] == label[threadID] && i < threadID))) {
+		while (a_flag[i] &&(a_label[i] < a_label[threadID] ||(a_label[i] == a_label[threadID] && i < threadID))) {
 			// 기다림
 		}
 	}
 }
 void atomic_b_unlock(int threadID) {
-	flag[threadID] = false;
+	a_flag[threadID] = false;
 }
 
 void atomic_bakeryAdd(int num ,int threadID) {
@@ -68,16 +73,20 @@ int main()
 {
 
 	{
-		std::cout << "Start" << std::endl;
-		auto start = high_resolution_clock::now();
+		for (auto num : { 1,2,4,8 }) {
+			auto s = high_resolution_clock::now();
+			sum = 0;
+			std::vector<std::thread> threads;
+			for (int i = 0; i < num; ++i) {
+				threads.emplace_back(add, num); // 인자 제거
+			}
+			for (auto& t : threads)t.join();
 
-		for (auto i = 0; i < 5000'0000; ++i) {
-
-			sum = sum + 2;
+			std::cout << "Thread num = " << num << " ";
+			std::cout << "Normal thread Sum = " << sum << std::endl;
+			auto t = high_resolution_clock::now() - s;
+			std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
 		}
-		std::cout << "Single thread Sum = " << sum << std::endl;
-		auto end = high_resolution_clock::now() - start;
-		std::cout << "time :" << duration_cast<milliseconds>(end).count() << std::endl;
 	}
 	{
 
@@ -103,8 +112,8 @@ int main()
 			auto s = high_resolution_clock::now();
 			sum = 0;
 			std::vector<std::thread> threads;
-			flag = std::vector<std::atomic<bool>>(num);
-			label = std::vector<std::atomic<int>>(num );
+			a_flag = std::vector<std::atomic<bool>>(num);
+			a_label = std::vector<std::atomic<int>>(num );
 
 			for (int i = 0; i < num; ++i) {
 				threads.emplace_back(atomic_bakeryAdd , num ,i); // 인자 제거
