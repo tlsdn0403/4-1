@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include<cmath>
 
 using namespace std;
 
@@ -10,11 +11,13 @@ int main() {
 	
 	cin>>num >> s;
 	int Height{},minHeight{ }, maxHeight{ };
+	int plusCount{}, minusCount{};
 	char prev = {};
 	for (char c : s) {
 		if (c == '+') {
 			if (prev == '+') {
 				Height++;
+				plusCount++;
 				maxHeight = max(maxHeight, Height);
 			}
 			else if (prev == '-') {
@@ -31,10 +34,12 @@ int main() {
 			}
 			else if (prev == '-') {
 				Height--;
+				minusCount++;
 				minHeight = min(minHeight, Height);
 			}
 			else if (prev == '=') {
 				Height--;
+				minusCount++;
 				minHeight = min(minHeight, Height);
 			}
 			
@@ -43,6 +48,7 @@ int main() {
 		else {
 			if (prev == '+') {
 				Height++;
+				plusCount++;
 				maxHeight = max(maxHeight, Height);
 			}
 			else if (prev == '-') {
@@ -54,11 +60,9 @@ int main() {
 		}
 		prev = c;
 	}
-	cout << maxHeight << " " << minHeight <<" " <<Height<<'\n';
-	int startHeight = 0;
-	if (minHeight > 0) {
-		startHeight = minHeight-1;
-	}
+	int startHeight = abs(Height - maxHeight) + plusCount - minusCount;
+	//cout << "max :" << maxHeight << ", min" << minHeight << ", plus" << plusCount << ", minus" << minusCount <<", start"<<startHeight<< '\n';
+	
 	Height = maxHeight - minHeight +1;
 	if (Height < 1) {
 		Height = 1;

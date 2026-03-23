@@ -54,5 +54,14 @@
     <ClCompile Include="Programers42862.cpp">
       <Filter>소스 파일\Homework_2</Filter>
     </ClCompile>
+    <ClCompile Include="상하좌우.cpp">
+      <Filter>소스 파일\Homework_2</Filter>
+    </ClCompile>
+    <ClCompile Include="왕실의 나이트.cpp">
+      <Filter>소스 파일\Homework_2</Filter>
+    </ClCompile>
+    <ClCompile Include="TU0099.cpp">
+      <Filter>소스 파일\Homework_2</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
