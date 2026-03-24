@@ -1,7 +1,7 @@
 #include<iostream>
 #include<thread>
 
-volatile int* bound;
+std::atomic<int>* bound;
 volatile bool done = false;
 
 void thread1() {
@@ -21,6 +21,7 @@ void spy() {
 		int value = *bound; // 공유변수를 여러 번 나눠서 읽으면 안된다.
 		if ((value != 0) && (value != -1)) {
 			++error;
+			printf("%X, ", value);
 		}
 		
 	}
@@ -34,8 +35,8 @@ int main() {
 	long long remainder = temp % 64;
 
 	temp = temp - remainder; // 주소가 들어있는데 나머지만큼 주소가 줄어들겠죠. , temp는 나머지 원소의 살짝 앞에있는 주소를 가르키게 된다.
-	temp = temp - 2;
-	bound = reinterpret_cast<int *>(temp);  // 바운드가 가르키는 주소는 ARR안에 있다.
+	temp = temp - 3;
+	bound = reinterpret_cast<std::atomic<int> *>(temp);  // 바운드가 가르키는 주소는 ARR안에 있다.
 	*bound = 0;
 
 	std::thread t1(thread1);

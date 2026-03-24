@@ -30,7 +30,47 @@ void mutexAdd(int num) {
 	}
 }
 
+// ------------------------- volatile 빵집 --------------------------
+volatile int v_flag[8] = {};
+volatile int v_label[8] = {};
 
+void volatile_b_lock(int threadID ,int threadNum){
+	v_flag[threadID] = true;
+	int maxNum = 0;
+	for (int i = 0; i < threadNum; ++i) {
+		// 내 대기표는 가장큰 대기표 + 1
+		int currentNum = v_label[i];
+		maxNum = std::max(currentNum, maxNum);
+	}
+	v_label[threadID] = maxNum +1 ;
+	for (int i = 0; i < threadNum; ++i) {
+		if (i == threadID)
+			continue;
+		// i가 대기표를 가지고 있고 , 대기표의 번호가 나보다 작거나, 만약에 같다면 , 나의 쓰레드 아이디가 더 크다면 기다리자.
+		while (v_flag[i] &&(v_label[i] < v_label[threadID] ||(v_label[i] == v_label[threadID] && i < threadID))) {
+			// 기다림
+		}
+	}
+}
+
+void volatile_b_unlock(int threadID) {
+	v_flag[threadID] = false;
+}
+
+void volatile_bakeryAdd(int num ,int threadID) {
+	auto loop = 5000'0000 / num;
+
+	for (auto i = 0; i < loop; ++i)
+	{
+		volatile_b_lock(threadID, num);
+		sum = sum + 2;
+		volatile_b_unlock(threadID);
+	}
+
+}
+
+
+// ------------------------- 아토믹 빵집 --------------------------
  std::vector<std::atomic<bool>> a_flag;
  std::vector<std::atomic<int>> a_label;
 
@@ -58,14 +98,13 @@ void atomic_b_unlock(int threadID) {
 
 void atomic_bakeryAdd(int num ,int threadID) {
 	auto loop = 5000'0000 / num;
-	volatile int localSum = 0;
+
 	for (auto i = 0; i < loop; ++i)
 	{
-		localSum = localSum + 2;
+		atomic_b_lock(threadID, num);
+		sum = sum + 2;
+		atomic_b_unlock(threadID);
 	}
-	atomic_b_lock(threadID, num);
-	sum = sum + localSum;
-	atomic_b_unlock(threadID);
 }
 
 
@@ -105,6 +144,23 @@ int main()
 			std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
 		}
 	}
+	{
+
+		for (auto num : { 1,2,4,8 }) {
+			auto s = high_resolution_clock::now();
+			sum = 0;
+			std::vector<std::thread> threads;;
+			for (int i = 0; i < num; ++i) {
+				threads.emplace_back(volatile_bakeryAdd, num, i); // 인자 제거
+			}
+			for (auto& t : threads)t.join();
+
+			std::cout << "Thread num = " << num << " ";
+			std::cout << "volatile Bakery thread Sum = " << sum << std::endl;
+			auto t = high_resolution_clock::now() - s;
+			std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
+		}
+	}
 
 	{
 
@@ -121,7 +177,7 @@ int main()
 			for (auto& t : threads)t.join();
 
 			std::cout << "Thread num = " << num << " ";
-			std::cout << "Bakery thread Sum = " << sum << std::endl;
+			std::cout << "Atomic Bakery thread Sum = " << sum << std::endl;
 			auto t = high_resolution_clock::now() - s;
 			std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
 		}
