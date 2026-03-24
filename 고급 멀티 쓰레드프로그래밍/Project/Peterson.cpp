@@ -28,13 +28,12 @@ void mutexAdd() {
 //std::atomic<int>  victim = 2;
 //std::atomic<bool> flag[2]{ false,false };
 volatile int victim = 2;
-volatile bool flag[2]{ false,false };
+std::atomic<bool> flag[2]{ false,false };
 
 void p_lock(int thread_id) {
 	int other = 1 - thread_id;
 	flag[thread_id] = true;
 	victim = thread_id;
-	std::atomic_thread_fence(std::memory_order_seq_cst); // 메모리 배리어
 	while (flag[other] && victim == thread_id);
 }
 void p_unlock(int thread_id) {
@@ -76,7 +75,7 @@ int main()
 			for (auto& t : threads)t.join();
 
 			std::cout << "Thread num = " << num << " ";
-			std::cout << "Multi thread Sum = " << sum << std::endl;
+			std::cout << "Mutex thread Sum = " << sum << std::endl;
 			auto t = high_resolution_clock::now() - s;
 			std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
 		}

@@ -1,7 +1,7 @@
 #include<iostream>
 #include<thread>
 
-std::atomic<int>* bound;
+std::atomic<int>* bound; 
 volatile bool done = false;
 
 void thread1() {

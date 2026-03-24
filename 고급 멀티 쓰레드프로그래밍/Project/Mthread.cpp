@@ -26,15 +26,38 @@ void array_add(int num_thread ,int thread_Id) {
 
 }
 
+bool CAS(volatile int* ptr, int expected, int desired) {
+	
+	return std::atomic_compare_exchange_strong(
+		reinterpret_cast<volatile std::atomic<int>*>(ptr),
+		&expected,
+		desired
+	);	
+}
+volatile int LOCK = 0; // 0 = unlock , 1 = 어떤 쓰레드가 락 얻음
+
+
+void CAS_LOCK()
+{
+	// 딴쓰레드가 락을 얻었으면 기다는거죠 
+	// 락을 얻은 쓰레드가 언락 할 때까지 기다림??
+	// 여기서 발생하는 데이터 레이스를 cas를 사용해서 업애줘야 한다. 여기를 아토믹하게 바꾸어 주어야 한다.
+	 while (1 == LOCK); LOCK = 1; 
+}
+void CAS_UNLOCK()
+{
+	LOCK = 0;
+}
+
 
 void add(int num_thread) {
 	auto loop = 5000'0000 / num_thread;
 	for (auto i = 0; i < loop; ++i)
 	{
 
-		mylock.lock();
+		CAS_LOCK();
 		sum = sum + 2;
-		mylock.unlock();
+		CAS_UNLOCK();
 	}
 }
 
@@ -86,62 +109,5 @@ int main()
 		}
 	}
 
-	{
-		
-		for (auto num : { 1,2,4,6,8 }) {
-			auto s = high_resolution_clock::now();
-			atomic_sum = 0;
-			std::vector<std::thread> threads;
-			for (int i = 0; i < num; ++i) {
-				threads.emplace_back(atomic_add, num);
-			}
-			for (auto& t : threads)t.join();
-
-			std::cout << "Thread num = " << num << " ";
-			std::cout << "atomic Multi thread Sum = " << atomic_sum << std::endl;
-			auto t = high_resolution_clock::now() - s;
-			std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
-		}
-	}
-
-	{
-		
-		for (auto num : { 1,2,4,6,8 }) {
-			auto s = high_resolution_clock::now();
-			sum = 0;
-			std::vector<std::thread> threads;
-			for (int i = 0; i < num; ++i) {
-				threads.emplace_back(optimal_add, num);
-			}
-			for (auto& t : threads)t.join();
-
-			std::cout << "Thread num = " << num << " ";
-			std::cout << "optimal Multi thread Sum = " << sum << std::endl;
-			auto t = high_resolution_clock::now() - s;
-			std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
-		}
-	}
-
-
-	{
-
-		for (auto num : { 1,2,4,6,8 }) {
-			auto s = high_resolution_clock::now();
-			sum = 0;	
-			for (auto& s : array_sum) s = 0;
-
-
-			std::vector<std::thread> threads;
-			for (int i = 0; i < num; ++i) {
-				threads.emplace_back(array_add, num,i);
-			}
-			for (auto& t : threads)t.join();
-
-			std::cout << "Thread num = " << num << " ";
-			for (auto& s : array_sum) sum += s;
-			std::cout << "Array thread Sum = " << sum << std::endl;
-			auto t = high_resolution_clock::now() - s;
-			std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
-		}
-	}
+	
 }

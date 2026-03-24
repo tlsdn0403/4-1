@@ -28,6 +28,8 @@ void atomic_add(int num_thread) {
 		atomic_sum += 2;
 	}
 }
+
+
 int main()
 {
 	{
