@@ -19,6 +19,12 @@
     <Filter Include="소스 파일\Homework_2">
       <UniqueIdentifier>{b745b10d-7881-4516-8368-60c4bca37579}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Homework_3">
+      <UniqueIdentifier>{f2e6ddc9-c3bf-4ae3-9a4b-970fbd85e4a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Practice_3">
+      <UniqueIdentifier>{dbe37f99-1d85-42fb-8b61-1ed9d3d32956}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="baekjoon1100.cpp">
@@ -62,6 +68,15 @@
     </ClCompile>
     <ClCompile Include="TU0099.cpp">
       <Filter>소스 파일\Homework_2</Filter>
+    </ClCompile>
+    <ClCompile Include="TU0067-2.py">
+      <Filter>소스 파일\Homework_2</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon2178.cpp">
+      <Filter>소스 파일\Practice_3</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon1260.cpp">
+      <Filter>소스 파일\Homework_3</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -50,13 +50,14 @@ void CAS_LOCK()
 	// 딴쓰레드가 락을 얻었으면 기다는거죠 
 	// 락을 얻은 쓰레드가 언락 할 때까지 기다림??
 	// 여기서 발생하는 데이터 레이스를 cas를 사용해서 없애줘야 한다. 여기를 아토믹하게 바꾸어 주어야 한다.
+	// lock 의 값이 0이면 1로 바꿔주고 true 리턴 아니면 false
 	while (!CAS(&LOCK, 0, 1)) {
-		// lock 의 값이 0이면 1로 바꿔주고 true 리턴 아니면 false
+
 	}
 }
 void CAS_UNLOCK()
 {
-	LOCK = 0;
+	CAS(&LOCK, 1, 0);  //이것도 해주는 게 완벽
 }
 
 
@@ -180,62 +181,62 @@ int main()
 			std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
 		}
 	}
-	{
+	//{
 
-		for (auto num : { 1,2,4,8 }) {
-			auto s = high_resolution_clock::now();
-			sum = 0;
-			std::vector<std::thread> threads;
-			for (int i = 0; i < num; ++i) {
-				threads.emplace_back(mutexAdd, num); // 인자 제거
-			}
-			for (auto& t : threads)t.join();
+	//	for (auto num : { 1,2,4,8 }) {
+	//		auto s = high_resolution_clock::now();
+	//		sum = 0;
+	//		std::vector<std::thread> threads;
+	//		for (int i = 0; i < num; ++i) {
+	//			threads.emplace_back(mutexAdd, num); // 인자 제거
+	//		}
+	//		for (auto& t : threads)t.join();
 
-			std::cout << "Thread num = " << num << " ";
-			std::cout << "Mutex thread Sum = " << sum << std::endl;
-			auto t = high_resolution_clock::now() - s;
-			std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
-		}
-	}
+	//		std::cout << "Thread num = " << num << " ";
+	//		std::cout << "Mutex thread Sum = " << sum << std::endl;
+	//		auto t = high_resolution_clock::now() - s;
+	//		std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
+	//	}
+	//}
 
-	{
+	//{
 
-		for (auto num : { 1,2,4,8 }) {
-			auto s = high_resolution_clock::now();
-			sum = 0;
-			std::vector<std::thread> threads;;
-			for (int i = 0; i < num; ++i) {
-				threads.emplace_back(volatile_bakeryAdd, num, i); // 인자 제거
-			}
-			for (auto& t : threads)t.join();
+	//	for (auto num : { 1,2,4,8 }) {
+	//		auto s = high_resolution_clock::now();
+	//		sum = 0;
+	//		std::vector<std::thread> threads;;
+	//		for (int i = 0; i < num; ++i) {
+	//			threads.emplace_back(volatile_bakeryAdd, num, i); // 인자 제거
+	//		}
+	//		for (auto& t : threads)t.join();
 
-			std::cout << "Thread num = " << num << " ";
-			std::cout << "volatile Bakery thread Sum = " << sum << std::endl;
-			auto t = high_resolution_clock::now() - s;
-			std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
-		}
-	}
+	//		std::cout << "Thread num = " << num << " ";
+	//		std::cout << "volatile Bakery thread Sum = " << sum << std::endl;
+	//		auto t = high_resolution_clock::now() - s;
+	//		std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
+	//	}
+	//}
 
-	{
+	//{
 
-		for (auto num : { 1,2,4,8 }) {
-			auto s = high_resolution_clock::now();
-			atomic_sum = 0;
-			std::vector<std::thread> threads;
-			a_flag = std::vector<std::atomic<bool>>(num);
-			a_label = std::vector<std::atomic<int>>(num);
+	//	for (auto num : { 1,2,4,8 }) {
+	//		auto s = high_resolution_clock::now();
+	//		atomic_sum = 0;
+	//		std::vector<std::thread> threads;
+	//		a_flag = std::vector<std::atomic<bool>>(num);
+	//		a_label = std::vector<std::atomic<int>>(num);
 
-			for (int i = 0; i < num; ++i) {
-				threads.emplace_back(atomic_bakeryAdd, num, i); // 인자 제거
-			}
-			for (auto& t : threads)t.join();
+	//		for (int i = 0; i < num; ++i) {
+	//			threads.emplace_back(atomic_bakeryAdd, num, i); // 인자 제거
+	//		}
+	//		for (auto& t : threads)t.join();
 
-			std::cout << "Thread num = " << num << " ";
-			std::cout << "Atomic Bakery thread Sum = " << atomic_sum << std::endl;
-			auto t = high_resolution_clock::now() - s;
-			std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
-		}
-	}
+	//		std::cout << "Thread num = " << num << " ";
+	//		std::cout << "Atomic Bakery thread Sum = " << atomic_sum << std::endl;
+	//		auto t = high_resolution_clock::now() - s;
+	//		std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
+	//	}
+	//}
 	{
 
 		for (auto num : { 1,2,4,8 }) {
