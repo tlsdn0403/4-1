@@ -11,6 +11,7 @@
 volatile int sum; // 실행속도 꼼수 부리지 마라
 std::mutex mylock;
 
+std::atomic<int> atomic_sum; // 아토믹
 using namespace std::chrono;
 
 void add(int num) {
@@ -102,7 +103,7 @@ void atomic_bakeryAdd(int num ,int threadID) {
 	for (auto i = 0; i < loop; ++i)
 	{
 		atomic_b_lock(threadID, num);
-		sum = sum + 2;
+		atomic_sum = atomic_sum + 2;
 		atomic_b_unlock(threadID);
 	}
 }
@@ -166,7 +167,7 @@ int main()
 
 		for (auto num : { 1,2,4,8 }) {
 			auto s = high_resolution_clock::now();
-			sum = 0;
+			atomic_sum = 0;
 			std::vector<std::thread> threads;
 			a_flag = std::vector<std::atomic<bool>>(num);
 			a_label = std::vector<std::atomic<int>>(num );
@@ -177,7 +178,7 @@ int main()
 			for (auto& t : threads)t.join();
 
 			std::cout << "Thread num = " << num << " ";
-			std::cout << "Atomic Bakery thread Sum = " << sum << std::endl;
+			std::cout << "Atomic Bakery thread Sum = " << atomic_sum << std::endl;
 			auto t = high_resolution_clock::now() - s;
 			std::cout << "time :" << duration_cast<milliseconds>(t).count() << std::endl;
 		}
