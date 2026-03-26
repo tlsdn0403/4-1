@@ -137,7 +137,7 @@
     <ClCompile Include="baekjoon11047.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="baekjoon1260.cpp" />
+    <ClCompile Include="baekjoon1260%28bfs_dfs%29.cpp" />
     <ClCompile Include="baekjoon13413.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>

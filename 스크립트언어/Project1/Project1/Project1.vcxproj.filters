@@ -75,7 +75,7 @@
     <ClCompile Include="baekjoon2178.cpp">
       <Filter>소스 파일\Practice_3</Filter>
     </ClCompile>
-    <ClCompile Include="baekjoon1260.cpp">
+    <ClCompile Include="baekjoon1260%28bfs_dfs%29.cpp">
       <Filter>소스 파일\Homework_3</Filter>
     </ClCompile>
   </ItemGroup>
