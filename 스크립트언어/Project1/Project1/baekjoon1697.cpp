@@ -17,19 +17,25 @@ int bfs(int x) {
 		visited[current] = true;
 		q.pop();
 		if (current == m) {
-			answer = distance;
+			return distance;
 			break;
 		}
 
-		if (current + 1 >= 0 && current + 1 < 100001 && visited[current +1]== false)q.push({current + 1, distance + 1});
+		if (current + 1 >= 0 && current + 1 < 100001 && visited[current + 1] == false) {
+			q.push({ current + 1, distance + 1 });
+		}
 		
-		if (current - 1 >= 0 && current - 1 < 100001 && visited[current - 1] == false)q.push ({ current - 1, distance + 1 }) ;
+		if (current - 1 >= 0 && current - 1 < 100001 && visited[current - 1] == false) {
+			q.push({ current - 1, distance + 1 });
+		}
 		
-		if (current * 2 >= 0 && current * 2 < 100001 && visited[current * 2] == false)q.push({ current * 2, distance + 1 });
+		if (current * 2 >= 0 && current * 2 < 100001 && visited[current * 2] == false) {
+			q.push({ current * 2, distance + 1 });
+		}
 
 		
 	}
-	return answer;
+	return 0;
 }
 
 int main() {
