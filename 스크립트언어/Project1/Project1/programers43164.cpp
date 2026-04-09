@@ -2,45 +2,47 @@
 #include <vector>
 #include<iostream>
 #include<algorithm>
+#include<stack>
 using namespace std;
 
 vector<string> answer;
 vector<bool> visit;
+bool solve = false;
 void dfs(string start , vector<vector<string>> tickets) {
     answer.push_back(start);
+
     if (answer.size() == tickets.size()+1) {
+        solve = true;
         return;
     }
-    string end{};
-    size_t endNum{};
-    for (size_t i = 0; i < tickets.size(); ++i) {
-        if (tickets[i][0] == start) {
-            if (visit[i] == true) {
-                continue;
-            }
-            if (end.empty()) {
-                end = tickets[i][1];
-                endNum = i;
-            }  
-            else {
-                if (end > tickets[i][1]) {
-                    end = tickets[i][1];
-                    endNum = i;
+
+
+
+
+    for (int i = 0; i < tickets.size(); ++i) {
+        if (start == tickets[i][0]) {
+            if (!visit[i]) {
+                visit[i] = true;
+                dfs(tickets[i][1], tickets);
+                if (solve) {
+                    return;
                 }
+                visit[i] = false;
             }
         }
-   
     }
-    if (end.empty()) return;
-    visit[endNum] = true;
-
-    dfs(end, tickets);
+    //잘못된 답 빼
+    answer.pop_back();
 }
 
 vector<string> solution(vector<vector<string>> tickets) {
 
     visit.assign(tickets.size(), false);
+    sort(tickets.begin(), tickets.end(), [](vector<string >s1, vector<string> s2) {
+        return s1[1] < s2[1];
+        });
     dfs("ICN", tickets);
     return answer;
 }
+
 

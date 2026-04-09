@@ -25,6 +25,12 @@
     <Filter Include="소스 파일\Practice_3">
       <UniqueIdentifier>{dbe37f99-1d85-42fb-8b61-1ed9d3d32956}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Practice_2">
+      <UniqueIdentifier>{7e104a91-5d00-4eaa-a04b-12c5281e7e9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Practice_1">
+      <UniqueIdentifier>{7a1b82e8-bbce-495b-9d35-ebca5abd1a91}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="baekjoon1100.cpp">
@@ -87,7 +93,7 @@
     <ClCompile Include="미로탈출.cpp">
       <Filter>소스 파일\Practice_3</Filter>
     </ClCompile>
-    <ClCompile Include="baekjoon1697.cpp">
+    <ClCompile Include="baekjoon1697숨박꼭질.cpp">
       <Filter>소스 파일\Homework_3</Filter>
     </ClCompile>
     <ClCompile Include="TU0045.cpp">
@@ -95,6 +101,30 @@
     </ClCompile>
     <ClCompile Include="programers43164.cpp">
       <Filter>소스 파일\Homework_3</Filter>
+    </ClCompile>
+    <ClCompile Include="TU0045_중요한교차로_복습.cpp">
+      <Filter>소스 파일\Homework_3</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon1987.cpp">
+      <Filter>소스 파일\Homework_3</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon1991.cpp">
+      <Filter>소스 파일\Homework_3</Filter>
+    </ClCompile>
+    <ClCompile Include="어피치라이언양궁.cpp">
+      <Filter>소스 파일\Practice_3</Filter>
+    </ClCompile>
+    <ClCompile Include="Programers43165%28타겟넘버%29.cpp">
+      <Filter>소스 파일\Practice_3</Filter>
+    </ClCompile>
+    <ClCompile Include="가장많이받은선물.cpp">
+      <Filter>소스 파일\Practice_1</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon5585거스름돈0.cpp">
+      <Filter>소스 파일\Practice_2</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon16963AtoB.cpp">
+      <Filter>소스 파일\Practice_2</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
