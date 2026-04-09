@@ -132,5 +132,8 @@
     <ClCompile Include="programers재밌는레이싱_순열사용시간초.cpp">
       <Filter>소스 파일\Practice_2</Filter>
     </ClCompile>
+    <ClCompile Include="baekjoon1026보물.cpp">
+      <Filter>소스 파일\Practice_2</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
