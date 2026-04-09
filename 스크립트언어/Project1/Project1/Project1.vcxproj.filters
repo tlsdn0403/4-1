@@ -126,5 +126,11 @@
     <ClCompile Include="baekjoon16963AtoB.cpp">
       <Filter>소스 파일\Practice_2</Filter>
     </ClCompile>
+    <ClCompile Include="카드뭉치코인programers.cpp">
+      <Filter>소스 파일\Practice_2</Filter>
+    </ClCompile>
+    <ClCompile Include="programers재밌는레이싱_순열사용시간초.cpp">
+      <Filter>소스 파일\Practice_2</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
