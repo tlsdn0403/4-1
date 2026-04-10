@@ -135,5 +135,8 @@
     <ClCompile Include="baekjoon1026보물.cpp">
       <Filter>소스 파일\Practice_2</Filter>
     </ClCompile>
+    <ClCompile Include="tukorea0002당구게임.cpp">
+      <Filter>소스 파일\Practice_1</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
