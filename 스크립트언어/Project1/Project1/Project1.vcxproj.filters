@@ -78,9 +78,6 @@
     <ClCompile Include="TU0067-2.py">
       <Filter>소스 파일\Homework_2</Filter>
     </ClCompile>
-    <ClCompile Include="baekjoon2178.cpp">
-      <Filter>소스 파일\Practice_3</Filter>
-    </ClCompile>
     <ClCompile Include="baekjoon1260%28bfs_dfs%29.cpp">
       <Filter>소스 파일\Homework_3</Filter>
     </ClCompile>
@@ -137,6 +134,24 @@
     </ClCompile>
     <ClCompile Include="tukorea0002당구게임.cpp">
       <Filter>소스 파일\Practice_1</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon2720세탁소거스름.cpp">
+      <Filter>소스 파일\Practice_2</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon2178미로탐색.cpp">
+      <Filter>소스 파일\Practice_3</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon7576토마토.cpp">
+      <Filter>소스 파일\Practice_3</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon1012유기농배추.cpp">
+      <Filter>소스 파일\Practice_3</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon2468안전영역.cpp">
+      <Filter>소스 파일\Practice_3</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon3055고슴도치탈출.cpp">
+      <Filter>소스 파일\Practice_3</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
