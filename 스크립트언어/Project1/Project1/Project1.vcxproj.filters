@@ -33,34 +33,34 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="baekjoon1100.cpp">
+    <ClCompile Include="baekjoon1100하얀칸.cpp">
       <Filter>소스 파일\Homework_1</Filter>
     </ClCompile>
-    <ClCompile Include="baekjoon10250.cpp">
+    <ClCompile Include="baekjoon10250ACM호텔.cpp">
       <Filter>소스 파일\Homework_1</Filter>
     </ClCompile>
-    <ClCompile Include="baekjoon13413.cpp">
+    <ClCompile Include="baekjoon13413오셀로배치.cpp">
       <Filter>소스 파일\Homework_1</Filter>
     </ClCompile>
     <ClCompile Include="test.cpp">
       <Filter>소스 파일\Homework_1</Filter>
     </ClCompile>
-    <ClCompile Include="TU0071.cpp">
+    <ClCompile Include="TU0071십자말풀이.cpp">
       <Filter>소스 파일\Homework_1</Filter>
     </ClCompile>
-    <ClCompile Include="TU0079.cpp">
+    <ClCompile Include="TU0079문자열폭발.cpp">
       <Filter>소스 파일\Homework_1</Filter>
     </ClCompile>
     <ClCompile Include="Programers17682.cpp">
       <Filter>소스 파일\Homework_1</Filter>
     </ClCompile>
-    <ClCompile Include="baekjoon11047.cpp">
+    <ClCompile Include="baekjoon11047동전.cpp">
       <Filter>소스 파일\Homework_2</Filter>
     </ClCompile>
-    <ClCompile Include="baekjoon2798.cpp">
+    <ClCompile Include="baekjoon2798블랙잭조합사용.cpp">
       <Filter>소스 파일\Homework_2</Filter>
     </ClCompile>
-    <ClCompile Include="TU0067.cpp">
+    <ClCompile Include="TU0067자산증감.cpp">
       <Filter>소스 파일\Homework_2</Filter>
     </ClCompile>
     <ClCompile Include="Programers42862.cpp">
@@ -152,6 +152,36 @@
     </ClCompile>
     <ClCompile Include="baekjoon3055고슴도치탈출.cpp">
       <Filter>소스 파일\Practice_3</Filter>
+    </ClCompile>
+    <ClCompile Include="tukorea0001소수회문.cpp">
+      <Filter>소스 파일\Practice_1</Filter>
+    </ClCompile>
+    <ClCompile Include="TU0018수퍼히어로점프.cpp">
+      <Filter>소스 파일\Practice_3</Filter>
+    </ClCompile>
+    <ClCompile Include="TU0035사회적거리두기.cpp">
+      <Filter>소스 파일\Practice_2</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon11034캥거루3마리.cpp">
+      <Filter>소스 파일\Practice_2</Filter>
+    </ClCompile>
+    <ClCompile Include="카카오컬러링북.cpp">
+      <Filter>소스 파일\Practice_3</Filter>
+    </ClCompile>
+    <ClCompile Include="경주로건설.cpp">
+      <Filter>소스 파일\Practice_3</Filter>
+    </ClCompile>
+    <ClCompile Include="1test01.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1test03.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1.test05.cpp">
+      <Filter>소스 파일\Practice_3</Filter>
+    </ClCompile>
+    <ClCompile Include="FileName.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
