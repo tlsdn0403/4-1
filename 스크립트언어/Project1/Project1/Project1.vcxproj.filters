@@ -31,6 +31,9 @@
     <Filter Include="소스 파일\Practice_1">
       <UniqueIdentifier>{7a1b82e8-bbce-495b-9d35-ebca5abd1a91}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Homework_4">
+      <UniqueIdentifier>{1a7e0414-ad11-48ed-93b8-1dce956352c7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="baekjoon1100하얀칸.cpp">
@@ -182,6 +185,15 @@
     </ClCompile>
     <ClCompile Include="FileName.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon13416주식투자.cpp">
+      <Filter>소스 파일\Homework_4</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon1931회의실배정.cpp">
+      <Filter>소스 파일\Homework_4</Filter>
+    </ClCompile>
+    <ClCompile Include="TU0063행렬게임.cpp">
+      <Filter>소스 파일\Homework_4</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
