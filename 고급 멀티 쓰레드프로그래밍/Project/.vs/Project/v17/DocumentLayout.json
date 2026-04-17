@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\Peterson.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|solutionrelative:Peterson.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\BakeryAlgorithm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|solutionrelative:BakeryAlgorithm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\NoneBlockList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|solutionrelative:NoneBlockList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -111,6 +119,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Peterson.cpp",
+              "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\Peterson.cpp",
+              "RelativeDocumentMoniker": "Peterson.cpp",
+              "ToolTip": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\Peterson.cpp",
+              "RelativeToolTip": "Peterson.cpp",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-04-17T08:22:30.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BakeryAlgorithm.cpp",
+              "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\BakeryAlgorithm.cpp",
+              "RelativeDocumentMoniker": "BakeryAlgorithm.cpp",
+              "ToolTip": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\BakeryAlgorithm.cpp",
+              "RelativeToolTip": "BakeryAlgorithm.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-04-17T08:22:26.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "NoneBlockList.cpp",
               "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\NoneBlockList.cpp",
               "RelativeDocumentMoniker": "NoneBlockList.cpp",
@@ -123,7 +157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "cache.cpp",
               "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\cache.cpp",
               "RelativeDocumentMoniker": "cache.cpp",
@@ -135,7 +169,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Mthread.cpp",
               "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\Mthread.cpp",
               "RelativeDocumentMoniker": "Mthread.cpp",
@@ -147,7 +181,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "CountError.cpp",
               "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\CountError.cpp",
               "RelativeDocumentMoniker": "CountError.cpp",
@@ -159,7 +193,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Hello.cpp",
               "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\Hello.cpp",
               "RelativeDocumentMoniker": "Hello.cpp",
@@ -171,7 +205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "LinkedList.cpp",
               "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\LinkedList.cpp",
               "RelativeDocumentMoniker": "LinkedList.cpp",
@@ -183,7 +217,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "CAS.cpp",
               "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\CAS.cpp",
               "RelativeDocumentMoniker": "CAS.cpp",
