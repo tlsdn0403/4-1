@@ -1,0 +1,187 @@
+1번~4번. 단답형 (각 5점)
+
+1. CPU 제작사에서 클럭을 2배로 올리는 대신 멀티코어 CPU를 만드는 이유를 간단히 쓰시오.
+발열과 같이 하드웨어적으로 한계가 있기 때문에
+
+2. 멀티쓰레드가 멀티프로세스보다 context switch overhead가 작은 이유를 쓰시오.
+pcb때문에 
+
+3. 같은 프로세스 내부의 여러 쓰레드가 공유하는 영역과 공유하지 않는 영역을 각각 쓰시오.
+code data heap을 공유하고 stack을 공유하지 않는다.
+
+4. 멀티쓰레드 프로그래밍의 목표를 “정확성”과 “성능” 관점에서 각각 한 줄씩 설명하시오.
+정확한 결과가 나와야하고
+멀티쓰레드를 사용하지 않는 프로그램보다 성능이 좋아야 한다.
+
+5번~7번. 개념 서술형 (각 10점)
+
+5. 아래 프로그램이 Release 모드에서 오동작할 수 있는 이유를 설명하시오.
+
+bool g_ready = false;
+int g_data = 0;
+
+void Sender() {
+    cin >> g_data;
+    g_ready = true;
+}
+
+void Receiver() {
+    while (false == g_ready);
+    cout << g_data << '\n';
+}
+
+
+6. volatile과 atomic의 차이를 설명하시오.
+반드시 아래 두 관점을 포함할 것.
+
+컴파일러 관점
+CPU/메모리 순서 관점
+
+7. Peterson 알고리즘이 실제 PC에서 깨질 수 있는 이유를 설명하고, 이를 막는 방법을 2가지 쓰시오.
+강의에서 다룬 용어를 사용할 것.
+
+8번~11번. O / X (각 5점, 틀리면 -5점)
+
+8. 다음 문장이 맞으면 O, 틀리면 X를 쓰시오.
+
+A. volatile은 CPU의 out-of-order 실행까지 막아 준다.
+B. atomic_thread_fence()는 wait-free 동기화 연산으로 취급할 수 있다.
+C. Lock/Unlock은 blocking이다.
+D. wait-free이면 lock-free이다.
+E. obstruction-free는 lock-free보다 강한 보장이다.
+
+9. 다음 문장이 맞으면 O, 틀리면 X를 쓰시오.
+
+A. Data race의 조건은 “둘 이상의 쓰레드가 같은 메모리에 접근하고, 그중 적어도 하나가 write”이다.
+B. 모든 atomic 자료형은 항상 lock-free이다.
+C. 같은 프로세스 내 형제 쓰레드는 heap을 공유한다.
+D. 다른 쓰레드의 stack은 운영체제가 물리적으로 절대 접근 불가능하게 막는다.
+E. sum += 2는 일반 int에 대해 atomic 연산이다.
+
+10. 다음 문장이 맞으면 O, 틀리면 X를 쓰시오.
+
+A. CAS는 “값이 expected와 같을 때만 update로 바꾸는” 연산이다.
+B. atomic load/store만 있으면 대부분의 non-blocking 자료구조를 구현할 수 있다.
+C. CAS는 wait-free 동기화 연산으로 사용된다.
+D. lock-free 알고리즘은 어떤 한 쓰레드가 영원히 굶을 수 있다.
+E. blocking 알고리즘은 priority inversion, convoying 문제를 유발할 수 있다.
+
+11. 다음 문장이 맞으면 O, 틀리면 X를 쓰시오.
+
+A. 세밀한 동기화는 성긴 동기화보다 항상 구현이 쉽다.
+B. 낙천적 동기화는 이동 중에는 잠금을 하지 않고, 수정 직전에 잠금과 validation을 수행한다.
+C. 게으른 동기화는 삭제 시 논리 삭제(mark)와 물리 삭제(unlink)를 분리할 수 있다.
+D. lock-free list에서는 mark bit와 pointer를 합성해서 사용할 수 있다.
+E. atomic shared_ptr는 일반 포인터 load/store와 동일한 비용이다.
+
+강의자료상 non-blocking 등급, CAS의 의미, atomic/shared_ptr의 성능 이슈, lazy/list 구현 포인트가 모두 직접 다뤄졌습니다.
+
+12번~14번. 서술형 (각 5점)
+
+12. 성긴 동기화(coarse-grained synchronization)로 구현된 linked-list SET이 쓰레드 수가 증가할수록 성능이 잘 안 나오는 이유를 쓰시오.
+
+13. 세밀한 동기화(fine-grained synchronization)가 성긴 동기화보다 병행성을 높일 수 있는 이유를 쓰시오.
+
+14. 낙천적 동기화(optimistic synchronization)에서 validation이 필요한 이유를 쓰시오.
+
+강의자료는 fine-grained에서 “검색 이후 pred/curr만 잠그는 것으로는 불충분”하며, 이동 중 충돌과 재사용 문제 때문에 validation과 올바른 locking 순서가 중요하다고 설명합니다.
+
+15번. 코드 변환형 (10점)
+
+다음 blocking 코드를 CAS를 사용한 lock-free 스타일 코드로 바꾸시오.
+
+m.lock();
+sum = sum + 2;
+m.unlock();
+
+조건:
+
+while(true) 루프를 사용할 것
+old_sum, new_sum 변수를 사용할 것
+CAS 성공 시 반복을 종료할 것
+
+강의자료에는 sum = sum + 2를 CAS retry loop로 바꾸는 전형이 직접 제시됩니다.
+
+16번. 빈칸 채우기 (10점)
+
+다음은 CAS 함수의 기본 형태이다. 빈칸을 채우시오.
+
+bool CAS(atomic_int* addr, int expected, int new_val)
+{
+    return std::atomic_compare_exchange_strong(
+        addr, __________ , __________ );
+}
+
+또, 위 함수가 의미하는 바를 한 줄로 설명하시오.
+
+강의자료에 같은 형태의 예제가 나옵니다.
+
+17번. 빈칸 채우기 (10점)
+
+다음은 lock-free 알고리즘의 핵심 retry pattern이다. 빈칸을 채우시오.
+
+while (true) {
+    int old_sum = sum;
+    int new_sum = __________________;
+    if (true == CAS(&sum, __________________, __________________))
+        break;
+}
+
+강의자료 복습 슬라이드에서 거의 같은 패턴이 반복됩니다.
+
+18번. 코드 이해형 (10점)
+
+다음은 Lock-Free List에서 사용하는 Find()의 일부이다.
+빈칸 A에 들어갈 가장 적절한 코드를 쓰시오.
+
+void Find(LFNODE*& pred, LFNODE*& curr, int x)
+{
+retry:
+    pred = head;
+    while (true) {
+        curr = pred->next.get_ptr();
+        bool is_removed = false;
+        LFNODE* succ = curr->next.get_ptr(&is_removed);
+        while (true == is_removed) {
+            if (false == pred->next.CAS(curr, succ, false, false))
+                goto retry;
+            curr = succ;
+            ____________________ ;   // A
+        }
+        if (curr->key >= x) return;
+        pred = curr; curr = succ;
+    }
+}
+
+추가 질문:
+왜 위 코드에서 marked node를 만나면 그냥 지나가지 않고 pred->next를 CAS로 갱신하는가?
+
+19번. 구현형 (10점)
+
+다음은 mark bit를 포함하는 AMR 클래스의 일부이다.
+멤버 sptr가 pointer + removed bit를 같이 저장한다고 할 때, CAS 함수를 구현하시오.
+
+class AMR {
+    std::atomic<long long> sptr;
+public:
+    bool CAS(LFNODE* old_p, LFNODE* new_p, bool old_m, bool new_m)
+    {
+        // 구현
+    }
+};
+
+조건:
+
+포인터와 mark bit를 합성하여 비교할 것
+compare_exchange_strong 계열을 사용할 것
+
+강의자료는 list의 lock-free 구현에서 mark와 pointer를 합성하고, get_next()에서 LSB를 분리하는 방식의 주의점을 직접 보여 줍니다.
+
+20번. 서술형 (10점)
+
+EBR(Epoch Based Reuse)을 사용하는 이유를 설명하시오.
+반드시 아래 내용을 포함할 것.
+
+lock-free 자료구조에서 즉시 delete가 위험한 이유
+EBR이 해결하려는 문제
+“모든 method의 시작/끝에서 해줘야 하는 일”의 큰 흐름

@@ -34,6 +34,18 @@
     <Filter Include="소스 파일\Homework_4">
       <UniqueIdentifier>{1a7e0414-ad11-48ed-93b8-1dce956352c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Homework_5">
+      <UniqueIdentifier>{e159c671-328d-4d74-8dcc-15d5d860b453}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Practice_5">
+      <UniqueIdentifier>{e1755c3d-e149-4cc2-9c17-10e680984e09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Test1">
+      <UniqueIdentifier>{2d9a57ae-222d-43f1-bede-bb779e272c34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Practice_4">
+      <UniqueIdentifier>{570495f0-c92b-44a2-a2d3-471f69f1c8f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="baekjoon1100하얀칸.cpp">
@@ -174,17 +186,8 @@
     <ClCompile Include="경주로건설.cpp">
       <Filter>소스 파일\Practice_3</Filter>
     </ClCompile>
-    <ClCompile Include="1test01.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="1test03.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="1.test05.cpp">
       <Filter>소스 파일\Practice_3</Filter>
-    </ClCompile>
-    <ClCompile Include="FileName.cpp">
-      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="baekjoon13416주식투자.cpp">
       <Filter>소스 파일\Homework_4</Filter>
@@ -194,6 +197,48 @@
     </ClCompile>
     <ClCompile Include="TU0063행렬게임.cpp">
       <Filter>소스 파일\Homework_4</Filter>
+    </ClCompile>
+    <ClCompile Include="programers42889실패율.cpp">
+      <Filter>소스 파일\Homework_4</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon14469소.cpp">
+      <Filter>소스 파일\Homework_4</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon2805나무자르기.cpp">
+      <Filter>소스 파일\Homework_5</Filter>
+    </ClCompile>
+    <ClCompile Include="어두운굴다리.cpp">
+      <Filter>소스 파일\Homework_5</Filter>
+    </ClCompile>
+    <ClCompile Include="사칙연산.cpp">
+      <Filter>소스 파일\Homework_5</Filter>
+    </ClCompile>
+    <ClCompile Include="postfix.cpp">
+      <Filter>소스 파일\Homework_5</Filter>
+    </ClCompile>
+    <ClCompile Include="programers17681비밀지도.cpp">
+      <Filter>소스 파일\Homework_5</Filter>
+    </ClCompile>
+    <ClCompile Include="공유기설치.cpp">
+      <Filter>소스 파일\Homework_5</Filter>
+    </ClCompile>
+    <ClCompile Include="1test01.cpp">
+      <Filter>소스 파일\Test1</Filter>
+    </ClCompile>
+    <ClCompile Include="1test03.cpp">
+      <Filter>소스 파일\Test1</Filter>
+    </ClCompile>
+    <ClCompile Include="FileName.cpp">
+      <Filter>소스 파일\Test1</Filter>
+    </ClCompile>
+    <ClCompile Include="랜선자르기.cpp">
+      <Filter>소스 파일\Practice_5</Filter>
+    </ClCompile>
+    <ClCompile Include="예산.cpp">
+      <Filter>소스 파일\Homework_5</Filter>
+    </ClCompile>
+    <ClCompile Include="백준_두용액.cpp">
+      <Filter>소스 파일\Practice_4</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

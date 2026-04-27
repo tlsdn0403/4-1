@@ -1,0 +1,131 @@
+1. OX 문제
+std::atomic<int> sum; 에서 sum = sum + 2; 는 atomic하다.
+x
+모든 필드를 atomic으로 선언하면 queue/list 같은 자료구조 전체도 자동으로 atomic해진다.
+x
+Blocking 알고리즘은 다른 쓰레드가 어떤 일을 해주길 기다리는 부분이 있으면 해당된다.
+O
+Lock을 사용하지 않으면 그 알고리즘은 lock-free이다.
+X
+Wait-free 이면 Lock-free 이다.
+O
+Lock-free 이면 Wait-free 이다.
+X
+CAS 없이도 load/store만으로 대부분의 non-blocking 자료구조를 구현할 수 있다.
+X
+mutex를 사용한 알고리즘은 blocking 알고리즘이 될 수 있다.
+O
+while (dataReady == false) {} 는 non-blocking의 예이다.
+X
+if (dataReady == false) return false; 는 blocking의 예이다.
+X
+sum += 2 는 기다림이 없으므로 non-blocking 연산의 예가 될 수 있다.
+O
+lock-free 알고리즘에서는 동시에 여러 쓰레드가 호출했을 때 적어도 하나의 호출은 완료되어야 한다.
+O
+2. 단답형 문제
+sum = sum + 2; 와 sum += 2; 가 왜 다른지 설명하시오.
+sum +=2 는 아토믹한 연산이지만 sum = sum +2 는 아니다
+“atomic 변수”와 “atomic한 자료구조 메소드”의 차이를 설명하시오.
+잘 모르겠어
+Blocking 알고리즘을 한 줄로 정의하시오.
+블로킹이 있는 알고리즘
+다른 쓰레드의 진행상태에 따라 진행이 막힌다.
+Non-blocking 알고리즘을 한 줄로 정의하시오.
+다른 쓰레드의 진행상태에 따라 진행이 막히지 않는다.
+Lock-free 알고리즘을 한 줄로 정의하시오.
+쓰레드가 어떤 작업을 할 떄 그로 인해 기다리지않는 쓰레드가 최소 1개는 있다.
+Wait-free 알고리즘을 한 줄로 정의하시오.
+쓰레드가 어떤 작업을 할 떄 그로 인해 기다리는 쓰레드가 없다.
+Priority Inversion을 설명하시오.
+우선순위 역전으로 우선순위가 가장 높은 프로세스가 가장 늦게 실행완료되는 것
+Convoying을 설명하시오.
+어떤 쓰레드가 진행되는 동안 다른쪽 쓰레드에서 무한루프를 돌고 있는 것
+왜 mutex는 correctness를 맞추기 쉽지만 성능이 떨어질 수 있는가?
+상호배제를 하지만 병렬성이 떨어지기 떄문에
+왜 “lock을 안 쓴다”와 “lock-free”는 같은 뜻이 아닌가?
+lock을 안쓰는 것과 쓰레드가 작업을 할 떄 그로 인해 기다리지않는 쓰레드가 최소 1개 있는 것은 다르다. 
+왜 atomic 메모리만으로는 일반 자료구조를 멀티쓰레드 자료구조로 바꾸기 어려운가?
+stl 자료구조들을 아토믹하게 구현을 해주어야 하기 때문에
+아토믹 연산을 해야지 아토믹하기 떄문이다.
+왜 CAS가 필요하다고 하는가?
+compare and set을 해주는 동기화 연산이 필요하기 떄문에
+3. 코드 해석형 문제
+다음 코드는 안전한가? 이유를 설명하시오.
+std::atomic<int> sum{0};
+
+void Add() {
+    sum = sum + 2;
+}
+아토믹한 연산이 아니기 떄문에 안전하지않다.
+다음 코드는 blocking인가 non-blocking인가? 이유를 설명하시오.
+while (dataReady == false) { }
+temp = g_data;
+
+논 브로킹이다. 다른 쓰레드의 작업상태로 인해 기다리는 것이 아니라 삽질이라도 하고있기 때문에.
+다음 코드는 blocking인가 non-blocking인가? 이유를 설명하시오.
+if (dataReady == false) return false;
+temp = g_data;
+return true;
+
+non_blocking이다 기다리고 있지 않기 떄문이다.
+다음 코드는 자료구조 전체가 atomic하다고 볼 수 있는가? 이유를 설명하시오.
+struct Node {
+    std::atomic<int> data;
+    std::atomic<Node*> next;
+};
+아토믹하지 않다. 
+아토믹한 연산도 해주어야 하기 때문에?
+다음 코드가 왜 CAS와 다를 수 있는지 설명하시오.
+if (*addr == expected) {
+    *addr = update;
+}
+cas는 비교한 후 기대값과 같은 경우 업데이트를 한 후true를 리턴해주고
+다른 경우에 false를 리턴한다.
+다음 상황에서 왜 priority inversion이 발생할 수 있는지 설명하시오.
+Producer의 우선순위가 높다.
+Consumer의 우선순위가 낮다.
+Consumer가 lock을 잡고 있는 동안 Producer가 enqueue를 시도한다.
+우선순위가 높은 프로듀서가 가장 늦게 완료될 수 있어서.
+4. 비교형 문제
+Blocking과 Non-blocking의 차이를 예를 들어 설명하시오.
+Lock-free와 Wait-free의 차이를 설명하시오.
+mutex 방식과 lock-free 방식의 장단점을 비교하시오.
+“정답은 쉬운데 효율적인 게 어렵다”는 말의 의미를 멀티쓰레드 자료구조 관점에서 설명하시오.
+“atomic 변수”와 “CAS 기반 동기화”의 차이를 설명하시오.
+왜 STL 컨테이너를 그대로 멀티쓰레드에서 쓰기 어렵다고 하는지 설명하시오.
+왜 non-blocking이라고 해서 항상 mutex보다 빠른 것은 아닌지 설명하시오.
+5. CAS 관련 문제
+CAS(compare-and-set)의 의미를 설명하시오.
+CAS의 입력 파라미터가 무엇인지 쓰시오.
+CAS가 성공하는 경우와 실패하는 경우를 각각 설명하시오.
+왜 CAS는 하나의 atomic 동작이어야 하는가?
+“CAS 없이 load/store만으로는 안 된다”는 말의 뜻을 설명하시오.
+compare_exchange_strong 이 단순한 CAS보다 더 강력하다고 느껴지는 이유를 설명하시오.
+실패 시 expected 값이 바뀌는 동작이 왜 중요한지 설명하시오.
+6. 헷갈리게 내기 좋은 함정 문제
+“모든 atomic 연산은 앞뒤 일반 연산까지 자동으로 atomic하게 만들어 준다.” 이 문장이 맞는지 판단하고 이유를 쓰시오.
+“lock-free 알고리즘에서는 어떤 쓰레드도 절대로 기다리지 않는다.” 이 문장이 맞는지 판단하고 이유를 쓰시오.
+“wait-free는 lock-free보다 항상 빠르다.” 이 문장이 맞는지 판단하고 이유를 쓰시오.
+“mutex를 쓰면 병렬성이 완전히 사라진다.” 이 문장을 설명하시오.
+“적어도 하나는 끝난다”와 “모두 끝난다”의 차이를 설명하시오.
+“락을 안 썼는데도 더 느릴 수 있다”는 말을 설명하시오.
+7. 교수님 스타일 서술형 문제
+왜 교수님이 “atomic 변수만으로는 부족하다”고 강조하셨는지 설명하시오.
+왜 lock-free 알고리즘을 쓰려 하는지 성능 관점에서 설명하시오.
+왜 blocking 알고리즘에서는 waiting이 성능을 크게 떨어뜨리는지 설명하시오.
+왜 priority inversion과 convoying이 멀티쓰레드 성능을 악화시키는지 설명하시오.
+왜 자료구조를 멀티쓰레드용으로 바꾸려면 CAS 같은 새로운 동기화 연산이 필요하다고 하는지 설명하시오.
+왜 모든 기존 자료구조를 그냥 딸깍 바꾸는 방식은 실제 성능이 좋지 않을 수 있는지 설명하시오.
+왜 고성능 멀티쓰레드 프로그래밍에서는 correctness뿐 아니라 최적화까지 별도로 고민해야 하는지 설명하시오.
+8. 진짜 시험 직전용 핵심 10문제
+sum = sum + 2; 와 sum += 2; 차이
+atomic 변수와 atomic 자료구조 차이
+blocking / non-blocking 차이
+lock-free / wait-free 차이
+priority inversion 설명
+convoying 설명
+lock-free가 왜 필요한가
+CAS 의미
+CAS가 왜 필요한가
+lock 안 쓴다고 lock-free가 아닌 이유

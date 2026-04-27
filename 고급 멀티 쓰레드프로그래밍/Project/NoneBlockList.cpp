@@ -761,8 +761,10 @@ public:
 class LFNODE {
 	// atomic longlong을 사용하여 포인터와 마크 비트를 함께 저장하는 구조체
 	std::atomic<long long> next;
+	
 public:
 	int data;
+	long long epoch; // EBR을 위한 에폭 정보
 	LFNODE(int value) : data(value), next(0) {}
 	void set_next(LFNODE* next_node) {
 		next = reinterpret_cast<long long>(next_node);
@@ -801,7 +803,6 @@ public:
 		return next.compare_exchange_strong(expected_value, new_value);
 	}
 };
-
 class LF_MEMORY_POOL {
 private:
 	std::queue<LFNODE*> get_pool;
@@ -846,6 +847,64 @@ public:
 
 LF_MEMORY_POOL lf_memory_pool[MAX_THREADS];
 
+class EBR {
+	// 읽을 때 제대로된 값이 읽혀야 해서 아토믹으로
+	alignas(64) std::atomic<long long> g_epoch = 0; //글로벌 에폭 시간 관리가 된다.
+
+	class ThreadInfo {
+	public:
+		alignas(64) std::atomic<long long> local_epoch;
+		std::queue<LFNODE*> free_nodes;
+		ThreadInfo() {
+			local_epoch = std::numeric_limits<long long>::max(); // 초기값은 무한대로 설정하여 아직 진입하지 않았음을 나타냄
+		}
+		~ThreadInfo()
+		{
+			while(!free_nodes.empty()) {
+				delete free_nodes.front();
+				free_nodes.pop();
+			}
+		}
+	};
+	ThreadInfo thread_info[MAX_THREADS];
+
+
+	// 사진에서 회색공간 빈 공간은 무슨 값이 되어야 할까? 특별한 시간 0 넣어도 되지만 +무한대를 넣는것이 낫다.
+	// 0으로 해두면 크기비교할 때 문제가 될 수 있다/
+
+	public:
+	void enter() {
+		thread_info[thread_id].local_epoch = ++g_epoch; // 현재 글로벌 에폭을 로컬 에폭으로 설정하여 진입 시점을 기록
+	}
+	void leave() {
+		thread_info[thread_id].local_epoch = std::numeric_limits<long long>::max(); // 진입하지 않았음을 나타내는 무한대로 설정
+	}
+	void freenode(LFNODE* node) {
+		node->epoch = g_epoch; // 노드에 현재 에폭을 기록
+		thread_info[thread_id].free_nodes.push(node); // 노드를 프리 노드 큐에 추가
+	}
+	LFNODE* get_node(int x) {
+		if(this->thread_info[thread_id].free_nodes.empty()) {
+			return new LFNODE(x);
+		}
+		else {
+			LFNODE* node = thread_info[thread_id].free_nodes.front();
+			long long current_epch = g_epoch;
+			for (int i = 0; i < MAX_THREADS; ++i) {
+				if (thread_info[i].local_epoch <= node->epoch) {
+					return new LFNODE(x);
+				}
+			}
+			thread_info[thread_id].free_nodes.pop();
+			node->data = x;
+			node->set_next(nullptr);
+			return node; // Return a node that can be safely reused
+		}
+	}
+};
+
+EBR EBR_memory_pool[MAX_THREADS];
+
 class LFLIST {
 private:
 	LFNODE* head, * tail;
@@ -882,7 +941,7 @@ public:
 			// Check if curr is marked as removed
 			bool removed = false;
 			while (true) {
-				LFNODE* succ = curr->get_next(&removed);
+				LFNODE* succ = curr->get_next(&removed); //next 노드와 removed인지 상태도 같이 가져옴
 				if (false == removed) break; // If curr is not removed, break the inner loop
 				pred->CAS(curr, succ, false, false);
 				curr = succ;
@@ -928,11 +987,12 @@ public:
 			// 삭제하려는 값을 어떤놈이 지웠다. 다시해보자
 			if (true == removed) continue;
 
-			bool snip = curr->CAS(succ, succ, false, true);
+			bool snip = curr->CAS(succ, succ, false, true);// 마킹 값만 TRUE로 바꾸자
 			if (false == snip)
 				continue;
 
 			if (pred->CAS(curr, succ, false, false)) {
+				//curr 를 succ으로 바꾸고 지우기
 				lf_memory_pool[thread_id].free_node(curr); // Recycle the removed node back to the memory pool
 			}
 			//실패해도 그냥 쓰레기 남겨놓은 채로 return을 하자
@@ -967,7 +1027,131 @@ public:
 	}
 };
 
-LFLIST my_set;
+class LFEBRLIST {
+private:
+	LFNODE* head, * tail;
+public:
+	LFEBRLIST()
+	{
+		std::cout << "Testing Lock Free Synchronization List\n";
+		head = new LFNODE{ std::numeric_limits<int>::min() };
+		tail = new LFNODE{ std::numeric_limits<int>::max() };
+		head->set_next(tail);
+	}
+
+	~LFEBRLIST() {
+		clear();
+		delete head;
+		delete tail;
+	}
+
+	void clear()
+	{
+		LFNODE* current = head->get_next();
+		while (head->get_next() != tail) {
+			LFNODE* temp = head->get_next();
+			head->set_next(temp->get_next());
+			delete temp;
+		}
+	}
+
+	void find(int x, LFNODE*& pred, LFNODE*& curr)
+	{
+		pred = head;
+		curr = pred->get_next();
+		while (true) {
+			// Check if curr is marked as removed
+			bool removed = false;
+			while (true) {
+				LFNODE* succ = curr->get_next(&removed); //next 노드와 removed인지 상태도 같이 가져옴
+				if (false == removed) break; // If curr is not removed, break the inner loop
+				pred->CAS(curr, succ, false, false);
+				curr = succ;
+			}
+			if (curr->data >= x) break;
+			pred = curr;
+			curr = curr->get_next();
+		}
+	}
+
+	bool Add(int x)
+	{
+		LFNODE* pred, * curr;
+		while (true) {
+			// 들어갈 위치를 찾음
+			find(x, pred, curr);
+			// 같은 값이 있으면 실패
+			if (curr->data == x) return false; // Element already exists
+			else {
+				// 새 노드를 만듦
+				LFNODE* new_node = EBR_memory_pool[thread_id].get_node(x);
+				// 새 노드의 next를 current로 설정
+				new_node->set_next(curr);
+				//pred->next가 아직도 curr이고 mark도 false라면 pred->next를 new_node로 바꿔라
+				if (true == pred->CAS(curr, new_node, false, false))
+					return true; // Attempt to link the new node between pred and curr
+				EBR_memory_pool[thread_id].freenode(new_node); // Recycle the unused node back to the memory pool
+				// 다시 시도
+			}
+		}
+	}
+
+	bool Remove(int x)
+	{
+		LFNODE* pred, * curr;
+		while (true) {
+			// 들어갈 위치를 찾음
+			find(x, pred, curr);
+			// 삭제할 노드 없으면 실패
+			if (curr->data != x) return false;
+			bool removed = false;
+			LFNODE* succ = curr->get_next(&removed);
+			// 삭제하려는 값을 어떤놈이 지웠다. 다시해보자
+			if (true == removed) continue;
+
+			bool snip = curr->CAS(succ, succ, false, true);// 마킹 값만 TRUE로 바꾸자
+			if (false == snip)
+				continue;
+
+			if (pred->CAS(curr, succ, false, false)) {
+				//curr 를 succ으로 바꾸고 지우기
+				EBR_memory_pool[thread_id].freenode(curr); // Recycle the removed node back to the memory pool
+			}
+			//실패해도 그냥 쓰레기 남겨놓은 채로 return을 하자
+			return true;
+		}
+	}
+
+	bool Contains(int x)
+	{
+		bool removed = false;
+		LFNODE* curr = head;
+
+		while (curr->data < x) {
+			curr = curr->get_next();          // curr = curr.next.getReference()
+			curr->get_next(&removed);         // curr.next.get(marked)
+		}
+
+		curr->get_next(&removed);
+		return (curr->data == x) && !removed;
+	}
+
+	void print20()
+	{
+		LFNODE* curr = head->get_next();
+		int count = 0;
+		while (curr != tail && count < 20) {
+			std::cout << curr->data << ", ";
+			curr = curr->get_next();
+			count++;
+		}
+		std::cout << "\n";
+	}
+};
+
+
+
+LFEBRLIST my_set;
 
 #include <array>
 
@@ -1110,5 +1294,7 @@ int main()
 		my_set.print20();
 		std::cout << "Threads: " << num_threads << ", Time: " << exec_ms << " seconds\n";
 		my_set.clear();
+		std::string temp;
+		std::getline(std::cin, temp);
 	}
 }

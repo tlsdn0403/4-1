@@ -3,40 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\Peterson.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|solutionrelative:Peterson.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\BakeryAlgorithm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|solutionrelative:BakeryAlgorithm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\NoneBlockList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|solutionrelative:NoneBlockList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\cache.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|solutionrelative:cache.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\Mthread.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|solutionrelative:Mthread.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\CountError.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|solutionrelative:CountError.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\Hello.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|solutionrelative:Hello.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\CAS.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|solutionrelative:CAS.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\LinkedList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|solutionrelative:LinkedList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\CAS.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{81343E48-BA87-47CA-A2CC-C7BCAC0C85B2}|Project.vcxproj|solutionrelative:CAS.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 18,
           "Children": [
             {
               "$type": "Bookmark",
@@ -118,114 +94,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Peterson.cpp",
-              "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\Peterson.cpp",
-              "RelativeDocumentMoniker": "Peterson.cpp",
-              "ToolTip": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\Peterson.cpp",
-              "RelativeToolTip": "Peterson.cpp",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACMAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-04-17T08:22:30.295Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BakeryAlgorithm.cpp",
-              "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\BakeryAlgorithm.cpp",
-              "RelativeDocumentMoniker": "BakeryAlgorithm.cpp",
-              "ToolTip": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\BakeryAlgorithm.cpp",
-              "RelativeToolTip": "BakeryAlgorithm.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-04-17T08:22:26.934Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NoneBlockList.cpp",
-              "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\NoneBlockList.cpp",
-              "RelativeDocumentMoniker": "NoneBlockList.cpp",
-              "ToolTip": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\NoneBlockList.cpp",
-              "RelativeToolTip": "NoneBlockList.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-04-15T09:25:38.508Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "cache.cpp",
-              "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\cache.cpp",
-              "RelativeDocumentMoniker": "cache.cpp",
-              "ToolTip": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\cache.cpp",
-              "RelativeToolTip": "cache.cpp",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-04-15T05:14:23.935Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Mthread.cpp",
-              "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\Mthread.cpp",
-              "RelativeDocumentMoniker": "Mthread.cpp",
-              "ToolTip": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\Mthread.cpp",
-              "RelativeToolTip": "Mthread.cpp",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-04-15T05:14:14.723Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CountError.cpp",
-              "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\CountError.cpp",
-              "RelativeDocumentMoniker": "CountError.cpp",
-              "ToolTip": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\CountError.cpp",
-              "RelativeToolTip": "CountError.cpp",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-04-15T05:14:10.262Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Hello.cpp",
-              "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\Hello.cpp",
-              "RelativeDocumentMoniker": "Hello.cpp",
-              "ToolTip": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\Hello.cpp",
-              "RelativeToolTip": "Hello.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-04-15T05:14:09.329Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LinkedList.cpp",
-              "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\LinkedList.cpp",
-              "RelativeDocumentMoniker": "LinkedList.cpp",
-              "ToolTip": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\LinkedList.cpp",
-              "RelativeToolTip": "LinkedList.cpp",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAmwPoCAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-03-31T06:38:27.61Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "CAS.cpp",
               "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\CAS.cpp",
               "RelativeDocumentMoniker": "CAS.cpp",
               "ToolTip": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\CAS.cpp",
               "RelativeToolTip": "CAS.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAACwAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-03-31T06:35:14.835Z"
+              "WhenOpened": "2026-04-20T15:59:49.733Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NoneBlockList.cpp",
+              "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\NoneBlockList.cpp",
+              "RelativeDocumentMoniker": "NoneBlockList.cpp",
+              "ToolTip": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\NoneBlockList.cpp",
+              "RelativeToolTip": "NoneBlockList.cpp",
+              "ViewState": "AgIAAKQBAAAAAAAAAADwv1ADAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-04-20T11:22:37.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LinkedList.cpp",
+              "DocumentMoniker": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\LinkedList.cpp",
+              "RelativeDocumentMoniker": "LinkedList.cpp",
+              "ToolTip": "C:\\Users\\tlsdn\\Desktop\\4-1\\\uACE0\uAE09 \uBA40\uD2F0 \uC4F0\uB808\uB4DC\uD504\uB85C\uADF8\uB798\uBC0D\\Project\\LinkedList.cpp",
+              "RelativeToolTip": "LinkedList.cpp",
+              "ViewState": "AgIAACQCAAAAAAAAAAAAAKIBAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-03-31T06:38:27.61Z"
             }
           ]
         }

@@ -1,0 +1,42 @@
+volatile과 atomic 차이
+
+volatile: 컴파일러에게 적힌 대로 번역하라는 키워드, CPU는 volatile을 모름
+atomic: CPU의 특수 명령으로 순서를 강제하고 atomic 연산(load/store/++/+= 등)을 제공
+
+
+Peterson 알고리즘이 실제 PC에서 깨지는 이유와 막는 방법 2가지
+out of order execution / memory reordering
+
+아토믹 쓰레드 펜스는 wait free 이다.
+
+C. 같은 프로세스 내 형제 쓰레드는 heap을 공유한다.
+O 힙이 아니라 스택
+
+CAS는 wait-free 동기화 연산이다.
+
+lock-free는 starvation 가능하다. 즉 어떤 한 쓰레드가 영원히 굶을 수 있다. 그래서 D는 O가 맞다.
+한쓰레드는 굶을 수 있다.
+
+fine-grained가 병행성을 높이는 이유
+검색 중 lock을 단계적으로 잡아 서로 다른 위치에서 병행 작업이 가능하다
+
+카스로 SUM +=2
+while (true) {
+    int old_sum = sum;
+    int new_sum = old_sum + 2;
+    if (true == CAS(&sum, old_sum, new_sum))
+        break;
+}
+
+CAS 함수 빈칸
+bool CAS(atomic_int* addr, int expected, int new_val)
+{
+    return std::atomic_compare_exchange_strong(
+        addr, &expected, new_val);
+}
+
+또 의미 설명도 빠졌다.
+
+의미 한 줄
+
+메모리 값이 expected와 같으면 new_val로 바꾸고 true를, 아니면 false를 반환한
