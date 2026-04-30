@@ -1149,7 +1149,41 @@ public:
 	}
 };
 
+enum INVO_OP {
+	ADD = 0,
+	REMOVE = 1,
+	CONTAINS = 2,
+};
 
+class INVOCATION {
+public:
+	INVO_OP op;
+	int i_value;
+	bool o_value;
+	INVOCATION(int o, int i, bool re) : op(static_cast<INVO_OP>(o)), i_value(i), o_value(re) {}
+};
+
+class LOGNODE {
+	INVOCATION m_invo;
+	int m_seq;
+	LOGNODE* next;
+};
+
+class CONSENUS{
+	LOGNODE* value{ nullptr };
+public:
+	LOGNODE* decide(LOGNODE* new_value) {
+		CAS(&value, nullptr, new_value);
+		return value;
+	}
+	void CAS(LOGNODE** expected, LOGNODE* expected_value, LOGNODE* new_value) {
+		std::atomic_compare_exchange_strong(
+			reinterpret_cast<std::atomic<LOGNODE*>*>(expected),
+			&expected_value,
+			new_value
+		);
+	}
+};
 
 LFEBRLIST my_set;
 
@@ -1278,7 +1312,7 @@ int main()
 		my_set.clear();
 	}
 
-	std::cout << "Strting Performance Check.\n";
+	std::cout << "Starting Performance Check.\n";
 	for (int num_threads = 1; num_threads <= MAX_THREADS; num_threads *= 2) {
 		std::vector<std::thread> threads;
 		auto start_time = high_resolution_clock::now();

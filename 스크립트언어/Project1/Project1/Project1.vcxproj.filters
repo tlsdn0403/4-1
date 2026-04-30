@@ -46,6 +46,12 @@
     <Filter Include="소스 파일\Practice_4">
       <UniqueIdentifier>{570495f0-c92b-44a2-a2d3-471f69f1c8f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Homework_6">
+      <UniqueIdentifier>{a5420bc9-3202-4a53-b1d0-5230eab45474}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Practice_6">
+      <UniqueIdentifier>{fa65dfab-4dee-4ecc-8881-545a73189931}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="baekjoon1100하얀칸.cpp">
@@ -239,6 +245,24 @@
     </ClCompile>
     <ClCompile Include="백준_두용액.cpp">
       <Filter>소스 파일\Practice_4</Filter>
+    </ClCompile>
+    <ClCompile Include="정수삼각형.cpp">
+      <Filter>소스 파일\Homework_6</Filter>
+    </ClCompile>
+    <ClCompile Include="개미전사.cpp">
+      <Filter>소스 파일\Practice_6</Filter>
+    </ClCompile>
+    <ClCompile Include="1로만들기.cpp">
+      <Filter>소스 파일\Practice_6</Filter>
+    </ClCompile>
+    <ClCompile Include="도둑질.cpp">
+      <Filter>소스 파일\Homework_6</Filter>
+    </ClCompile>
+    <ClCompile Include="1로만들기숙제.cpp">
+      <Filter>소스 파일\Homework_6</Filter>
+    </ClCompile>
+    <ClCompile Include="설탕봉지.cpp">
+      <Filter>소스 파일\Homework_6</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

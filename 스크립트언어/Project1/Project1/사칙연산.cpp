@@ -1,32 +1,46 @@
-#include<iostream>
-#include<string>
-#include<vector>
-
+#include <iostream>
+#include <string>
+#include <sstream>
 using namespace std;
 
-int n{};
 int main() {
-	cin >> n;
+    int n;
+    cin >> n;
+    cin.ignore();
 
-	for(int i =0 ; i<n ; ++i) {
-		string s;
-		cin >> s;
-		vector<char> v;
-		for (char c : s) {
-			if (c != ' ' && c != '=') {
-				v.push_back(c);
-			}
-		}
-		int firstNum{}, secondNum{};
-		
-		firstNum = v[0] - '0';
-		secondNum= v[2] - '0';
+    for (int i = 0; i < n; ++i) {
+        string s;
+        getline(cin, s);
 
-		switch (v[4]) {
-			case '+':
-				if (firstNum + secondNum = v[4] - '0') {
+        stringstream ss(s);
 
-				}
-			break;
-		}
-	
+        long long a, b, result;
+        char op, equalSign;
+
+        ss >> a >> op >> b >> equalSign >> result;
+
+        bool correct = false;
+
+        switch (op) {
+        case '+':
+            correct = (a + b == result);
+            break;
+        case '-':
+            correct = (a - b == result);
+            break;
+        case '*':
+            correct = (a * b == result);
+            break;
+        case '/':
+            correct = (b != 0 && a / b == result);
+            break;
+        }
+
+        if (correct) {
+            cout << "correct"<<"\n";
+        }
+        else {
+            cout << "wrong answer"<<"\n";
+        }
+    }
+}
