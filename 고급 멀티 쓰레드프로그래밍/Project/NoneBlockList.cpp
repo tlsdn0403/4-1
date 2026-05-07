@@ -1,12 +1,13 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <thread>
 #include <vector>
 #include <chrono>
 #include <mutex>
 #include <queue>
+#include <set>
 
-constexpr int MAX_THREADS = 16;
-constexpr int NUM_TEST = 400'0000;
+constexpr int MAX_THREADS = 32;
+constexpr int NUM_TEST = 2'0000;
 constexpr int RANGE = 1000;
 
 
@@ -66,7 +67,7 @@ public:
 };
 
 MEMORY_POOL memory_pool[MAX_THREADS];
-thread_local int thread_id = 999;
+thread_local int thread_id = 0;
 
 class DUMMY_MUTEX {
 public:
@@ -759,50 +760,34 @@ public:
 };
 
 class LFNODE {
-	// atomic longlongÀ» »ç¿ëÇÏ¿© Æ÷ÀÎÅÍ¿Í ¸¶Å© ºñÆ®¸¦ ÇÔ²² ÀúÀåÇÏ´Â ±¸Á¶Ã¼
-	std::atomic<long long> next;
-	
+	std::atomic_llong next;
 public:
 	int data;
-	long long epoch; // EBRÀ» À§ÇÑ ¿¡Æø Á¤º¸
+	long long epoch;
 	LFNODE(int value) : data(value), next(0) {}
 	void set_next(LFNODE* next_node) {
 		next = reinterpret_cast<long long>(next_node);
 	}
-
-	/*FNODE* get_next() {
-		return reinterpret_cast<LFNODE*>(next.load());
+	LFNODE* get_next() {
+		return reinterpret_cast<LFNODE*>(next.load() & 0xFFFFFFFFFFFFFFFC);
 	}
 	LFNODE* get_next(bool* removed) {
 		long long temp = next.load();
 		*removed = (temp & 1) == 1; // Check if the least significant bit is set (marked as removed)
-		return reinterpret_cast<LFNODE*>(temp);
-	}*/
-	LFNODE* get_next() {
-		// µÚ¿¡ ¸¶Å· °ªÀ» Á¦°ÅÇÏ°í Áà¾ßÁö ÁÖ¼Ò°ªÀ» ¶È¹Ù·ÎÁØ´Ù
-		long long temp = next.load();
-		return reinterpret_cast<LFNODE*>(temp - (temp % 2));
-	}
-
-	LFNODE* get_next(bool* removed) {
-		long long temp = next.load();
-		*removed = (temp & 1) == 1;
-		return reinterpret_cast<LFNODE*>(temp - (temp % 2));
+		return reinterpret_cast<LFNODE*>(temp & 0xFFFFFFFFFFFFFFFC);
 	}
 	bool get_mark() {
 		return (next.load() & 1) == 1; // Check if the least significant bit is set (marked as removed)
 	}
-	// next°¡ °¡¸£Å°±æ ±â´ëÇÏ´Â ³ëµå , ¹Ù²Ù°í½ÍÀº »õ ³ëµå, ±â´ëÇÏ´Â removed »óÅÂ , ¹Ù²Ù°í½ÍÀº »õ removed »óÅÂ
 	bool CAS(LFNODE* expected_node, LFNODE* new_node,
 		bool expected_removed, bool new_removed)
 	{
-		// ÃÖÇÏÀ§ ºñÆ®¿¡ expected_remove¸¦ ºÙÈû
 		long long expected_value = reinterpret_cast<long long>(expected_node) | (expected_removed ? 1 : 0);
 		long long new_value = reinterpret_cast<long long>(new_node) | (new_removed ? 1 : 0);
-		//ÇöÀç next°¡ ±â´ë°ª°ú °°À¸¸é »õ °ªÀ¸·Î ¿øÀÚÀûÀ¸·Î º¯°æÇÑ´Ù
 		return next.compare_exchange_strong(expected_value, new_value);
 	}
 };
+
 class LF_MEMORY_POOL {
 private:
 	std::queue<LFNODE*> get_pool;
@@ -848,62 +833,70 @@ public:
 LF_MEMORY_POOL lf_memory_pool[MAX_THREADS];
 
 class EBR {
-	// ÀĞÀ» ¶§ Á¦´ë·ÎµÈ °ªÀÌ ÀĞÇô¾ß ÇØ¼­ ¾ÆÅä¹ÍÀ¸·Î
-	alignas(64) std::atomic<long long> g_epoch = 0; //±Û·Î¹ú ¿¡Æø ½Ã°£ °ü¸®°¡ µÈ´Ù.
-
+	alignas(64) std::atomic_llong g_epoch = 0;
 	class ThreadInfo {
 	public:
-		alignas(64) std::atomic<long long> local_epoch;
+		alignas(64) std::atomic_llong local_epoch;
 		std::queue<LFNODE*> free_nodes;
 		ThreadInfo() {
-			local_epoch = std::numeric_limits<long long>::max(); // ÃÊ±â°ªÀº ¹«ÇÑ´ë·Î ¼³Á¤ÇÏ¿© ¾ÆÁ÷ ÁøÀÔÇÏÁö ¾Ê¾ÒÀ½À» ³ªÅ¸³¿
+			local_epoch = std::numeric_limits<long long>::max(); // Initialize local_epoch to a value that indicates the thread is not active in any epoch
 		}
-		~ThreadInfo()
-		{
-			while(!free_nodes.empty()) {
+		~ThreadInfo() {
+			while (!free_nodes.empty()) {
 				delete free_nodes.front();
 				free_nodes.pop();
 			}
 		}
 	};
 	ThreadInfo thread_info[MAX_THREADS];
-
-
-	// »çÁø¿¡¼­ È¸»ö°ø°£ ºó °ø°£Àº ¹«½¼ °ªÀÌ µÇ¾î¾ß ÇÒ±î? Æ¯º°ÇÑ ½Ã°£ 0 ³Ö¾îµµ µÇÁö¸¸ +¹«ÇÑ´ë¸¦ ³Ö´Â°ÍÀÌ ³´´Ù.
-	// 0À¸·Î ÇØµÎ¸é Å©±âºñ±³ÇÒ ¶§ ¹®Á¦°¡ µÉ ¼ö ÀÖ´Ù/
-
-	public:
+public:
 	void enter() {
-		thread_info[thread_id].local_epoch = ++g_epoch; // ÇöÀç ±Û·Î¹ú ¿¡ÆøÀ» ·ÎÄÃ ¿¡ÆøÀ¸·Î ¼³Á¤ÇÏ¿© ÁøÀÔ ½ÃÁ¡À» ±â·Ï
+		thread_info[thread_id].local_epoch = ++g_epoch; // Mark the thread as active in the current global epoch
 	}
 	void leave() {
-		thread_info[thread_id].local_epoch = std::numeric_limits<long long>::max(); // ÁøÀÔÇÏÁö ¾Ê¾ÒÀ½À» ³ªÅ¸³»´Â ¹«ÇÑ´ë·Î ¼³Á¤
+		thread_info[thread_id].local_epoch = std::numeric_limits<long long>::max(); // Mark the thread as inactive by setting local_epoch to a value that indicates it is not active in any epoch
 	}
 	void freenode(LFNODE* node) {
-		node->epoch = g_epoch; // ³ëµå¿¡ ÇöÀç ¿¡ÆøÀ» ±â·Ï
-		thread_info[thread_id].free_nodes.push(node); // ³ëµå¸¦ ÇÁ¸® ³ëµå Å¥¿¡ Ãß°¡
+		node->epoch = g_epoch; // Set the node's epoch to the current global epoch
+		thread_info[thread_id].free_nodes.push(node); // Add the node to the thread's free list
 	}
-	LFNODE* get_node(int x) {
-		if(this->thread_info[thread_id].free_nodes.empty()) {
-			return new LFNODE(x);
-		}
-		else {
-			LFNODE* node = thread_info[thread_id].free_nodes.front();
-			long long current_epch = g_epoch;
-			for (int i = 0; i < MAX_THREADS; ++i) {
-				if (thread_info[i].local_epoch <= node->epoch) {
-					return new LFNODE(x);
+	LFNODE* getnode(int x)
+	{
+		auto& free_queue = thread_info[thread_id].free_nodes;
+
+		if (!free_queue.empty()) {
+			LFNODE* node = free_queue.front();
+
+			// ìŠ¤ë ˆë“œë³„ë¡œ ì´ì „ì— ê³„ì‚°í•œ ìµœì†Ÿê°’ì„ ìºì‹±í•˜ì—¬ ìŠ¤ìº” ë¹„ìš© ìµœì†Œí™”
+			static thread_local long long cached_min_epoch = 0;
+
+			// ìºì‹œëœ ìµœì†Ÿê°’ìœ¼ë¡œ ì•ˆì „í•¨ì„ ë³´ì¥í•  ìˆ˜ ì—†ì„ ë•Œë§Œ ì „ì²´ ìŠ¤ë ˆë“œ ìŠ¤ìº”
+			if (node->epoch >= cached_min_epoch) {
+				long long min_epoch = std::numeric_limits<long long>::max();
+				for (int i = 0; i < MAX_THREADS; ++i) {
+					long long t_epoch = thread_info[i].local_epoch.load();
+					if (t_epoch < min_epoch) {
+						min_epoch = t_epoch;
+					}
 				}
+				cached_min_epoch = min_epoch;
 			}
-			thread_info[thread_id].free_nodes.pop();
-			node->data = x;
-			node->set_next(nullptr);
-			return node; // Return a node that can be safely reused
+
+			// ê°±ì‹ ëœ ìµœì†Ÿê°’ì„ ê¸°ì¤€ìœ¼ë¡œë„ ì•ˆì „í•œ ë°©ì¶œ ì„ ì„ ë„˜ì—ˆë‹¤ë©´ ì¬ì‚¬ìš©
+			if (node->epoch < cached_min_epoch) {
+				free_queue.pop();
+				node->data = x;
+				node->set_next(nullptr);
+				return node;
+			}
 		}
+
+		// ì¬ì‚¬ìš© ê°€ëŠ¥í•œ ë…¸ë“œê°€ ì—†ìœ¼ë©´ ìƒˆë¡œ ë™ì  í• ë‹¹
+		return new LFNODE(x);
 	}
 };
 
-EBR EBR_memory_pool[MAX_THREADS];
+EBR ebr;
 
 class LFLIST {
 private:
@@ -935,15 +928,17 @@ public:
 
 	void find(int x, LFNODE*& pred, LFNODE*& curr)
 	{
+	retry:
 		pred = head;
 		curr = pred->get_next();
 		while (true) {
 			// Check if curr is marked as removed
 			bool removed = false;
 			while (true) {
-				LFNODE* succ = curr->get_next(&removed); //next ³ëµå¿Í removedÀÎÁö »óÅÂµµ °°ÀÌ °¡Á®¿È
+				LFNODE* succ = curr->get_next(&removed);
 				if (false == removed) break; // If curr is not removed, break the inner loop
-				pred->CAS(curr, succ, false, false);
+				if (false == pred->CAS(curr, succ, false, false)) goto retry;
+				lf_memory_pool[thread_id].free_node(curr); // Recycle the removed node back to the memory pool
 				curr = succ;
 			}
 			if (curr->data >= x) break;
@@ -956,20 +951,14 @@ public:
 	{
 		LFNODE* pred, * curr;
 		while (true) {
-			// µé¾î°¥ À§Ä¡¸¦ Ã£À½
 			find(x, pred, curr);
-			// °°Àº °ªÀÌ ÀÖÀ¸¸é ½ÇÆĞ
 			if (curr->data == x) return false; // Element already exists
 			else {
-				// »õ ³ëµå¸¦ ¸¸µê
 				LFNODE* new_node = lf_memory_pool[thread_id].get_node(x);
-				// »õ ³ëµåÀÇ next¸¦ current·Î ¼³Á¤
 				new_node->set_next(curr);
-				//pred->next°¡ ¾ÆÁ÷µµ currÀÌ°í markµµ false¶ó¸é pred->next¸¦ new_node·Î ¹Ù²ã¶ó
 				if (true == pred->CAS(curr, new_node, false, false))
 					return true; // Attempt to link the new node between pred and curr
-				lf_memory_pool[thread_id].free_node(new_node); // Recycle the unused node back to the memory pool
-				// ´Ù½Ã ½Ãµµ
+				lf_memory_pool[thread_id].free_node(new_node); // Recycle the unused node back to the memory pool							
 			}
 		}
 	}
@@ -978,40 +967,25 @@ public:
 	{
 		LFNODE* pred, * curr;
 		while (true) {
-			// µé¾î°¥ À§Ä¡¸¦ Ã£À½
 			find(x, pred, curr);
-			// »èÁ¦ÇÒ ³ëµå ¾øÀ¸¸é ½ÇÆĞ
-			if (curr->data != x) return false;
-			bool removed = false;
-			LFNODE* succ = curr->get_next(&removed);
-			// »èÁ¦ÇÏ·Á´Â °ªÀ» ¾î¶²³ğÀÌ Áö¿ü´Ù. ´Ù½ÃÇØº¸ÀÚ
-			if (true == removed) continue;
-
-			bool snip = curr->CAS(succ, succ, false, true);// ¸¶Å· °ª¸¸ TRUE·Î ¹Ù²ÙÀÚ
-			if (false == snip)
-				continue;
-
-			if (pred->CAS(curr, succ, false, false)) {
-				//curr ¸¦ succÀ¸·Î ¹Ù²Ù°í Áö¿ì±â
-				lf_memory_pool[thread_id].free_node(curr); // Recycle the removed node back to the memory pool
+			if (curr->data != x) return false; // Element already exists
+			else {
+				LFNODE* succ = curr->get_next();
+				if (false == curr->CAS(succ, succ, false, true)) continue; // Attempt to mark the node as removed
+				if (true == pred->CAS(curr, succ, false, false)) // Attempt to unlink the removed node from the list
+					lf_memory_pool[thread_id].free_node(curr); // Recycle the unused node back to the memory pool
+				return true;
 			}
-			//½ÇÆĞÇØµµ ±×³É ¾²·¹±â ³²°Ü³õÀº Ã¤·Î returnÀ» ÇÏÀÚ
-			return true;
 		}
 	}
 
 	bool Contains(int x)
 	{
-		bool removed = false;
-		LFNODE* curr = head;
-
-		while (curr->data < x) {
-			curr = curr->get_next();          // curr = curr.next.getReference()
-			curr->get_next(&removed);         // curr.next.get(marked)
+		LFNODE* n = head;
+		while (n->data < x) {
+			n = n->get_next();
 		}
-
-		curr->get_next(&removed);
-		return (curr->data == x) && !removed;
+		return (n->data == x) && (false == n->get_mark()); // Check if the node exists and is not removed
 	}
 
 	void print20()
@@ -1057,15 +1031,17 @@ public:
 
 	void find(int x, LFNODE*& pred, LFNODE*& curr)
 	{
+	retry:
 		pred = head;
 		curr = pred->get_next();
 		while (true) {
 			// Check if curr is marked as removed
 			bool removed = false;
 			while (true) {
-				LFNODE* succ = curr->get_next(&removed); //next ³ëµå¿Í removedÀÎÁö »óÅÂµµ °°ÀÌ °¡Á®¿È
+				LFNODE* succ = curr->get_next(&removed);
 				if (false == removed) break; // If curr is not removed, break the inner loop
-				pred->CAS(curr, succ, false, false);
+				if (false == pred->CAS(curr, succ, false, false)) goto retry;
+				ebr.freenode(curr); // Recycle the removed node back to the memory pool
 				curr = succ;
 			}
 			if (curr->data >= x) break;
@@ -1078,20 +1054,14 @@ public:
 	{
 		LFNODE* pred, * curr;
 		while (true) {
-			// µé¾î°¥ À§Ä¡¸¦ Ã£À½
 			find(x, pred, curr);
-			// °°Àº °ªÀÌ ÀÖÀ¸¸é ½ÇÆĞ
 			if (curr->data == x) return false; // Element already exists
 			else {
-				// »õ ³ëµå¸¦ ¸¸µê
-				LFNODE* new_node = EBR_memory_pool[thread_id].get_node(x);
-				// »õ ³ëµåÀÇ next¸¦ current·Î ¼³Á¤
+				LFNODE* new_node = ebr.getnode(x);
 				new_node->set_next(curr);
-				//pred->next°¡ ¾ÆÁ÷µµ currÀÌ°í markµµ false¶ó¸é pred->next¸¦ new_node·Î ¹Ù²ã¶ó
 				if (true == pred->CAS(curr, new_node, false, false))
 					return true; // Attempt to link the new node between pred and curr
-				EBR_memory_pool[thread_id].freenode(new_node); // Recycle the unused node back to the memory pool
-				// ´Ù½Ã ½Ãµµ
+				ebr.freenode(new_node); // Recycle the unused node back to the memory pool							
 			}
 		}
 	}
@@ -1100,40 +1070,33 @@ public:
 	{
 		LFNODE* pred, * curr;
 		while (true) {
-			// µé¾î°¥ À§Ä¡¸¦ Ã£À½
+			ebr.enter();
 			find(x, pred, curr);
-			// »èÁ¦ÇÒ ³ëµå ¾øÀ¸¸é ½ÇÆĞ
-			if (curr->data != x) return false;
-			bool removed = false;
-			LFNODE* succ = curr->get_next(&removed);
-			// »èÁ¦ÇÏ·Á´Â °ªÀ» ¾î¶²³ğÀÌ Áö¿ü´Ù. ´Ù½ÃÇØº¸ÀÚ
-			if (true == removed) continue;
-
-			bool snip = curr->CAS(succ, succ, false, true);// ¸¶Å· °ª¸¸ TRUE·Î ¹Ù²ÙÀÚ
-			if (false == snip)
-				continue;
-
-			if (pred->CAS(curr, succ, false, false)) {
-				//curr ¸¦ succÀ¸·Î ¹Ù²Ù°í Áö¿ì±â
-				EBR_memory_pool[thread_id].freenode(curr); // Recycle the removed node back to the memory pool
+			if (curr->data != x) {
+				ebr.leave();
+				return false; // Element already exists
 			}
-			//½ÇÆĞÇØµµ ±×³É ¾²·¹±â ³²°Ü³õÀº Ã¤·Î returnÀ» ÇÏÀÚ
-			return true;
+			else {
+				LFNODE* succ = curr->get_next();
+				if (false == curr->CAS(succ, succ, false, true)) continue; // Attempt to mark the node as removed
+				if (true == pred->CAS(curr, succ, false, false)) // Attempt to unlink the removed node from the list
+					ebr.freenode(curr); // Recycle the unused node back to the memory pool
+				ebr.leave();
+				return true;
+			}
 		}
 	}
 
 	bool Contains(int x)
 	{
-		bool removed = false;
-		LFNODE* curr = head;
-
-		while (curr->data < x) {
-			curr = curr->get_next();          // curr = curr.next.getReference()
-			curr->get_next(&removed);         // curr.next.get(marked)
+		LFNODE* n = head;
+		ebr.enter();
+		while (n->data < x) {
+			n = n->get_next();
 		}
-
-		curr->get_next(&removed);
-		return (curr->data == x) && !removed;
+		bool found = (n->data == x) && (false == n->get_mark());
+		ebr.leave();
+		return (n->data == x) && (false == n->get_mark()); // Check if the node exists and is not removed
 	}
 
 	void print20()
@@ -1149,43 +1112,302 @@ public:
 	}
 };
 
-enum INVO_OP {
-	ADD = 0,
-	REMOVE = 1,
-	CONTAINS = 2,
-};
 
+// ì‹±ê¸€ ì“°ë ˆë“œ í†µí•© API
+enum INVO_OP { ADD = 0, REMOVE = 1, CONTAINS = 2 };
 class INVOCATION {
 public:
 	INVO_OP op;
-	int i_value;
-	bool o_value;
-	INVOCATION(int o, int i, bool re) : op(static_cast<INVO_OP>(o)), i_value(i), o_value(re) {}
+	int value;
+	INVOCATION(INVO_OP o, int v) : op(o), value(v) {}
+};
+
+typedef bool RESPONSE;
+
+class SEQ_SET {
+	std::set<int> m_set;
+public:
+	RESPONSE apply(INVOCATION inv) {
+		switch (inv.op) {
+		case ADD:
+			return m_set.insert(inv.value).second;
+		case REMOVE:
+			return (m_set.erase(inv.value) > 0);
+		case CONTAINS:
+			return (m_set.find(inv.value) != m_set.end());
+		default:
+			return false;
+		}
+	}
+	void clear() {
+		m_set.clear();
+	}
+	void print20() {
+		int count = 0;
+		for (auto& v : m_set) {
+			std::cout << v << ", ";
+			if (++count >= 20) break;
+		}
+		std::cout << std::endl;
+	}
+};
+
+class LOGNODE;
+
+class CONSENSUS {
+	LOGNODE* value{ nullptr };
+public:
+	LOGNODE* decide(LOGNODE* v)
+	{
+		CAS(&value, nullptr, v);
+		return value;
+	}
+	void CAS(LOGNODE** addr, LOGNODE* expected, LOGNODE* update)
+	{
+		std::atomic_compare_exchange_strong(
+			reinterpret_cast<std::atomic<LOGNODE*>*>(addr),
+			&expected, update);
+	}
+	void clear()
+	{
+		value = nullptr;
+	}
 };
 
 class LOGNODE {
-	INVOCATION m_invo;
-	int m_seq;
-	LOGNODE* next;
-};
-
-class CONSENUS{
-	LOGNODE* value{ nullptr };
 public:
-	LOGNODE* decide(LOGNODE* new_value) {
-		CAS(&value, nullptr, new_value);
-		return value;
+	INVOCATION m_inv;
+	int	m_seq;  //ëª‡ë²ˆì¨°ì— ì—°ì‚°ì´ ë˜ì—ˆëŠ”ì§€.
+	LOGNODE* m_next;
+	CONSENSUS decide_next;  // ì„œë¡œ ë‹¤ë¥¸ ì“°ë ˆë“œì—ì„œë„ í•˜ë‚˜ë§Œ ë“¤ì–´ê°€ë„ë¡ í•´ì¤Œ
+	LOGNODE(INVOCATION inv) : m_inv(inv), m_seq(0), m_next(nullptr) {}
+};
+
+class LFU_SET {
+	LOGNODE* head[MAX_THREADS];
+	LOGNODE* tail;
+public:
+	LFU_SET() {
+		tail = new LOGNODE(INVOCATION(CONTAINS, 0)); // dummy
+		for (int i = 0; i < MAX_THREADS; ++i) {
+			head[i] = tail;
+		}
 	}
-	void CAS(LOGNODE** expected, LOGNODE* expected_value, LOGNODE* new_value) {
-		std::atomic_compare_exchange_strong(
-			reinterpret_cast<std::atomic<LOGNODE*>*>(expected),
-			&expected_value,
-			new_value
-		);
+
+	~LFU_SET()
+	{
+		while (nullptr != tail) {
+			LOGNODE* temp = tail;
+			tail = tail->m_next;
+			delete temp;
+		}
+	}
+
+	LOGNODE* max_head()
+	{
+		LOGNODE* max_node = head[0];
+		for (int i = 1; i < MAX_THREADS; ++i) {
+			if (max_node->m_seq < head[i]->m_seq)
+				max_node = head[i];
+		}
+		return max_node;
+	}
+
+	RESPONSE apply(INVOCATION inv)
+	{
+		int i = thread_id;
+		auto prefer = new LOGNODE(inv);
+		while (prefer->m_seq == 0) {
+			LOGNODE* before = max_head();
+			LOGNODE* after = before->decide_next.decide(prefer); //prefer ë¼ëŠ” ì§€ì—­ë³€ìˆ˜ì— ì§‘ì–´ë„£ì—ˆë‹¤.
+			before->m_next = after;
+			after->m_seq = before->m_seq + 1;
+			head[i] = after;
+		}
+
+		SEQ_SET seq_set;
+		LOGNODE* curr = tail->m_next;
+		while (curr != prefer) {
+			seq_set.apply(curr->m_inv);
+			curr = curr->m_next;
+		}
+		if (prefer->m_seq % 1000 == 0)
+			std::cout << ".";
+		return seq_set.apply(inv);
+	};
+
+	void clear()
+	{
+		for (int i = 0; i < MAX_THREADS; ++i) {
+			head[i] = tail;
+		}
+		LOGNODE* curr = tail->m_next;
+		while (nullptr != curr) {
+			LOGNODE* temp = curr;
+			curr = curr->m_next;
+			delete temp;
+		}
+		tail->m_next = nullptr;
+		tail->decide_next.clear();
+	}
+
+	void print20()
+	{
+		SEQ_SET seq_set;
+		LOGNODE* curr = tail->m_next;
+		while (nullptr != curr) {
+			seq_set.apply(curr->m_inv);
+			curr = curr->m_next;
+		}
+		seq_set.print20();
 	}
 };
 
-LFEBRLIST my_set;
+class RFU_SET {
+	LOGNODE* announce[MAX_THREADS];
+	LOGNODE* head[MAX_THREADS];
+	LOGNODE* tail;
+public:
+	RFU_SET() {
+		tail = new LOGNODE(INVOCATION(CONTAINS, 0)); // dummy
+		tail->m_seq = 1;
+		tail->m_next = nullptr;
+
+		for (int i = 0; i < MAX_THREADS; ++i) {
+			head[i] = tail;
+			announce[i] = tail;
+		}
+	}
+
+	~RFU_SET()
+	{
+		while (nullptr != tail) {
+			LOGNODE* temp = tail;
+			tail = tail->m_next;
+			delete temp;
+		}
+	}
+
+	LOGNODE* max_head()
+	{
+		LOGNODE* max_node = head[0];
+		for (int i = 1; i < MAX_THREADS; ++i) {
+			if (max_node->m_seq < head[i]->m_seq)
+				max_node = head[i];
+		}
+		return max_node;
+	}
+
+	RESPONSE apply(INVOCATION inv)
+	{
+		int i = thread_id;
+		announce[i] = new LOGNODE(inv);
+		head[i] = max_head();
+		while (announce[i]->m_seq == 0) {
+			LOGNODE* before = head[i];
+
+            LOGNODE* help = announce[(before->m_seq + 1) % MAX_THREADS];
+			LOGNODE* prefer;
+			if (help->m_seq == 0)prefer = help;
+			else {
+				prefer = announce[i];
+			}
+			LOGNODE* after = before->decide_next.decide(prefer); //prefer ë¼ëŠ” ì§€ì—­ë³€ìˆ˜ì— ì§‘ì–´ë„£ì—ˆë‹¤.
+			before->m_next = after;
+			after->m_seq = before->m_seq + 1;
+			head[i] = after;
+		}
+
+		SEQ_SET seq_set;
+		LOGNODE* curr = tail->m_next;
+		while (curr != announce[i]) {
+			seq_set.apply(curr->m_inv);
+			curr = curr->m_next;
+		}
+		head[i] = announce[i];
+		return seq_set.apply(inv);
+	};
+
+	void clear()
+	{
+		LOGNODE* curr = tail->m_next;
+
+		while (nullptr != curr) {
+			LOGNODE* temp = curr;
+			curr = curr->m_next;
+			delete temp;
+		}
+
+		tail->m_next = nullptr;
+		tail->m_seq = 1;
+		tail->decide_next.clear();
+
+		for (int i = 0; i < MAX_THREADS; ++i) {
+			head[i] = tail;
+			announce[i] = tail;
+		}
+	}
+
+	void print20()
+	{
+		SEQ_SET seq_set;
+		LOGNODE* curr = tail->m_next;
+		while (nullptr != curr) {
+			seq_set.apply(curr->m_inv);
+			curr = curr->m_next;
+		}
+		seq_set.print20();
+	}
+};
+
+
+// ë²¤ì¹˜ ë§ˆí‚¹
+class STD_SET {
+private:
+	//SEQ_SET m_set;
+	RFU_SET m_set;
+	//DUMMY_MTX mtx;
+public:
+	STD_SET() {}
+
+	~STD_SET() {}
+
+	void clear()
+	{
+		m_set.clear();
+	}
+
+	bool Add(int x)
+	{
+		auto res = m_set.apply(INVOCATION(ADD, x));
+		return res;
+	}
+
+
+	bool Remove(int x)
+	{
+		auto res = m_set.apply(INVOCATION(REMOVE, x));
+		return res;
+	}
+
+	bool Contains(int x)
+	{
+		auto res = m_set.apply(INVOCATION(CONTAINS, x));
+		return res;
+	}
+
+	void print20()
+	{
+		m_set.print20();
+	}
+};
+
+
+
+
+
+
+STD_SET my_set;
 
 #include <array>
 
@@ -1312,7 +1534,8 @@ int main()
 		my_set.clear();
 	}
 
-	std::cout << "Starting Performance Check.\n";
+	for (auto& h : history) h.clear();
+	std::cout << "Strting Performance Check.\n";
 	for (int num_threads = 1; num_threads <= MAX_THREADS; num_threads *= 2) {
 		std::vector<std::thread> threads;
 		auto start_time = high_resolution_clock::now();
@@ -1328,7 +1551,7 @@ int main()
 		my_set.print20();
 		std::cout << "Threads: " << num_threads << ", Time: " << exec_ms << " seconds\n";
 		my_set.clear();
-		std::string temp;
-		std::getline(std::cin, temp);
+		//std::string temp;
+		//std::getline(std::cin, temp);
 	}
 }

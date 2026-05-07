@@ -264,5 +264,20 @@
     <ClCompile Include="설탕봉지.cpp">
       <Filter>소스 파일\Homework_6</Filter>
     </ClCompile>
+    <ClCompile Include="등굣길.cpp">
+      <Filter>소스 파일\Homework_6</Filter>
+    </ClCompile>
+    <ClCompile Include="병사배치하기.cpp">
+      <Filter>소스 파일\Practice_6</Filter>
+    </ClCompile>
+    <ClCompile Include="증가하는부분수열.cpp">
+      <Filter>소스 파일\Homework_6</Filter>
+    </ClCompile>
+    <ClCompile Include="RGB거리.cpp">
+      <Filter>소스 파일\Homework_6</Filter>
+    </ClCompile>
+    <ClCompile Include="베스트엘범.cpp">
+      <Filter>소스 파일\Homework_6</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
