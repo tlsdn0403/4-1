@@ -52,6 +52,9 @@
     <Filter Include="소스 파일\Practice_6">
       <UniqueIdentifier>{fa65dfab-4dee-4ecc-8881-545a73189931}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Homework_7">
+      <UniqueIdentifier>{5a74d6e8-3e4d-4825-b857-3785ed3a9795}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="baekjoon1100하얀칸.cpp">
@@ -278,6 +281,12 @@
     </ClCompile>
     <ClCompile Include="베스트엘범.cpp">
       <Filter>소스 파일\Homework_6</Filter>
+    </ClCompile>
+    <ClCompile Include="신고결과받기.cpp">
+      <Filter>소스 파일\Homework_6</Filter>
+    </ClCompile>
+    <ClCompile Include="택배배송.cpp">
+      <Filter>소스 파일\Homework_7</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

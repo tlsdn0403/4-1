@@ -1219,7 +1219,7 @@ public:
 		auto prefer = new LOGNODE(inv);
 		while (prefer->m_seq == 0) {
 			LOGNODE* before = max_head();
-			LOGNODE* after = before->decide_next.decide(prefer); //prefer 라는 지역변수에 집어넣었다.
+			LOGNODE* after = before->decide_next.decide(prefer);
 			before->m_next = after;
 			after->m_seq = before->m_seq + 1;
 			head[i] = after;
@@ -1263,12 +1263,12 @@ public:
 	}
 };
 
-class RFU_SET {
+class WFU_SET {
 	LOGNODE* announce[MAX_THREADS];
 	LOGNODE* head[MAX_THREADS];
 	LOGNODE* tail;
 public:
-	RFU_SET() {
+	WFU_SET() {
 		tail = new LOGNODE(INVOCATION(CONTAINS, 0)); // dummy
 		tail->m_seq = 1;
 		tail->m_next = nullptr;
@@ -1279,7 +1279,7 @@ public:
 		}
 	}
 
-	~RFU_SET()
+	~WFU_SET()
 	{
 		while (nullptr != tail) {
 			LOGNODE* temp = tail;
@@ -1365,7 +1365,7 @@ public:
 class STD_SET {
 private:
 	//SEQ_SET m_set;
-	RFU_SET m_set;
+	WFU_SET m_set;
 	//DUMMY_MTX mtx;
 public:
 	STD_SET() {}
@@ -1403,11 +1403,33 @@ public:
 };
 
 
+class STD_SET2 {
+private:
+	LFLIST m_set;
+
+public:
+	void clear() { m_set.clear(); }
+
+	bool Add(int x) {
+		return m_set.Add(x);
+	}
+
+	bool Remove(int x) {
+		return m_set.Remove(x);
+	}
+
+	bool Contains(int x) {
+		return m_set.Contains(x);
+	}
+
+	void print20() {
+		m_set.print20();
+	}
+};
 
 
 
-
-STD_SET my_set;
+STD_SET2 my_set;
 
 #include <array>
 
