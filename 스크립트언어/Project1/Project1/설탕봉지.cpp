@@ -15,6 +15,7 @@ int main() {
 	int num[2] = { 3,5 };
 	dp[0] = 0;
 	
+
 	for (int i = 0; i < 2; ++i) {
 		for (int j = num[i]; j <= n; ++j) {
 			if (dp[j - num[i]] != 5001) {

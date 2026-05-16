@@ -288,5 +288,29 @@
     <ClCompile Include="택배배송.cpp">
       <Filter>소스 파일\Homework_7</Filter>
     </ClCompile>
+    <ClCompile Include="등굣길_직접.cpp">
+      <Filter>소스 파일\Practice_6</Filter>
+    </ClCompile>
+    <ClCompile Include="도둑질_연습.cpp">
+      <Filter>소스 파일\Practice_6</Filter>
+    </ClCompile>
+    <ClCompile Include="설탕봉지_연습.cpp">
+      <Filter>소스 파일\Practice_6</Filter>
+    </ClCompile>
+    <ClCompile Include="내려가기.cpp">
+      <Filter>소스 파일\Homework_6</Filter>
+    </ClCompile>
+    <ClCompile Include="선행작업.cpp">
+      <Filter>소스 파일\Practice_6</Filter>
+    </ClCompile>
+    <ClCompile Include="목재총량.cpp">
+      <Filter>소스 파일\Practice_6</Filter>
+    </ClCompile>
+    <ClCompile Include="사회적거리두기3.cpp">
+      <Filter>소스 파일\Practice_5</Filter>
+    </ClCompile>
+    <ClCompile Include="조카과자나눠주기.cpp">
+      <Filter>소스 파일\Practice_5</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
