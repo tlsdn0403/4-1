@@ -312,5 +312,8 @@
     <ClCompile Include="조카과자나눠주기.cpp">
       <Filter>소스 파일\Practice_5</Filter>
     </ClCompile>
+    <ClCompile Include="소가길을건너간이유3.cpp">
+      <Filter>소스 파일\Practice_4</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
