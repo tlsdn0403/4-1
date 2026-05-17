@@ -315,5 +315,17 @@
     <ClCompile Include="소가길을건너간이유3.cpp">
       <Filter>소스 파일\Practice_4</Filter>
     </ClCompile>
+    <ClCompile Include="시리얼번호.cpp">
+      <Filter>소스 파일\Practice_4</Filter>
+    </ClCompile>
+    <ClCompile Include="진우의달여행.cpp">
+      <Filter>소스 파일\Practice_6</Filter>
+    </ClCompile>
+    <ClCompile Include="기타레슨.cpp">
+      <Filter>소스 파일\Practice_5</Filter>
+    </ClCompile>
+    <ClCompile Include="용돈관리.cpp">
+      <Filter>소스 파일\Practice_5</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
