@@ -55,6 +55,9 @@
     <Filter Include="소스 파일\Homework_7">
       <UniqueIdentifier>{5a74d6e8-3e4d-4825-b857-3785ed3a9795}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\test2">
+      <UniqueIdentifier>{0987cdb5-c25f-402c-bc26-1b9fc0ef2f74}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="baekjoon1100하얀칸.cpp">
@@ -326,6 +329,21 @@
     </ClCompile>
     <ClCompile Include="용돈관리.cpp">
       <Filter>소스 파일\Practice_5</Filter>
+    </ClCompile>
+    <ClCompile Include="2+1세일.cpp">
+      <Filter>소스 파일\test2</Filter>
+    </ClCompile>
+    <ClCompile Include="보드게임최대점수구하기.cpp">
+      <Filter>소스 파일\test2</Filter>
+    </ClCompile>
+    <ClCompile Include="계단오르기.cpp">
+      <Filter>소스 파일\test2</Filter>
+    </ClCompile>
+    <ClCompile Include="눈송이.cpp">
+      <Filter>소스 파일\test2</Filter>
+    </ClCompile>
+    <ClCompile Include="7Krokod게임.cpp">
+      <Filter>소스 파일\test2</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
