@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rolling Dash</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="game-panel" aria-label="Rolling Dash game">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">Vibe Coding Mini Game</p>
+            <h1>Rolling Dash</h1>
+          </div>
+          <div class="stats" aria-label="game status">
+            <span>거리 <strong id="distanceText">0m</strong></span>
+            <span>코인 <strong id="scoreText">0</strong></span>
+            <span>최고 <strong id="bestText">0</strong></span>
+          </div>
+        </div>
+
+        <div class="canvas-wrap">
+          <canvas id="gameCanvas" width="960" height="540"></canvas>
+          <div id="overlay" class="overlay">
+            <div class="overlay-card">
+              <p class="status-label">READY</p>
+              <h2 id="overlayTitle">공을 굴려 장애물을 피해보세요</h2>
+              <p id="overlayText">Space 또는 ↑ 키로 점프합니다. 공중에서 한 번 더 눌러 이단점프를 할 수 있습니다.</p>
+              <button id="startButton" type="button">시작</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <span><kbd>Space</kbd> / <kbd>↑</kbd> 점프 / 이단점프</span>
+          <span><kbd>P</kbd> 일시정지</span>
+          <span><kbd>R</kbd> 재시작</span>
+        </div>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
