@@ -1,0 +1,359 @@
+{
+  "aid": "sl/bne0dy",
+  "kind": "slide",
+  "id": "bne0dy",
+  "index": 2,
+  "title": "DEVELOPMENT EVIDENCE",
+  "layoutId": "d602f8f4-4091-4c82-93d1-3403d4f52d75",
+  "shapes": [
+    {
+      "aid": "sh/o7qpg3ex",
+      "kind": "shape",
+      "id": "1",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 0,
+        "top": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "fill": "#101214",
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/vmtwra5g",
+      "kind": "shape",
+      "id": "2",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "DEVELOPMENT EVIDENCE",
+      "frame": {
+        "left": 84,
+        "top": 64,
+        "width": 182,
+        "height": 46
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/61032lsz",
+      "kind": "shape",
+      "id": "3",
+      "slideId": "bne0dy",
+      "name": "slide-title",
+      "text": "기능 나열보다 구조 변화와 문제 해결 흐름을 먼저 보여줍니다",
+      "frame": {
+        "left": 84,
+        "top": 122,
+        "width": 1752,
+        "height": 66
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/d4vmtwra",
+      "kind": "shape",
+      "id": "4",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "결과 화면만 나열하지 않고, 상호작용 상태가 어떻게 확장되고 어떤 병목이 다음 설계 변경으로 이어졌는지를 중심으로 구성했습니다.",
+      "frame": {
+        "left": 84,
+        "top": 200,
+        "width": 1180,
+        "height": 68
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/oj2t83it",
+      "kind": "shape",
+      "id": "5",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 299.7759580052494,
+        "width": 420,
+        "height": 151.52
+      },
+      "fill": "#202720",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5280"
+        }
+      ]
+    },
+    {
+      "aid": "sh/vy90je9c",
+      "kind": "shape",
+      "id": "6",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "기반",
+      "frame": {
+        "left": 104,
+        "top": 318,
+        "width": 380,
+        "height": 22
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/6dcbulwv",
+      "kind": "shape",
+      "id": "7",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "상호작용 시스템",
+      "frame": {
+        "left": 104,
+        "top": 346,
+        "width": 380,
+        "height": 34
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/d8v6psfi",
+      "kind": "shape",
+      "id": "8",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "IInteractInterface, UInteractTriggerComponent, ALootItemBase로 파밍 구조 정리",
+      "frame": {
+        "left": 104,
+        "top": 384,
+        "width": 380,
+        "height": 50
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/onyd0z61",
+      "kind": "shape",
+      "id": "9",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 528,
+        "top": 299.7759580052494,
+        "width": 420,
+        "height": 151.52
+      },
+      "fill": "#202720",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5280"
+        }
+      ]
+    },
+    {
+      "aid": "sh/epkzupwb",
+      "kind": "shape",
+      "id": "10",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "확장",
+      "frame": {
+        "left": 548,
+        "top": 318,
+        "width": 380,
+        "height": 22
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/7adsji5s",
+      "kind": "shape",
+      "id": "11",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "트럭 구조화",
+      "frame": {
+        "left": 548,
+        "top": 346,
+        "width": 380,
+        "height": 34
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/wval87ed",
+      "kind": "shape",
+      "id": "12",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "운전석/적재칸/거치총 트리거 분리, 캐릭터 부착, 충돌 박스 분리",
+      "frame": {
+        "left": 548,
+        "top": 384,
+        "width": 380,
+        "height": 50
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/pg3ex0nu",
+      "kind": "shape",
+      "id": "13",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 972,
+        "top": 299.7759580052494,
+        "width": 420,
+        "height": 151.52
+      },
+      "fill": "#202720",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5280"
+        }
+      ]
+    },
+    {
+      "aid": "sh/e1w7mp0b",
+      "kind": "shape",
+      "id": "14",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "조작감",
+      "frame": {
+        "left": 992,
+        "top": 318,
+        "width": 380,
+        "height": 22
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/7mp0bi9s",
+      "kind": "shape",
+      "id": "15",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "거치형 기관총",
+      "frame": {
+        "left": 992,
+        "top": 346,
+        "width": 380,
+        "height": 34
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/w7mp0bi9",
+      "kind": "shape",
+      "id": "16",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "Yaw/Pitch 축, 카메라 기준 조준, 총구 보정, 탄피/반동 피드백",
+      "frame": {
+        "left": 992,
+        "top": 384,
+        "width": 380,
+        "height": 50
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/psfil0rq",
+      "kind": "shape",
+      "id": "17",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1416,
+        "top": 299.7759580052494,
+        "width": 420,
+        "height": 151.52
+      },
+      "fill": "#202720",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5280"
+        }
+      ]
+    },
+    {
+      "aid": "sh/ed8bat47",
+      "kind": "shape",
+      "id": "18",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "스테이지",
+      "frame": {
+        "left": 1436,
+        "top": 318,
+        "width": 380,
+        "height": 22
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/7u54zido",
+      "kind": "shape",
+      "id": "19",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "Stage2 타일 구조",
+      "frame": {
+        "left": 1436,
+        "top": 346,
+        "width": 380,
+        "height": 34
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/vy90je9c",
+      "kind": "shape",
+      "id": "20",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "Entry/Exit/Trigger 기반의 TileMarker와 TileManager 연결",
+      "frame": {
+        "left": 1436,
+        "top": 384,
+        "width": 380,
+        "height": 50
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/6dcbulwv",
+      "kind": "shape",
+      "id": "21",
+      "slideId": "bne0dy",
+      "name": "",
+      "text": "핵심 구현 파일: ATruck, AMountedMachineGun, AStage2TileManager, UInteractTriggerComponent",
+      "frame": {
+        "left": 84,
+        "top": 484,
+        "width": 1752,
+        "height": 26
+      },
+      "adjustmentList": []
+    }
+  ],
+  "charts": [],
+  "images": [],
+  "tables": [],
+  "notes": {
+    "aid": "nt/bne0dy",
+    "kind": "notes",
+    "slideId": "bne0dy",
+    "text": ""
+  }
+}

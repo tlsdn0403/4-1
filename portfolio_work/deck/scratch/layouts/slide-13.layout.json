@@ -1,0 +1,365 @@
+{
+  "aid": "sl/x2qq0s",
+  "kind": "slide",
+  "id": "x2qq0s",
+  "index": 12,
+  "title": "ITERATION",
+  "layoutId": "d602f8f4-4091-4c82-93d1-3403d4f52d75",
+  "shapes": [
+    {
+      "aid": "sh/1orytsvu",
+      "kind": "shape",
+      "id": "1",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 0,
+        "top": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "fill": "#101214",
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/u18jqh0f",
+      "kind": "shape",
+      "id": "2",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "ITERATION",
+      "frame": {
+        "left": 84,
+        "top": 64,
+        "width": 76,
+        "height": 24
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/jm1cfa9w",
+      "kind": "shape",
+      "id": "3",
+      "slideId": "x2qq0s",
+      "name": "slide-title",
+      "text": "Frame Drop를 줄이기 위해\n타일 로드와 재사용 시점을 분리했습니다",
+      "frame": {
+        "left": 84,
+        "top": 106,
+        "width": 898,
+        "height": 194
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/cfa9w3m9",
+      "kind": "shape",
+      "id": "4",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "트리거를 밟는 순간 다음 맵을 로드하면 스트리밍 비용이 플레이 중간에 발생합니다. Stage2 진입 시 타일 풀을 선로드하고, 지나간 타일은 삭제 대신 재배치해 런타임 비용을 분산했습니다.",
+      "frame": {
+        "left": 84,
+        "top": 320,
+        "width": 812,
+        "height": 102
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/1032lszq",
+      "kind": "shape",
+      "id": "5",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 440.3679790026247,
+        "width": 439.8749606299213,
+        "height": 133.48797900262468
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5993"
+        }
+      ]
+    },
+    {
+      "aid": "sh/u9knih4b",
+      "kind": "shape",
+      "id": "6",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "성능 저하 인식",
+      "frame": {
+        "left": 110,
+        "top": 462,
+        "width": 388,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/judg7ads",
+      "kind": "shape",
+      "id": "7",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "Trigger-time Load → 순간 Frame Drop 가능성",
+      "frame": {
+        "left": 110,
+        "top": 504,
+        "width": 388,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/cj6tovah",
+      "kind": "shape",
+      "id": "8",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 541.8749606299212,
+        "top": 440.3679790026247,
+        "width": 439.8749606299213,
+        "height": 133.48797900262468
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5993"
+        }
+      ]
+    },
+    {
+      "aid": "sh/54zidony",
+      "kind": "shape",
+      "id": "9",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "선로드",
+      "frame": {
+        "left": 568,
+        "top": 462,
+        "width": 388,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/t47y1kre",
+      "kind": "shape",
+      "id": "10",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "Stage2 진입 시 `PreloadedTilesPerType` 기준으로 TilePool 구성",
+      "frame": {
+        "left": 568,
+        "top": 504,
+        "width": 388,
+        "height": 50
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/0je9cvix",
+      "kind": "shape",
+      "id": "11",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 591.8559580052494,
+        "width": 439.8749606299213,
+        "height": 157.68
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5074"
+        }
+      ]
+    },
+    {
+      "aid": "sh/byhgn29g",
+      "kind": "shape",
+      "id": "12",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "재사용",
+      "frame": {
+        "left": 110,
+        "top": 614,
+        "width": 388,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/idonyd0z",
+      "kind": "shape",
+      "id": "13",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "지나간 타일 삭제 대신 PoolParkingTransform으로 되돌려 재배치",
+      "frame": {
+        "left": 110,
+        "top": 654,
+        "width": 388,
+        "height": 50
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/tcj6tova",
+      "kind": "shape",
+      "id": "14",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 541.8749606299212,
+        "top": 591.8559580052494,
+        "width": 439.8749606299213,
+        "height": 157.68
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5074"
+        }
+      ]
+    },
+    {
+      "aid": "sh/0rqd4vmt",
+      "kind": "shape",
+      "id": "15",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "Low-level 관점",
+      "frame": {
+        "left": 568,
+        "top": 614,
+        "width": 388,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/b6xkf6dc",
+      "kind": "shape",
+      "id": "16",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "FStage2LoadedTile처럼 포인터, FTransform, bool 플래그가 섞인 구조는 sizeof, 필드 순서, bit packing을 기준으로 패딩/캐시 효율을 검토",
+      "frame": {
+        "left": 568,
+        "top": 654,
+        "width": 388,
+        "height": 74
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/il0rqd4v",
+      "kind": "shape",
+      "id": "17",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1023.7500262467192,
+        "top": 64,
+        "width": 812.2499737532809,
+        "height": 360
+      },
+      "fill": "#070808",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 2222"
+        }
+      ]
+    },
+    {
+      "aid": "sh/032lszqt",
+      "kind": "shape",
+      "id": "19",
+      "slideId": "x2qq0s",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1023.7500262467192,
+        "top": 438,
+        "width": 812.2499737532809,
+        "height": 578
+      },
+      "fill": "#070808",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 1384"
+        }
+      ]
+    }
+  ],
+  "charts": [],
+  "images": [
+    {
+      "aid": "im/65wjudg7",
+      "kind": "image",
+      "id": "18",
+      "slideId": "x2qq0s",
+      "name": "",
+      "alt": "Stage2 map overview",
+      "isPlaceholder": false,
+      "contentType": "image/jpeg",
+      "fit": "cover",
+      "geometry": "roundRect",
+      "lockAspectRatio": true,
+      "frame": {
+        "left": 1023.75,
+        "top": 64,
+        "width": 812.25,
+        "height": 360
+      }
+    },
+    {
+      "aid": "im/byhgn29g",
+      "kind": "image",
+      "id": "20",
+      "slideId": "x2qq0s",
+      "name": "",
+      "alt": "Stage2 fog gameplay",
+      "isPlaceholder": false,
+      "contentType": "image/jpeg",
+      "fit": "cover",
+      "geometry": "roundRect",
+      "lockAspectRatio": true,
+      "frame": {
+        "left": 1023.75,
+        "top": 438,
+        "width": 812.25,
+        "height": 578
+      }
+    }
+  ],
+  "tables": [],
+  "notes": {
+    "aid": "nt/x2qq0s",
+    "kind": "notes",
+    "slideId": "x2qq0s",
+    "text": ""
+  }
+}

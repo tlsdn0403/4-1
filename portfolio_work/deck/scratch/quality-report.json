@@ -1,0 +1,14 @@
+{
+  "workspace": "C:\\Users\\tlsdn\\Desktop\\SYJ\\portfolio_work\\deck",
+  "pptx": "C:\\Users\\tlsdn\\Desktop\\SYJ\\portfolio_work\\deck\\output\\output.pptx",
+  "checks": {
+    "output_hygiene": {
+      "output_dir": "C:\\Users\\tlsdn\\Desktop\\SYJ\\portfolio_work\\deck\\output",
+      "unexpected_files": []
+    }
+  },
+  "failures": [
+    "PPTX package inspection failed: unzip -Z1 C:\\Users\\tlsdn\\Desktop\\SYJ\\portfolio_work\\deck\\output\\output.pptx failed"
+  ],
+  "warnings": []
+}

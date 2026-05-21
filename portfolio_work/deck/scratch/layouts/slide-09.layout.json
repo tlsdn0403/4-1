@@ -1,0 +1,361 @@
+{
+  "aid": "sl/9r3yqo",
+  "kind": "slide",
+  "id": "9r3yqo",
+  "index": 8,
+  "title": "PROBLEM SOLVING 02",
+  "layoutId": "d602f8f4-4091-4c82-93d1-3403d4f52d75",
+  "shapes": [
+    {
+      "aid": "sh/nih4byhg",
+      "kind": "shape",
+      "id": "1",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 0,
+        "top": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "fill": "#101214",
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/g3ex0nux",
+      "kind": "shape",
+      "id": "2",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "PROBLEM SOLVING 02",
+      "frame": {
+        "left": 84,
+        "top": 64,
+        "width": 156,
+        "height": 46
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/5o7qpg3e",
+      "kind": "shape",
+      "id": "3",
+      "slideId": "9r3yqo",
+      "name": "slide-title",
+      "text": "총알이 트럭을 맞거나 조준선과 어긋나는 문제를 단계적으로 고쳤습니다",
+      "frame": {
+        "left": 84,
+        "top": 128,
+        "width": 898,
+        "height": 194
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/ylc7u54z",
+      "kind": "shape",
+      "id": "4",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "카메라가 보는 방향, 총구의 실제 위치, 트럭과 사용자의 충돌 판정이 서로 어긋나면 총알이 트럭을 맞거나 조준선 밖으로 튀는 문제가 발생합니다. 화면 기준 조준과 월드 좌표 발사를 분리해 보정했습니다.",
+      "frame": {
+        "left": 84,
+        "top": 342,
+        "width": 794,
+        "height": 102
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/r65wjudg",
+      "kind": "shape",
+      "id": "5",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 462.40000000000003,
+        "width": 439.8749606299213,
+        "height": 133.48797900262468
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5993"
+        }
+      ]
+    },
+    {
+      "aid": "sh/gr2p8nqx",
+      "kind": "shape",
+      "id": "6",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "1. 카메라 기준 조준",
+      "frame": {
+        "left": 110,
+        "top": 484,
+        "width": 388,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/9cvixcze",
+      "kind": "shape",
+      "id": "7",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "카메라 위치에서 LineTrace로 목표 지점 계산",
+      "frame": {
+        "left": 110,
+        "top": 526,
+        "width": 388,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/yd0z6103",
+      "kind": "shape",
+      "id": "8",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 541.8749606299212,
+        "top": 462.40000000000003,
+        "width": 439.8749606299213,
+        "height": 133.48797900262468
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5993"
+        }
+      ]
+    },
+    {
+      "aid": "sh/rytsvu9k",
+      "kind": "shape",
+      "id": "9",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "2. World Transform 보정",
+      "frame": {
+        "left": 568,
+        "top": 484,
+        "width": 388,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/bi9s36hc",
+      "kind": "shape",
+      "id": "10",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "MuzzlePoint의 World Transform에서 목표 지점까지 다시 검사해 막힌 지점 보정",
+      "frame": {
+        "left": 568,
+        "top": 526,
+        "width": 388,
+        "height": 50
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/ixczed8v",
+      "kind": "shape",
+      "id": "11",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 613.8879790026247,
+        "width": 439.8749606299213,
+        "height": 133.48797900262468
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5993"
+        }
+      ]
+    },
+    {
+      "aid": "sh/tovahoza",
+      "kind": "shape",
+      "id": "12",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "3. 충돌 제외",
+      "frame": {
+        "left": 110,
+        "top": 636,
+        "width": 388,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/032lszqt",
+      "kind": "shape",
+      "id": "13",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "기관총, 사용자, 현재 트럭을 Trace/Projectile에서 무시",
+      "frame": {
+        "left": 110,
+        "top": 676,
+        "width": 388,
+        "height": 50
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/bulwval8",
+      "kind": "shape",
+      "id": "14",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 541.8749606299212,
+        "top": 613.8879790026247,
+        "width": 439.8749606299213,
+        "height": 133.48797900262468
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5993"
+        }
+      ]
+    },
+    {
+      "aid": "sh/i9s36hcr",
+      "kind": "shape",
+      "id": "15",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "4. 발사체 재사용",
+      "frame": {
+        "left": 568,
+        "top": 636,
+        "width": 388,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/p0bi9s36",
+      "kind": "shape",
+      "id": "16",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "ObjectPool이 있으면 풀에서 꺼내고 없으면 SpawnActor fallback",
+      "frame": {
+        "left": 568,
+        "top": 676,
+        "width": 388,
+        "height": 50
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/0fepkzup",
+      "kind": "shape",
+      "id": "17",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1023.7500262467192,
+        "top": 64,
+        "width": 223.23002624671918,
+        "height": 30.14404199475066
+      },
+      "fill": "#31362D",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 23222"
+        }
+      ]
+    },
+    {
+      "aid": "sh/byhgn29g",
+      "kind": "shape",
+      "id": "18",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "Camera Trace + Muzzle 보정 코드",
+      "frame": {
+        "left": 1038,
+        "top": 70,
+        "width": 196,
+        "height": 20
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/idonyd0z",
+      "kind": "shape",
+      "id": "19",
+      "slideId": "9r3yqo",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1023.7500262467192,
+        "top": 108.14404199475067,
+        "width": 812.2499737532809,
+        "height": 907.8559580052494
+      },
+      "fill": "#070808",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 985"
+        }
+      ]
+    }
+  ],
+  "charts": [],
+  "images": [
+    {
+      "aid": "im/1kre1w7m",
+      "kind": "image",
+      "id": "20",
+      "slideId": "9r3yqo",
+      "name": "",
+      "alt": "Mounted gun aim trace code",
+      "isPlaceholder": false,
+      "contentType": "image/jpeg",
+      "fit": "contain",
+      "geometry": "roundRect",
+      "lockAspectRatio": true,
+      "frame": {
+        "left": 1023.75,
+        "top": 108.144,
+        "width": 812.25,
+        "height": 907.856
+      }
+    }
+  ],
+  "tables": [],
+  "notes": {
+    "aid": "nt/9r3yqo",
+    "kind": "notes",
+    "slideId": "9r3yqo",
+    "text": ""
+  }
+}

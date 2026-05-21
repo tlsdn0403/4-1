@@ -345,5 +345,17 @@
     <ClCompile Include="7Krokod게임.cpp">
       <Filter>소스 파일\test2</Filter>
     </ClCompile>
+    <ClCompile Include="파티.cpp">
+      <Filter>소스 파일\Homework_7</Filter>
+    </ClCompile>
+    <ClCompile Include="합승택시_플로이드워셜.cpp">
+      <Filter>소스 파일\Homework_7</Filter>
+    </ClCompile>
+    <ClCompile Include="순회강연.cpp">
+      <Filter>소스 파일\Homework_7</Filter>
+    </ClCompile>
+    <ClCompile Include="소가길을건너간이유4.cpp">
+      <Filter>소스 파일\Homework_7</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

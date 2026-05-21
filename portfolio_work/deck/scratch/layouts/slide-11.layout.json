@@ -1,0 +1,436 @@
+{
+  "aid": "sl/ba4t79",
+  "kind": "slide",
+  "id": "ba4t79",
+  "index": 10,
+  "title": "SYSTEM 05",
+  "layoutId": "d602f8f4-4091-4c82-93d1-3403d4f52d75",
+  "shapes": [
+    {
+      "aid": "sh/dcbulwva",
+      "kind": "shape",
+      "id": "1",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 0,
+        "top": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "fill": "#101214",
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/6psfil0r",
+      "kind": "shape",
+      "id": "2",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "SYSTEM 05",
+      "frame": {
+        "left": 84,
+        "top": 64,
+        "width": 76,
+        "height": 46
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/val87ed8",
+      "kind": "shape",
+      "id": "3",
+      "slideId": "ba4t79",
+      "name": "slide-title",
+      "text": "Stage2는 손으로 그린 Entry / Exit / Trigger 구조에서 출발했습니다",
+      "frame": {
+        "left": 84,
+        "top": 128,
+        "width": 898,
+        "height": 130
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/k3q5o7qp",
+      "kind": "shape",
+      "id": "4",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "트럭이 다음 타일 트리거를 밟으면, 현재 타일의 Exit 위치에 다음 타일의 Entry가 맞물리도록 설계했습니다. 손으로 정리한 연결 규칙을 TileMarker와 TileManager 책임으로 분리했습니다.",
+      "frame": {
+        "left": 84,
+        "top": 278,
+        "width": 774,
+        "height": 102
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/donyd0z6",
+      "kind": "shape",
+      "id": "5",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 398,
+        "width": 255.24997375328084,
+        "height": 128
+      },
+      "fill": "#202720",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 6250"
+        }
+      ]
+    },
+    {
+      "aid": "sh/2x4nap4r",
+      "kind": "shape",
+      "id": "6",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "TileMarker",
+      "frame": {
+        "left": 104,
+        "top": 416,
+        "width": 216,
+        "height": 22
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/vixczed8",
+      "kind": "shape",
+      "id": "7",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "Entry Arrow",
+      "frame": {
+        "left": 104,
+        "top": 444,
+        "width": 216,
+        "height": 34
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/kf6dcbul",
+      "kind": "shape",
+      "id": "8",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "타일의 시작 기준점",
+      "frame": {
+        "left": 104,
+        "top": 484,
+        "width": 216,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/d0z61032",
+      "kind": "shape",
+      "id": "9",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "→",
+      "frame": {
+        "left": 356,
+        "top": 440,
+        "width": 34,
+        "height": 44
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/dsji5sne",
+      "kind": "shape",
+      "id": "10",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 405.24997375328087,
+        "top": 398,
+        "width": 255.24997375328084,
+        "height": 128
+      },
+      "fill": "#202720",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 6250"
+        }
+      ]
+    },
+    {
+      "aid": "sh/o7qpg3ex",
+      "kind": "shape",
+      "id": "11",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "Trigger",
+      "frame": {
+        "left": 426,
+        "top": 416,
+        "width": 216,
+        "height": 22
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/vmtwra5g",
+      "kind": "shape",
+      "id": "12",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "Next Tile Trigger",
+      "frame": {
+        "left": 426,
+        "top": 444,
+        "width": 216,
+        "height": 34
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/61032lsz",
+      "kind": "shape",
+      "id": "13",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "트럭 진입 시 이벤트 발생",
+      "frame": {
+        "left": 426,
+        "top": 484,
+        "width": 216,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/d4vmtwra",
+      "kind": "shape",
+      "id": "14",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "→",
+      "frame": {
+        "left": 676,
+        "top": 440,
+        "width": 34,
+        "height": 44
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/oj2t83it",
+      "kind": "shape",
+      "id": "15",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 726.5000524934384,
+        "top": 398,
+        "width": 255.24997375328084,
+        "height": 128
+      },
+      "fill": "#202720",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 6250"
+        }
+      ]
+    },
+    {
+      "aid": "sh/vy90je9c",
+      "kind": "shape",
+      "id": "16",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "TileManager",
+      "frame": {
+        "left": 746,
+        "top": 416,
+        "width": 216,
+        "height": 22
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/6dcbulwv",
+      "kind": "shape",
+      "id": "17",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "Exit → Entry",
+      "frame": {
+        "left": 746,
+        "top": 444,
+        "width": 216,
+        "height": 34
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/d8v6psfi",
+      "kind": "shape",
+      "id": "18",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "다음 타일 위치 계산",
+      "frame": {
+        "left": 746,
+        "top": 484,
+        "width": 216,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/onyd0z61",
+      "kind": "shape",
+      "id": "19",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 545.2159580052494,
+        "width": 897.7500262467192,
+        "height": 133.48797900262468
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5993"
+        }
+      ]
+    },
+    {
+      "aid": "sh/kre1w7mp",
+      "kind": "shape",
+      "id": "20",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "구현 책임",
+      "frame": {
+        "left": 110,
+        "top": 568,
+        "width": 846,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/dcbulwva",
+      "kind": "shape",
+      "id": "21",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "TileMarker는 타일 내부 기준점을 제공하고, TileManager는 어떤 타일을 언제 활성화할지 결정하도록 책임을 나눴습니다.",
+      "frame": {
+        "left": 110,
+        "top": 608,
+        "width": 846,
+        "height": 50
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/6psfil0r",
+      "kind": "shape",
+      "id": "22",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1023.7500262467192,
+        "top": 64,
+        "width": 207.24997375328084,
+        "height": 48.287979002624674
+      },
+      "fill": "#31362D",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 14496"
+        }
+      ]
+    },
+    {
+      "aid": "sh/val87ed8",
+      "kind": "shape",
+      "id": "23",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "Entry / Exit / Trigger 연결 설계",
+      "frame": {
+        "left": 1038,
+        "top": 70,
+        "width": 180,
+        "height": 38
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/k3q5o7qp",
+      "kind": "shape",
+      "id": "24",
+      "slideId": "ba4t79",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1023.7500262467192,
+        "top": 124.28797900262468,
+        "width": 812.2499737532809,
+        "height": 891.7120209973754
+      },
+      "fill": "#F6F3EA",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 985"
+        }
+      ]
+    }
+  ],
+  "charts": [],
+  "images": [
+    {
+      "aid": "im/yxobm58z",
+      "kind": "image",
+      "id": "25",
+      "slideId": "ba4t79",
+      "name": "",
+      "alt": "Stage2 tile hand sketch",
+      "isPlaceholder": false,
+      "contentType": "image/jpeg",
+      "fit": "contain",
+      "geometry": "roundRect",
+      "lockAspectRatio": true,
+      "frame": {
+        "left": 1023.75,
+        "top": 124.28800000000001,
+        "width": 812.25,
+        "height": 891.712
+      }
+    }
+  ],
+  "tables": [],
+  "notes": {
+    "aid": "nt/ba4t79",
+    "kind": "notes",
+    "slideId": "ba4t79",
+    "text": ""
+  }
+}

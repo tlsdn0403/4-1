@@ -1,0 +1,422 @@
+{
+  "aid": "sl/7qoz1c",
+  "kind": "slide",
+  "id": "7qoz1c",
+  "index": 3,
+  "title": "SYSTEM 01",
+  "layoutId": "d602f8f4-4091-4c82-93d1-3403d4f52d75",
+  "shapes": [
+    {
+      "aid": "sh/t83itgfm",
+      "kind": "shape",
+      "id": "1",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 0,
+        "top": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "fill": "#101214",
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/mhk3q5o7",
+      "kind": "shape",
+      "id": "2",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "SYSTEM 01",
+      "frame": {
+        "left": 84,
+        "top": 64,
+        "width": 76,
+        "height": 46
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/b2hwfyxo",
+      "kind": "shape",
+      "id": "3",
+      "slideId": "7qoz1c",
+      "name": "slide-title",
+      "text": "파밍은 단순 획득이 아니라,\n이후 트럭 적재로 이어질 상태를 만드는 구조입니다",
+      "frame": {
+        "left": 84,
+        "top": 130,
+        "width": 872,
+        "height": 194
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/4byhgn29",
+      "kind": "shape",
+      "id": "4",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "처음에는 인벤토리를 무게값으로만 볼 수 있었지만, 트럭이 어떤 아이템을 실었는지 알아야 했기 때문에 `EItemType` 배열 구조로 바꾸었습니다.",
+      "frame": {
+        "left": 84,
+        "top": 346,
+        "width": 696,
+        "height": 102
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/twra5gbq",
+      "kind": "shape",
+      "id": "5",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 468.40000000000003,
+        "width": 872.1000524934384,
+        "height": 275.2159580052494
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 2907"
+        }
+      ]
+    },
+    {
+      "aid": "sh/m58z25kb",
+      "kind": "shape",
+      "id": "6",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "설계 판단",
+      "frame": {
+        "left": 110,
+        "top": 490,
+        "width": 820,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/bq1oryts",
+      "kind": "shape",
+      "id": "7",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 110,
+        "top": 532,
+        "width": 10,
+        "height": 10
+      },
+      "fill": "#F0BE45",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 50000"
+        }
+      ]
+    },
+    {
+      "aid": "sh/47y1kre1",
+      "kind": "shape",
+      "id": "8",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "공통 인터페이스",
+      "frame": {
+        "left": 134,
+        "top": 532,
+        "width": 796,
+        "height": 30
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/tsvu9kni",
+      "kind": "shape",
+      "id": "9",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "아이템, 트럭, 문처럼 상호작용 가능한 액터를 같은 방식으로 호출",
+      "frame": {
+        "left": 134,
+        "top": 564,
+        "width": 796,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/90je9cvi",
+      "kind": "shape",
+      "id": "10",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 110,
+        "top": 598,
+        "width": 10,
+        "height": 10
+      },
+      "fill": "#F0BE45",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 50000"
+        }
+      ]
+    },
+    {
+      "aid": "sh/gfmlkjm1",
+      "kind": "shape",
+      "id": "11",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "범위 기반 등록",
+      "frame": {
+        "left": 134,
+        "top": 598,
+        "width": 796,
+        "height": 30
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/rytsvu9k",
+      "kind": "shape",
+      "id": "12",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "트리거에 들어오면 상호작용 대상을 캐릭터에 등록하고, 벗어나면 해제",
+      "frame": {
+        "left": 134,
+        "top": 630,
+        "width": 796,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/yd0z6103",
+      "kind": "shape",
+      "id": "13",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 110,
+        "top": 664,
+        "width": 10,
+        "height": 10
+      },
+      "fill": "#F0BE45",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 50000"
+        }
+      ]
+    },
+    {
+      "aid": "sh/9s36hcrm",
+      "kind": "shape",
+      "id": "14",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "타입 보존",
+      "frame": {
+        "left": 134,
+        "top": 664,
+        "width": 796,
+        "height": 30
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/g7adsji5",
+      "kind": "shape",
+      "id": "15",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "아이템을 트럭으로 넘길 때 무게만이 아니라 아이템 종류를 유지",
+      "frame": {
+        "left": 134,
+        "top": 698,
+        "width": 796,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/rmhk3q5o",
+      "kind": "shape",
+      "id": "16",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 998.1000524934384,
+        "top": 64,
+        "width": 191.51002624671918,
+        "height": 30.14404199475066
+      },
+      "fill": "#31362D",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 23222"
+        }
+      ]
+    },
+    {
+      "aid": "sh/y1kre1w7",
+      "kind": "shape",
+      "id": "17",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "아이템 상호작용 흐름 설계",
+      "frame": {
+        "left": 1012,
+        "top": 70,
+        "width": 164,
+        "height": 20
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/5o7qpg3e",
+      "kind": "shape",
+      "id": "18",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 998.1000524934384,
+        "top": 102.14404199475067,
+        "width": 837.9000524934384,
+        "height": 427.85595800524936
+      },
+      "fill": "#F6F3EA",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 1870"
+        }
+      ]
+    },
+    {
+      "aid": "sh/cfa9w3m9",
+      "kind": "shape",
+      "id": "20",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 998.1000524934384,
+        "top": 550,
+        "width": 208.68,
+        "height": 48.287979002624674
+      },
+      "fill": "#31362D",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 14496"
+        }
+      ]
+    },
+    {
+      "aid": "sh/1032lszq",
+      "kind": "shape",
+      "id": "21",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "트럭 적재 상호작용 흐름 설계",
+      "frame": {
+        "left": 1012,
+        "top": 556,
+        "width": 180,
+        "height": 38
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/u9knih4b",
+      "kind": "shape",
+      "id": "22",
+      "slideId": "7qoz1c",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 998.1000524934384,
+        "top": 606.2879790026246,
+        "width": 837.9000524934384,
+        "height": 409.71202099737536
+      },
+      "fill": "#F6F3EA",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 1953"
+        }
+      ]
+    }
+  ],
+  "charts": [],
+  "images": [
+    {
+      "aid": "im/vmtwra5g",
+      "kind": "image",
+      "id": "19",
+      "slideId": "7qoz1c",
+      "name": "",
+      "alt": "Item interaction flow sketch",
+      "isPlaceholder": false,
+      "contentType": "image/jpeg",
+      "fit": "contain",
+      "geometry": "roundRect",
+      "lockAspectRatio": true,
+      "frame": {
+        "left": 998.1,
+        "top": 102.144,
+        "width": 837.9,
+        "height": 427.856
+      }
+    },
+    {
+      "aid": "im/cbulwval",
+      "kind": "image",
+      "id": "23",
+      "slideId": "7qoz1c",
+      "name": "",
+      "alt": "Truck interaction flow sketch",
+      "isPlaceholder": false,
+      "contentType": "image/jpeg",
+      "fit": "contain",
+      "geometry": "roundRect",
+      "lockAspectRatio": true,
+      "frame": {
+        "left": 998.1,
+        "top": 606.288,
+        "width": 837.9,
+        "height": 409.712
+      }
+    }
+  ],
+  "tables": [],
+  "notes": {
+    "aid": "nt/7qoz1c",
+    "kind": "notes",
+    "slideId": "7qoz1c",
+    "text": ""
+  }
+}

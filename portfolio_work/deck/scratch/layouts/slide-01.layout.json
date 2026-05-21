@@ -1,0 +1,166 @@
+{
+  "aid": "sl/rdg7s3",
+  "kind": "slide",
+  "id": "rdg7s3",
+  "index": 0,
+  "title": "COM2US INTERNSHIP PORTFOLIO",
+  "layoutId": "d602f8f4-4091-4c82-93d1-3403d4f52d75",
+  "shapes": [
+    {
+      "aid": "sh/cbulwval",
+      "kind": "shape",
+      "id": "1",
+      "slideId": "rdg7s3",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 0,
+        "top": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "fill": "#151A18",
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/nqxs72x4",
+      "kind": "shape",
+      "id": "2",
+      "slideId": "rdg7s3",
+      "name": "",
+      "text": "COM2US INTERNSHIP PORTFOLIO",
+      "frame": {
+        "left": 84,
+        "top": 76,
+        "width": 236,
+        "height": 24
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/u54zidon",
+      "kind": "shape",
+      "id": "3",
+      "slideId": "rdg7s3",
+      "name": "",
+      "text": "감염:\n죽음의 도시",
+      "frame": {
+        "left": 84,
+        "top": 124,
+        "width": 698,
+        "height": 166
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/5kb6xkf6",
+      "kind": "shape",
+      "id": "4",
+      "slideId": "rdg7s3",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 314,
+        "width": 220,
+        "height": 5
+      },
+      "fill": "#F0BE45",
+      "line": {
+        "style": "solid",
+        "width": 0,
+        "fill": "#F0BE45"
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/czed8v6p",
+      "kind": "shape",
+      "id": "5",
+      "slideId": "rdg7s3",
+      "name": "",
+      "text": "트럭을 중심으로 파밍, 적재, 탑승, 무기, 스테이지 전환을 연결한 Unreal Engine 5 C++ 졸업작품 포트폴리오입니다.",
+      "frame": {
+        "left": 84,
+        "top": 346,
+        "width": 614,
+        "height": 68
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/neloj2t8",
+      "kind": "shape",
+      "id": "6",
+      "slideId": "rdg7s3",
+      "name": "",
+      "text": "박신우",
+      "frame": {
+        "left": 84,
+        "top": 928,
+        "width": 698,
+        "height": 46
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/ytsvu9kn",
+      "kind": "shape",
+      "id": "7",
+      "slideId": "rdg7s3",
+      "name": "",
+      "text": "Game Client / Gameplay System Programmer",
+      "frame": {
+        "left": 84,
+        "top": 980,
+        "width": 698,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/58z25kb6",
+      "kind": "shape",
+      "id": "8",
+      "slideId": "rdg7s3",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 830.64,
+        "top": 76,
+        "width": 1005.36,
+        "height": 928
+      },
+      "fill": "#070808",
+      "adjustmentList": []
+    }
+  ],
+  "charts": [],
+  "images": [
+    {
+      "aid": "im/5wjudg7a",
+      "kind": "image",
+      "id": "9",
+      "slideId": "rdg7s3",
+      "name": "",
+      "alt": "Truck gameplay screenshot",
+      "isPlaceholder": false,
+      "contentType": "image/jpeg",
+      "fit": "cover",
+      "lockAspectRatio": true,
+      "frame": {
+        "left": 830.64,
+        "top": 76,
+        "width": 1005.3599999999999,
+        "height": 928
+      }
+    }
+  ],
+  "tables": [],
+  "notes": {
+    "aid": "nt/rdg7s3",
+    "kind": "notes",
+    "slideId": "rdg7s3",
+    "text": ""
+  }
+}

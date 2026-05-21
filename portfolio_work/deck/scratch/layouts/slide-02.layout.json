@@ -1,0 +1,542 @@
+{
+  "aid": "sl/c74tns",
+  "kind": "slide",
+  "id": "c74tns",
+  "index": 1,
+  "title": "ROLE SUMMARY",
+  "layoutId": "d602f8f4-4091-4c82-93d1-3403d4f52d75",
+  "shapes": [
+    {
+      "aid": "sh/l0rqd4vm",
+      "kind": "shape",
+      "id": "1",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 0,
+        "top": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "fill": "#101214",
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/ed8bat47",
+      "kind": "shape",
+      "id": "2",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "ROLE SUMMARY",
+      "frame": {
+        "left": 84,
+        "top": 64,
+        "width": 118,
+        "height": 46
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/7u54zido",
+      "kind": "shape",
+      "id": "3",
+      "slideId": "c74tns",
+      "name": "slide-title",
+      "text": "저는 트럭을 하나의 이동 수단이 아니라,\n게임 루프를 묶는 중심 객체로 설계했습니다",
+      "frame": {
+        "left": 84,
+        "top": 122,
+        "width": 1752,
+        "height": 130
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/wra5gbq1",
+      "kind": "shape",
+      "id": "4",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "플레이어의 행동이 파밍, 적재, 탑승, 무기 사용, 스테이지 전환으로 자연스럽게 이어지도록 트럭을 상태 흐름의 중심에 두고 구조를 재설계했습니다.",
+      "frame": {
+        "left": 84,
+        "top": 266,
+        "width": 1334,
+        "height": 68
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/lc7u54zi",
+      "kind": "shape",
+      "id": "5",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 364,
+        "width": 390,
+        "height": 128
+      },
+      "fill": "#202720",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 6250"
+        }
+      ]
+    },
+    {
+      "aid": "sh/eloj2t83",
+      "kind": "shape",
+      "id": "6",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "01",
+      "frame": {
+        "left": 104,
+        "top": 382,
+        "width": 350,
+        "height": 22
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/36hcrmhk",
+      "kind": "shape",
+      "id": "7",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "파밍",
+      "frame": {
+        "left": 104,
+        "top": 410,
+        "width": 350,
+        "height": 34
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/wval87ed",
+      "kind": "shape",
+      "id": "8",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "공통 상호작용과 아이템 부모 클래스",
+      "frame": {
+        "left": 104,
+        "top": 450,
+        "width": 350,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/pg3ex0nu",
+      "kind": "shape",
+      "id": "9",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "→",
+      "frame": {
+        "left": 490,
+        "top": 406,
+        "width": 34,
+        "height": 44
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/loj2t83i",
+      "kind": "shape",
+      "id": "10",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 538,
+        "top": 364,
+        "width": 390,
+        "height": 128
+      },
+      "fill": "#202720",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 6250"
+        }
+      ]
+    },
+    {
+      "aid": "sh/w3m94fu1",
+      "kind": "shape",
+      "id": "11",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "02",
+      "frame": {
+        "left": 558,
+        "top": 382,
+        "width": 350,
+        "height": 22
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/3itgfmlk",
+      "kind": "shape",
+      "id": "12",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "트럭 적재",
+      "frame": {
+        "left": 558,
+        "top": 410,
+        "width": 350,
+        "height": 34
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/ex0nuxc3",
+      "kind": "shape",
+      "id": "13",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "인벤토리 타입을 트럭 상태로 전달",
+      "frame": {
+        "left": 558,
+        "top": 450,
+        "width": 350,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/lwval87e",
+      "kind": "shape",
+      "id": "14",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "→",
+      "frame": {
+        "left": 944,
+        "top": 406,
+        "width": 34,
+        "height": 44
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/wb2hwfyx",
+      "kind": "shape",
+      "id": "15",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 992,
+        "top": 364,
+        "width": 390,
+        "height": 128
+      },
+      "fill": "#202720",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 6250"
+        }
+      ]
+    },
+    {
+      "aid": "sh/3q5o7qpg",
+      "kind": "shape",
+      "id": "16",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "03",
+      "frame": {
+        "left": 1012,
+        "top": 382,
+        "width": 350,
+        "height": 22
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/e9cvixcz",
+      "kind": "shape",
+      "id": "17",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "탑승/이동",
+      "frame": {
+        "left": 1012,
+        "top": 410,
+        "width": 350,
+        "height": 34
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/l87ed8ba",
+      "kind": "shape",
+      "id": "18",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "운전석, 적재칸, 거치총 상호작용 분리",
+      "frame": {
+        "left": 1012,
+        "top": 450,
+        "width": 350,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/sneloj2t",
+      "kind": "shape",
+      "id": "19",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "→",
+      "frame": {
+        "left": 1398,
+        "top": 406,
+        "width": 34,
+        "height": 44
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/8jqh0fep",
+      "kind": "shape",
+      "id": "20",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1446,
+        "top": 364,
+        "width": 390,
+        "height": 128
+      },
+      "fill": "#202720",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 6250"
+        }
+      ]
+    },
+    {
+      "aid": "sh/x4nap4r6",
+      "kind": "shape",
+      "id": "21",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "04",
+      "frame": {
+        "left": 1466,
+        "top": 382,
+        "width": 350,
+        "height": 22
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/qd4vmtwr",
+      "kind": "shape",
+      "id": "22",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "2스테이지",
+      "frame": {
+        "left": 1466,
+        "top": 410,
+        "width": 350,
+        "height": 34
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/fyxobm58",
+      "kind": "shape",
+      "id": "23",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "타일 기반으로 길을 이어 붙이는 구조",
+      "frame": {
+        "left": 1466,
+        "top": 450,
+        "width": 350,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/8v6psfil",
+      "kind": "shape",
+      "id": "24",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 523.6159580052494,
+        "width": 566.6666666666667,
+        "height": 133.48797900262468
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5993"
+        }
+      ]
+    },
+    {
+      "aid": "sh/xczed8v6",
+      "kind": "shape",
+      "id": "25",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "보여줄 역량",
+      "frame": {
+        "left": 110,
+        "top": 546,
+        "width": 514,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/qpg3ex0n",
+      "kind": "shape",
+      "id": "26",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "시스템을 따로 구현하는 것이 아니라, 상태와 책임을 나누어 플레이 루프가 끊기지 않게 연결했습니다.",
+      "frame": {
+        "left": 110,
+        "top": 586,
+        "width": 514,
+        "height": 50
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/fa9w3m94",
+      "kind": "shape",
+      "id": "27",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 676.6666666666667,
+        "top": 523.6159580052494,
+        "width": 566.6666666666667,
+        "height": 133.48797900262468
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5993"
+        }
+      ]
+    },
+    {
+      "aid": "sh/8z25kb6x",
+      "kind": "shape",
+      "id": "28",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "설계 근거",
+      "frame": {
+        "left": 702,
+        "top": 546,
+        "width": 514,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/1gvy90je",
+      "kind": "shape",
+      "id": "29",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "상호작용 흐름도, 충돌 원인 분석, 타일 연결 스케치처럼 구현 전에 구조를 먼저 검토한 흔적을 시각 자료로 사용했습니다.",
+      "frame": {
+        "left": 702,
+        "top": 586,
+        "width": 514,
+        "height": 50
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/nqxs72x4",
+      "kind": "shape",
+      "id": "30",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1269.3333333333335,
+        "top": 523.6159580052494,
+        "width": 566.6666666666667,
+        "height": 133.48797900262468
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5993"
+        }
+      ]
+    },
+    {
+      "aid": "sh/u54zidon",
+      "kind": "shape",
+      "id": "31",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "의도적으로 줄인 내용",
+      "frame": {
+        "left": 1296,
+        "top": 546,
+        "width": 514,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/5sneloj2",
+      "kind": "shape",
+      "id": "32",
+      "slideId": "c74tns",
+      "name": "",
+      "text": "좀비 AI 세부 구현은 핵심 어필에서 제외하고, 내가 구조를 잡은 트럭/스테이지/상호작용에 집중했습니다.",
+      "frame": {
+        "left": 1296,
+        "top": 586,
+        "width": 514,
+        "height": 50
+      },
+      "adjustmentList": []
+    }
+  ],
+  "charts": [],
+  "images": [],
+  "tables": [],
+  "notes": {
+    "aid": "nt/c74tns",
+    "kind": "notes",
+    "slideId": "c74tns",
+    "text": ""
+  }
+}

@@ -1,0 +1,386 @@
+{
+  "aid": "sl/hx4cti",
+  "kind": "slide",
+  "id": "hx4cti",
+  "index": 5,
+  "title": "PROBLEM SOLVING 01",
+  "layoutId": "d602f8f4-4091-4c82-93d1-3403d4f52d75",
+  "shapes": [
+    {
+      "aid": "sh/kjm1cfa9",
+      "kind": "shape",
+      "id": "1",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 0,
+        "top": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "fill": "#101214",
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/r2p8nqxs",
+      "kind": "shape",
+      "id": "2",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "PROBLEM SOLVING 01",
+      "frame": {
+        "left": 84,
+        "top": 64,
+        "width": 156,
+        "height": 46
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/2hwfyxob",
+      "kind": "shape",
+      "id": "3",
+      "slideId": "hx4cti",
+      "name": "slide-title",
+      "text": "적재칸을 자유 이동 공간으로 만들자, 캐릭터 캡슐이 트럭을 밀어내는 문제가 생겼습니다",
+      "frame": {
+        "left": 84,
+        "top": 120,
+        "width": 1752,
+        "height": 130
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/9gr2p8nq",
+      "kind": "shape",
+      "id": "4",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "캐릭터 캡슐이 차량 PhysicsAsset을 지속적으로 밀어 물리 연산이 불안정해지는 문제였습니다. Collision Profile을 분리해 이동 공간은 막되 차량 본체로 물리 힘이 전달되지 않도록 정리했습니다.",
+      "frame": {
+        "left": 84,
+        "top": 262,
+        "width": 1414,
+        "height": 68
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/gvy90je9",
+      "kind": "shape",
+      "id": "5",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 360.2879790026247,
+        "width": 180.84,
+        "height": 30.14404199475066
+      },
+      "fill": "#31362D",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 23222"
+        }
+      ]
+    },
+    {
+      "aid": "sh/ra5gbq1o",
+      "kind": "shape",
+      "id": "6",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "Collision Profile 분리 코드",
+      "frame": {
+        "left": 98,
+        "top": 366,
+        "width": 152,
+        "height": 20
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/2p8nqxs7",
+      "kind": "shape",
+      "id": "7",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 398.43202099737533,
+        "width": 587.5862467191602,
+        "height": 617.5679790026247
+      },
+      "fill": "#070808",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 1362"
+        }
+      ]
+    },
+    {
+      "aid": "sh/kzupwb2h",
+      "kind": "shape",
+      "id": "9",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 695.5862467191602,
+        "top": 360.2879790026247,
+        "width": 163.51002624671918,
+        "height": 30.14404199475066
+      },
+      "fill": "#31362D",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 23222"
+        }
+      ]
+    },
+    {
+      "aid": "sh/ulwval87",
+      "kind": "shape",
+      "id": "10",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "적재칸 이동 범위 검증",
+      "frame": {
+        "left": 710,
+        "top": 366,
+        "width": 136,
+        "height": 20
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/j6tovaho",
+      "kind": "shape",
+      "id": "11",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 695.5862467191602,
+        "top": 398.43202099737533,
+        "width": 587.5862467191602,
+        "height": 617.5679790026247
+      },
+      "fill": "#070808",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 1362"
+        }
+      ]
+    },
+    {
+      "aid": "sh/1cfa9w3m",
+      "kind": "shape",
+      "id": "13",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1307.1723884514436,
+        "top": 360.2879790026247,
+        "width": 528.8276115485564,
+        "height": 109.29595800524935
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 7320"
+        }
+      ]
+    },
+    {
+      "aid": "sh/uxc3ylc7",
+      "kind": "shape",
+      "id": "14",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "원인",
+      "frame": {
+        "left": 1334,
+        "top": 382,
+        "width": 476,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/ji5snelo",
+      "kind": "shape",
+      "id": "15",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "캡슐이 차량 물리 바디를 계속 밀어 물리 연산이 불안정해짐",
+      "frame": {
+        "left": 1334,
+        "top": 424,
+        "width": 476,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/c3ylc7u5",
+      "kind": "shape",
+      "id": "16",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1307.1723884514436,
+        "top": 487.5840419947507,
+        "width": 528.8276115485564,
+        "height": 133.48797900262468
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5993"
+        }
+      ]
+    },
+    {
+      "aid": "sh/1kre1w7m",
+      "kind": "shape",
+      "id": "17",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "해결",
+      "frame": {
+        "left": 1334,
+        "top": 510,
+        "width": 476,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/q5o7qpg3",
+      "kind": "shape",
+      "id": "18",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "적재칸 바닥/벽을 별도 BoxComponent로 만들고 Pawn만 막도록 분리",
+      "frame": {
+        "left": 1334,
+        "top": 550,
+        "width": 476,
+        "height": 50
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/jqh0fepk",
+      "kind": "shape",
+      "id": "19",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1307.1723884514436,
+        "top": 639.0720209973754,
+        "width": 528.8276115485564,
+        "height": 133.48797900262468
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5993"
+        }
+      ]
+    },
+    {
+      "aid": "sh/bulwval8",
+      "kind": "shape",
+      "id": "20",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "현재 코드",
+      "frame": {
+        "left": 1334,
+        "top": 662,
+        "width": 476,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/i9s36hcr",
+      "kind": "shape",
+      "id": "21",
+      "slideId": "hx4cti",
+      "name": "",
+      "text": "`QueryOnly` + `ECC_Pawn Block`으로 이동 제약은 유지하고, 트럭 본체에 불필요한 Physics Impulse가 전달되지 않게 정리",
+      "frame": {
+        "left": 1334,
+        "top": 702,
+        "width": 476,
+        "height": 50
+      },
+      "adjustmentList": []
+    }
+  ],
+  "charts": [],
+  "images": [
+    {
+      "aid": "im/kre1w7mp",
+      "kind": "image",
+      "id": "8",
+      "slideId": "hx4cti",
+      "name": "",
+      "alt": "Cargo collision boxes code",
+      "isPlaceholder": false,
+      "contentType": "image/jpeg",
+      "fit": "contain",
+      "geometry": "roundRect",
+      "lockAspectRatio": true,
+      "frame": {
+        "left": 84,
+        "top": 398.432,
+        "width": 587.5862068965517,
+        "height": 617.568
+      }
+    },
+    {
+      "aid": "im/3m94fu18",
+      "kind": "image",
+      "id": "12",
+      "slideId": "hx4cti",
+      "name": "",
+      "alt": "Cargo collision boxes view",
+      "isPlaceholder": false,
+      "contentType": "image/jpeg",
+      "fit": "cover",
+      "geometry": "roundRect",
+      "lockAspectRatio": true,
+      "frame": {
+        "left": 695.5862068965517,
+        "top": 398.432,
+        "width": 587.5862068965517,
+        "height": 617.568
+      }
+    }
+  ],
+  "tables": [],
+  "notes": {
+    "aid": "nt/hx4cti",
+    "kind": "notes",
+    "slideId": "hx4cti",
+    "text": ""
+  }
+}

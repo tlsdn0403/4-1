@@ -1,0 +1,437 @@
+{
+  "aid": "sl/d8fykl",
+  "kind": "slide",
+  "id": "d8fykl",
+  "index": 11,
+  "title": "SYSTEM 05 / IMPLEMENTATION",
+  "layoutId": "d602f8f4-4091-4c82-93d1-3403d4f52d75",
+  "shapes": [
+    {
+      "aid": "sh/kb6xkf6d",
+      "kind": "shape",
+      "id": "1",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 0,
+        "top": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "fill": "#101214",
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/rqd4vmtw",
+      "kind": "shape",
+      "id": "2",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "SYSTEM 05 / IMPLEMENTATION",
+      "frame": {
+        "left": 84,
+        "top": 64,
+        "width": 222,
+        "height": 24
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/25kb6xkf",
+      "kind": "shape",
+      "id": "3",
+      "slideId": "d8fykl",
+      "name": "slide-title",
+      "text": "비동기 로드의 빈틈을 ActiveTiles와 초기화 단계로 관리했습니다",
+      "frame": {
+        "left": 84,
+        "top": 98,
+        "width": 1752,
+        "height": 66
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/9knih4by",
+      "kind": "shape",
+      "id": "4",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "비동기 레벨 스트리밍에서는 로드 요청 직후 타일 내부 Actor나 Marker를 바로 참조할 수 없습니다. 그래서 로드 요청과 Marker 확보를 분리하고, 초기화 확정 단계를 별도로 두었습니다.",
+      "frame": {
+        "left": 84,
+        "top": 174,
+        "width": 1354,
+        "height": 68
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/kzupwb2h",
+      "kind": "shape",
+      "id": "5",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 273.74404199475066,
+        "width": 122.52000000000001,
+        "height": 30.14404199475066
+      },
+      "fill": "#31362D",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 23222"
+        }
+      ]
+    },
+    {
+      "aid": "sh/re1w7mp0",
+      "kind": "shape",
+      "id": "6",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "TileMarker 구성",
+      "frame": {
+        "left": 98,
+        "top": 280,
+        "width": 94,
+        "height": 20
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/2t83itgf",
+      "kind": "shape",
+      "id": "7",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 84,
+        "top": 311.88797900262466,
+        "width": 613.44,
+        "height": 330
+      },
+      "fill": "#1F1F1F",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 2424"
+        }
+      ]
+    },
+    {
+      "aid": "sh/gvy90je9",
+      "kind": "shape",
+      "id": "9",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 721.44,
+        "top": 273.74404199475066,
+        "width": 163.68997375328084,
+        "height": 48.287979002624674
+      },
+      "fill": "#31362D",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 14496"
+        }
+      ]
+    },
+    {
+      "aid": "sh/yd0z6103",
+      "kind": "shape",
+      "id": "10",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "ActiveTiles 메타데이터",
+      "frame": {
+        "left": 736,
+        "top": 280,
+        "width": 136,
+        "height": 38
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/rytsvu9k",
+      "kind": "shape",
+      "id": "11",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 721.44,
+        "top": 330.03202099737535,
+        "width": 613.44,
+        "height": 330
+      },
+      "fill": "#1F1F1F",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 2424"
+        }
+      ]
+    },
+    {
+      "aid": "sh/90je9cvi",
+      "kind": "shape",
+      "id": "13",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1358.88,
+        "top": 273.74404199475066,
+        "width": 477.12,
+        "height": 109.29595800524935
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 7320"
+        }
+      ]
+    },
+    {
+      "aid": "sh/y1kre1w7",
+      "kind": "shape",
+      "id": "14",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "1. 요청",
+      "frame": {
+        "left": 1384,
+        "top": 296,
+        "width": 426,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/rmhk3q5o",
+      "kind": "shape",
+      "id": "15",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "ULevelStreamingDynamic으로 타일 레벨 로드 요청",
+      "frame": {
+        "left": 1384,
+        "top": 336,
+        "width": 426,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/g7adsji5",
+      "kind": "shape",
+      "id": "16",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1358.88,
+        "top": 399.04,
+        "width": 477.12,
+        "height": 133.48797900262468
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 5993"
+        }
+      ]
+    },
+    {
+      "aid": "sh/9s36hcrm",
+      "kind": "shape",
+      "id": "17",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "2. 보류",
+      "frame": {
+        "left": 1384,
+        "top": 422,
+        "width": 426,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/yxobm58z",
+      "kind": "shape",
+      "id": "18",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "ActiveTiles에 SourceLevel, StreamingLevel, Transform 저장",
+      "frame": {
+        "left": 1384,
+        "top": 462,
+        "width": 426,
+        "height": 50
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/nih4byhg",
+      "kind": "shape",
+      "id": "19",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1358.88,
+        "top": 548.5279790026246,
+        "width": 477.12,
+        "height": 109.29595800524935
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 7320"
+        }
+      ]
+    },
+    {
+      "aid": "sh/3m94fu18",
+      "kind": "shape",
+      "id": "20",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "3. 확정",
+      "frame": {
+        "left": 1384,
+        "top": 570,
+        "width": 426,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/a5gbq1or",
+      "kind": "shape",
+      "id": "21",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "Tick에서 TryFinalizeLoadedTiles로 Marker 확보",
+      "frame": {
+        "left": 1384,
+        "top": 612,
+        "width": 426,
+        "height": 26
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/lszqtcj6",
+      "kind": "shape",
+      "id": "22",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "",
+      "frame": {
+        "left": 1358.88,
+        "top": 673.8240419947507,
+        "width": 477.12,
+        "height": 109.29595800524935
+      },
+      "fill": "#243026",
+      "adjustmentList": [
+        {
+          "name": "adj",
+          "formula": "val 7320"
+        }
+      ]
+    },
+    {
+      "aid": "sh/s72x4nap",
+      "kind": "shape",
+      "id": "23",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "4. 연결",
+      "frame": {
+        "left": 1384,
+        "top": 696,
+        "width": 426,
+        "height": 32
+      },
+      "adjustmentList": []
+    },
+    {
+      "aid": "sh/3ylc7u54",
+      "kind": "shape",
+      "id": "24",
+      "slideId": "d8fykl",
+      "name": "",
+      "text": "Trigger 이벤트가 들어오면 다음 SpawnTransform 계산",
+      "frame": {
+        "left": 1384,
+        "top": 736,
+        "width": 426,
+        "height": 26
+      },
+      "adjustmentList": []
+    }
+  ],
+  "charts": [],
+  "images": [
+    {
+      "aid": "im/0je9cvix",
+      "kind": "image",
+      "id": "8",
+      "slideId": "d8fykl",
+      "name": "",
+      "alt": "TileMarker code",
+      "isPlaceholder": false,
+      "contentType": "image/jpeg",
+      "fit": "contain",
+      "geometry": "roundRect",
+      "lockAspectRatio": true,
+      "frame": {
+        "left": 84,
+        "top": 311.88800000000003,
+        "width": 613.44,
+        "height": 330
+      }
+    },
+    {
+      "aid": "im/rmhk3q5o",
+      "kind": "image",
+      "id": "12",
+      "slideId": "d8fykl",
+      "name": "",
+      "alt": "Active tiles code",
+      "isPlaceholder": false,
+      "contentType": "image/jpeg",
+      "fit": "contain",
+      "geometry": "roundRect",
+      "lockAspectRatio": true,
+      "frame": {
+        "left": 721.44,
+        "top": 330.03200000000004,
+        "width": 613.44,
+        "height": 330
+      }
+    }
+  ],
+  "tables": [],
+  "notes": {
+    "aid": "nt/d8fykl",
+    "kind": "notes",
+    "slideId": "d8fykl",
+    "text": ""
+  }
+}
