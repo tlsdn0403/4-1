@@ -105,10 +105,136 @@ h1 {
   position: relative;
 }
 
+.hidden {
+  display: none !important;
+}
+
 canvas {
   display: block;
   height: 100%;
   width: 100%;
+}
+
+.main-menu {
+  align-items: stretch;
+  background:
+    linear-gradient(90deg, rgba(248, 244, 232, 0.96), rgba(248, 244, 232, 0.82)),
+    radial-gradient(circle at 18% 80%, rgba(242, 200, 75, 0.24), transparent 34%);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
+  inset: 0;
+  padding: 28px;
+  position: absolute;
+  z-index: 4;
+}
+
+.menu-hero,
+.upgrade-panel {
+  background: rgba(255, 251, 239, 0.9);
+  border: 1px solid rgba(86, 70, 50, 0.16);
+  border-radius: 8px;
+  box-shadow: 0 18px 48px rgba(58, 42, 28, 0.16);
+  padding: 24px;
+}
+
+.menu-hero {
+  align-content: center;
+  display: grid;
+}
+
+.menu-hero h2,
+.upgrade-panel h2 {
+  color: #2b2019;
+  font-size: 30px;
+}
+
+.menu-hero p:not(.status-label),
+.upgrade-card p {
+  color: #6b5f50;
+  line-height: 1.55;
+}
+
+.money-chip {
+  align-items: center;
+  background: #2f513d;
+  border-radius: 8px;
+  color: #fff9ec;
+  display: inline-flex;
+  font-weight: 800;
+  gap: 10px;
+  justify-self: start;
+  margin: 8px 0 10px;
+  min-height: 42px;
+  padding: 9px 13px;
+}
+
+.money-chip strong {
+  color: #ffe08a;
+  font-size: 22px;
+}
+
+.upgrade-panel {
+  display: grid;
+  gap: 12px;
+  grid-template-rows: auto 1fr;
+  min-height: 0;
+}
+
+.panel-heading h2 {
+  margin-bottom: 0;
+}
+
+.upgrade-list {
+  display: grid;
+  gap: 10px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.upgrade-card {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(86, 70, 50, 0.14);
+  border-radius: 8px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr auto;
+  min-height: 118px;
+  padding: 14px;
+}
+
+.upgrade-card h3 {
+  color: #2b2019;
+  font-size: 18px;
+  margin: 0 0 4px;
+}
+
+.upgrade-card p {
+  font-size: 14px;
+  margin: 0 0 6px;
+}
+
+.upgrade-card strong {
+  color: #2f513d;
+  font-size: 14px;
+}
+
+.upgrade-level {
+  color: #c85b38 !important;
+  font-size: 12px !important;
+  font-weight: 900;
+  margin-bottom: 4px !important;
+}
+
+.upgrade-button {
+  margin-top: 0;
+  min-width: 96px;
+}
+
+.upgrade-button:disabled {
+  background: #81766d;
+  cursor: not-allowed;
 }
 
 .overlay {
@@ -172,6 +298,25 @@ button:hover {
   background: #1d4ed8;
 }
 
+button:disabled:hover {
+  background: #81766d;
+}
+
+.secondary-button {
+  background: #435164;
+}
+
+.secondary-button:hover {
+  background: #303b4a;
+}
+
+.overlay-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
 button:focus-visible {
   outline: 3px solid rgba(37, 99, 235, 0.35);
   outline-offset: 3px;
@@ -216,6 +361,30 @@ kbd {
 
   .overlay-card {
     padding: 18px;
+  }
+
+  .main-menu {
+    grid-template-columns: 1fr;
+    overflow: auto;
+    padding: 16px;
+  }
+
+  .menu-hero,
+  .upgrade-panel {
+    padding: 18px;
+  }
+
+  .menu-hero h2,
+  .upgrade-panel h2 {
+    font-size: 22px;
+  }
+
+  .upgrade-card {
+    grid-template-columns: 1fr;
+  }
+
+  .upgrade-button {
+    justify-self: start;
   }
 
   h2 {

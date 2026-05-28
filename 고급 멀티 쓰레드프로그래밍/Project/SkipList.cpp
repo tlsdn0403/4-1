@@ -78,7 +78,7 @@ public:
 class CLIST {
 private:
 	NODE* head, * tail;
-	DUMMY_MUTEX mtx; // Mutex for thread safety
+	std::mutex mtx; // Mutex for thread safety
 public:
 	CLIST()
 	{
@@ -1312,8 +1312,13 @@ public:
 	int data;
 	SK_NODE* next[MAX_NEXTS] = { nullptr };
 	int num_nexts;
+	volatile bool removed = false; // Flag to indicate if the node is removed
+	volatile bool fully_linked = false; // Flag to indicate if the node is fully linked in the list
+	std::recursive_mutex mtx;
 	SK_NODE(int value) : data(value), num_nexts(1) {}
 	SK_NODE(int value, int num) : data(value), num_nexts(num) {}
+	void lock() { mtx.lock(); }
+	void unlock() { mtx.unlock(); }
 };
 
 class C_SKLIST {
@@ -1368,62 +1373,49 @@ public:
 		SK_NODE* pred[MAX_NEXTS], * curr[MAX_NEXTS];
 		mtx.lock();
 		Find(x, pred, curr);
-
-		
-		if (curr[0]->data == x) {
+		if (curr[0]->data != x) {
+			int num_nexts = 1;
+			while (num_nexts < MAX_NEXTS && rand() % 2 == 0) {
+				num_nexts++;
+			}
+			SK_NODE* new_node = new SK_NODE(x, num_nexts);
+			for (int i = 0; i < num_nexts; ++i) {
+				new_node->next[i] = curr[i];
+				pred[i]->next[i] = new_node;
+			}
 			mtx.unlock();
-			return false; 
-		}
-
-		int num_nexts = 1;
-		while (num_nexts < MAX_NEXTS && rand() % 2 == 0) {
-			num_nexts++;
-		}
-		SK_NODE* new_node = new SK_NODE(x, num_nexts);
-		for (int i = 0; i < num_nexts; ++i) {
-			new_node->next[i] = curr[i];
-			pred[i]->next[i] = new_node;
+			return true; // Element added successfully
 		}
 		mtx.unlock();
-		return true; 
+		return false;
 	}
-
 	bool Remove(int x)
 	{
 		SK_NODE* pred[MAX_NEXTS], * curr[MAX_NEXTS];
 		mtx.lock();
 		Find(x, pred, curr);
-
-	
 		if (curr[0]->data == x) {
-			SK_NODE* target = curr[0];
-
-		
-			for (int i = 0; i < MAX_NEXTS; ++i) {
-				if (pred[i]->next[i] != target) {
-					break; 
-				}
-				pred[i]->next[i] = target->next[i];
+			for (int i = 0; i < curr[0]->num_nexts; ++i) {
+				pred[i]->next[i] = curr[i]->next[i];
 			}
-
-			delete target; 
+			delete curr[0];
 			mtx.unlock();
-			return true; 
+			return true; // Element removed successfully
 		}
-
 		mtx.unlock();
-		return false; // 대상 노드가 없음
+		return false;
 	}
-
 	bool Contains(int x)
 	{
 		SK_NODE* pred[MAX_NEXTS], * curr[MAX_NEXTS];
 		mtx.lock();
 		Find(x, pred, curr);
-		bool result = (curr[0]->data == x);
-
+		if (curr[0]->data == x) {
+			mtx.unlock();
+			return true; // Element found
+		}
 		mtx.unlock();
-		return result;
+		return false;
 	}
 	void print20()
 	{
@@ -1437,7 +1429,210 @@ public:
 
 };
 
-C_SKLIST my_set;
+class L_SKLIST {
+	SK_NODE* head, * tail;
+public:
+	L_SKLIST()
+	{
+		std::cout << "Testing Lazy Skip List\n";
+		head = new SK_NODE(std::numeric_limits<int>::min());
+		tail = new SK_NODE(std::numeric_limits<int>::max());
+		for (int i = 0; i < MAX_NEXTS; ++i) {
+			head->next[i] = tail;
+		}
+	}
+	void clear()
+	{
+		SK_NODE* current = head->next[0];
+		while (head->next[0] != tail) {
+			SK_NODE* temp = head->next[0];
+			head->next[0] = temp->next[0];
+			delete temp;
+		}
+		for (int i = 1; i < MAX_NEXTS; ++i) {
+			head->next[i] = tail;
+		}
+	}
+	~L_SKLIST() {
+		clear();
+		delete head;
+		delete tail;
+	}
+
+	// 탐색 결과를 반환하는 Find: pred[], succ[] 배열을 채우고 해당 레벨에서의 발견 여부 반환
+	int Find(int x, SK_NODE* pred[], SK_NODE* curr[]) {
+		int found_level = -1;
+		SK_NODE* prev = head;
+
+		for (int level = MAX_NEXTS - 1; level >= 0; --level) {
+			if (level == MAX_NEXTS - 1)	pred[level] = head;
+			else pred[level] = pred[level + 1];
+			curr[level] = pred[level]->next[level];
+			while (curr[level]->data < x) {
+				pred[level] = curr[level];
+				curr[level] = curr[level]->next[level];
+			}
+			if ((-1 == found_level) && (curr[level]->data == x))
+				found_level = level; // Element found at this level
+		}
+		return found_level;
+	}
+	
+	bool Add(int x)
+	{
+		SK_NODE* pred[MAX_NEXTS], * curr[MAX_NEXTS];
+
+		while (true) {
+			int findlevel = Find(x, pred, curr);
+
+			if (findlevel != -1) {
+				SK_NODE* target = curr[findlevel];
+
+				if (target->removed == false) {
+					while (target->fully_linked == false) {
+						std::this_thread::yield();
+					}
+					return false;
+				}
+
+				// 같은 값의 노드가 삭제 중이면 다시 시도
+				continue;
+			}
+
+			int num_nexts = 1;
+			while (num_nexts < MAX_NEXTS && rand() % 2 == 0) {
+				num_nexts++;
+			}
+
+			bool valid = true;
+			int highest_level = -1;
+
+			for (int i = 0; i < num_nexts; ++i) {
+				pred[i]->lock();
+				// i로 바꿈
+				highest_level = i; 
+
+				if ((pred[i]->removed == false) &&
+					(curr[i]->removed == false) &&
+					(pred[i]->next[i] == curr[i])) {
+					continue;
+				}
+				else {
+					valid = false;
+					break;
+				}
+			}
+
+			if (valid == false) {
+				for (int i = 0; i <= highest_level; ++i) {
+					pred[i]->unlock();
+				}
+				continue;
+			}
+
+			SK_NODE* new_node = new SK_NODE(x, num_nexts);
+
+			for (int i = 0; i < num_nexts; ++i) {
+				new_node->next[i] = curr[i];
+			}
+
+			for (int i = 0; i < num_nexts; ++i) {
+				pred[i]->next[i] = new_node;
+			}
+
+			new_node->fully_linked = true;
+
+			for (int i = 0; i < num_nexts; ++i) {
+				pred[i]->unlock();
+			}
+
+			return true;
+		}
+	}
+	bool Remove(int x)
+	{
+		SK_NODE* pred[MAX_NEXTS], * curr[MAX_NEXTS];
+
+		int level_found = Find(x, pred, curr);
+		if (level_found == -1) {
+			return false; // Element not found
+		}
+		SK_NODE* victim = curr[level_found];
+		if (victim->removed) {
+			return false; // Element already removed
+		}
+		if (false == victim->fully_linked) {
+			return false; // Node is not fully linked, cannot remove
+		}
+
+		victim->lock();
+		if (true == victim->removed) {
+			victim->unlock();
+			return false; // Element already removed
+		}
+		victim->removed = true; // Mark the node as removed
+
+		while (true) {
+			bool valid = true;
+			int highest_level = -1;
+
+			for (int i = 0; i < victim->num_nexts; ++i) {
+				pred[i]->lock();
+				highest_level = i;  // 중요
+
+				if ((pred[i]->removed == false) &&
+					(pred[i]->next[i] == victim)) {
+					continue;
+				}
+				else {
+					valid = false;
+					break;
+				}
+			}
+
+			if (valid == false) {
+				for (int i = 0; i <= highest_level; ++i) {
+					pred[i]->unlock();
+				}
+
+				Find(x, pred, curr);
+				continue;
+			}
+
+			for (int i = victim->num_nexts - 1; i >= 0; --i) {
+				pred[i]->next[i] = victim->next[i];
+			}
+
+			for (int i = 0; i < victim->num_nexts; ++i) {
+				pred[i]->unlock();
+			}
+
+			victim->unlock();
+			return true;
+		}
+	}
+
+	bool Contains(int x)
+	{
+		SK_NODE* pred[MAX_NEXTS], * curr[MAX_NEXTS];
+		int found_level = Find(x, pred, curr);
+		return ((found_level != -1)
+			&& (curr[found_level]->removed == false)
+			&& (curr[found_level]->fully_linked == true));
+	}
+	void print20()
+	{
+		SK_NODE* curr = head->next[0];
+		for (int i = 0; i < 20 && curr != tail; ++i) {
+			std::cout << curr->data << ", ";
+			curr = curr->next[0];
+		}
+		std::cout << "\n";
+	}
+
+};
+
+L_SKLIST my_set;
 
 #include <array>
 

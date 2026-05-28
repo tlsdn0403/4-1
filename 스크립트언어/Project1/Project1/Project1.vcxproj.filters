@@ -58,6 +58,12 @@
     <Filter Include="소스 파일\test2">
       <UniqueIdentifier>{0987cdb5-c25f-402c-bc26-1b9fc0ef2f74}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Homework_8">
+      <UniqueIdentifier>{95276ade-0bd9-4c0f-86eb-24b595a57251}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Practice_8">
+      <UniqueIdentifier>{b119f05b-e8fd-4c65-9ced-9132d802e8b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="baekjoon1100하얀칸.cpp">
@@ -356,6 +362,18 @@
     </ClCompile>
     <ClCompile Include="소가길을건너간이유4.cpp">
       <Filter>소스 파일\Homework_7</Filter>
+    </ClCompile>
+    <ClCompile Include="다음순열.cpp">
+      <Filter>소스 파일\Homework_7</Filter>
+    </ClCompile>
+    <ClCompile Include="도시분할계획.cpp">
+      <Filter>소스 파일\Homework_8</Filter>
+    </ClCompile>
+    <ClCompile Include="서로소구현.cpp">
+      <Filter>소스 파일\Practice_8</Filter>
+    </ClCompile>
+    <ClCompile Include="크루스칼구현.cpp">
+      <Filter>소스 파일\Practice_8</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

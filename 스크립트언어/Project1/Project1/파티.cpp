@@ -20,7 +20,7 @@ void dijkstra(int start, vector<pair<int, int>> g[], int dist[]) {
 
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
-    dist[start] = 0;
+	dist[start] = 0;
 
     // {거리, 노드} 로 넣어야함 우선순위큐가 first로 비교
     pq.push({ 0, start });
