@@ -64,6 +64,9 @@
     <Filter Include="소스 파일\Practice_8">
       <UniqueIdentifier>{b119f05b-e8fd-4c65-9ced-9132d802e8b3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\PCCP 공부">
+      <UniqueIdentifier>{8c4297b9-c600-43dd-874c-b7c0ae4bc425}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="baekjoon1100하얀칸.cpp">
@@ -374,6 +377,9 @@
     </ClCompile>
     <ClCompile Include="크루스칼구현.cpp">
       <Filter>소스 파일\Practice_8</Filter>
+    </ClCompile>
+    <ClCompile Include="붕대감기.cpp">
+      <Filter>소스 파일\PCCP 공부</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
