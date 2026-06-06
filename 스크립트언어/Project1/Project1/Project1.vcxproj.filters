@@ -64,6 +64,12 @@
     <Filter Include="소스 파일\Practice_8">
       <UniqueIdentifier>{b119f05b-e8fd-4c65-9ced-9132d802e8b3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Homework_9">
+      <UniqueIdentifier>{12ed4f78-d982-4d41-aef5-4a306acffee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Practive_7">
+      <UniqueIdentifier>{381b2358-48fd-445c-a179-ef1ec7df4695}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="baekjoon1100하얀칸.cpp">
@@ -374,6 +380,27 @@
     </ClCompile>
     <ClCompile Include="크루스칼구현.cpp">
       <Filter>소스 파일\Practice_8</Filter>
+    </ClCompile>
+    <ClCompile Include="위상정렬구현.cpp">
+      <Filter>소스 파일\Practice_8</Filter>
+    </ClCompile>
+    <ClCompile Include="선수과목.cpp">
+      <Filter>소스 파일\Homework_8</Filter>
+    </ClCompile>
+    <ClCompile Include="작업.cpp">
+      <Filter>소스 파일\Homework_8</Filter>
+    </ClCompile>
+    <ClCompile Include="두수의합.cpp">
+      <Filter>소스 파일\Homework_9</Filter>
+    </ClCompile>
+    <ClCompile Include="개인정보수집유효기간.cpp">
+      <Filter>소스 파일\Homework_8</Filter>
+    </ClCompile>
+    <ClCompile Include="신규아이디추천.cpp">
+      <Filter>소스 파일\Homework_8</Filter>
+    </ClCompile>
+    <ClCompile Include="최단경로.cpp">
+      <Filter>소스 파일\Practive_7</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
