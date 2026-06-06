@@ -70,6 +70,9 @@
     <Filter Include="소스 파일\Practive_7">
       <UniqueIdentifier>{381b2358-48fd-445c-a179-ef1ec7df4695}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\PCCP_Practice">
+      <UniqueIdentifier>{3be6311e-791c-4cdb-9c67-de9a7517c669}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="baekjoon1100하얀칸.cpp">
@@ -401,6 +404,9 @@
     </ClCompile>
     <ClCompile Include="최단경로.cpp">
       <Filter>소스 파일\Practive_7</Filter>
+    </ClCompile>
+    <ClCompile Include="외톨이알파벳.cpp">
+      <Filter>소스 파일\PCCP_Practice</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
