@@ -408,5 +408,14 @@
     <ClCompile Include="외톨이알파벳.cpp">
       <Filter>소스 파일\PCCP_Practice</Filter>
     </ClCompile>
+    <ClCompile Include="목재총량숙제.cpp">
+      <Filter>소스 파일\Homework_9</Filter>
+    </ClCompile>
+    <ClCompile Include="소수회문숙제.cpp">
+      <Filter>소스 파일\Homework_9</Filter>
+    </ClCompile>
+    <ClCompile Include="b진법.cpp">
+      <Filter>소스 파일\Homework_9</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
