@@ -44,6 +44,7 @@ int main()
 
 	cout << "Duplicating!\n";
 
+	// ¼Ò¼³ÀÌ¿©µµ ³Ê¹« Âª¾Æ¼­ 1000¹ø »½Æ¢±â ÇÔ
 	for (int i = 0; i < 1000; ++i)
 		for (auto& word : Original) Data.push_back(word);
 

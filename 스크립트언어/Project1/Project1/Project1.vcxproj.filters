@@ -73,6 +73,15 @@
     <Filter Include="소스 파일\PCCP_Practice">
       <UniqueIdentifier>{3be6311e-791c-4cdb-9c67-de9a7517c669}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Practice_9">
+      <UniqueIdentifier>{7c960dfd-e5b1-4759-9ef0-65848e5c7792}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Practice_test3">
+      <UniqueIdentifier>{0975a92a-0561-4aff-a44c-5aa0e23b0074}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Test_3">
+      <UniqueIdentifier>{d42eb2c6-99b7-4cb2-8671-288b65b66cd1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="baekjoon1100하얀칸.cpp">
@@ -416,6 +425,51 @@
     </ClCompile>
     <ClCompile Include="b진법.cpp">
       <Filter>소스 파일\Homework_9</Filter>
+    </ClCompile>
+    <ClCompile Include="행성탐사.cpp">
+      <Filter>소스 파일\Practice_9</Filter>
+    </ClCompile>
+    <ClCompile Include="3차\Bronze Cow Party (다익스트라 양방향 탐색).cpp">
+      <Filter>소스 파일\Practice_test3</Filter>
+    </ClCompile>
+    <ClCompile Include="3차\겹치는 건 싫어 (투 포인터).cpp">
+      <Filter>소스 파일\Practice_test3</Filter>
+    </ClCompile>
+    <ClCompile Include="3차\어두운 건 무서워 (2차원 누적합).cpp">
+      <Filter>소스 파일\Practice_test3</Filter>
+    </ClCompile>
+    <ClCompile Include="3차\연료 채우기 (Greedy + 우선순위 큐).cpp">
+      <Filter>소스 파일\Practice_test3</Filter>
+    </ClCompile>
+    <ClCompile Include="3차\유럽여행 (크루스칼 마을 2개로 쪼개기).cpp">
+      <Filter>소스 파일\Practice_test3</Filter>
+    </ClCompile>
+    <ClCompile Include="3차\젖짜기 스케줄링 (위상 정렬 + DP).cpp">
+      <Filter>소스 파일\Practice_test3</Filter>
+    </ClCompile>
+    <ClCompile Include="택배배송다시공부.cpp">
+      <Filter>소스 파일\Practive_7</Filter>
+    </ClCompile>
+    <ClCompile Include="작업공부.cpp">
+      <Filter>소스 파일\Practice_9</Filter>
+    </ClCompile>
+    <ClCompile Include="연료채우기.cpp">
+      <Filter>소스 파일\Test_3</Filter>
+    </ClCompile>
+    <ClCompile Include="사과배달시험.cpp">
+      <Filter>소스 파일\Test_3</Filter>
+    </ClCompile>
+    <ClCompile Include="원피스\문제들\백준 5944번 - Apple Delivery.cpp">
+      <Filter>소스 파일\Practice_8</Filter>
+    </ClCompile>
+    <ClCompile Include="스키코스시험.cpp">
+      <Filter>소스 파일\Test_3</Filter>
+    </ClCompile>
+    <ClCompile Include="물대기시험.cpp">
+      <Filter>소스 파일\Test_3</Filter>
+    </ClCompile>
+    <ClCompile Include="회전초밥시험.cpp">
+      <Filter>소스 파일\Test_3</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

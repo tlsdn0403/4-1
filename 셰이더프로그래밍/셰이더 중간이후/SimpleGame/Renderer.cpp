@@ -742,6 +742,7 @@ void Renderer::DrawTriangle()
 	glDisable(GL_BLEND);
 }
 
+
 int g_CurrNum = 0;
 
 void Renderer::DrawFS()
@@ -1183,16 +1184,55 @@ void Renderer::GenFBOs()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, 1024, 1024, 0, GL_RGBA, GL_FLOAT, nullptr);
 
-
+	// 얘는 플롯 포인터 텍스처이다.
 	glGenFramebuffers(1, &m_MRT_HDR_FBO);
 	glBindFramebuffer(GL_FRAMEBUFFER, m_MRT_HDR_FBO);
 	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_MRT_HDR_FBO_Low_Texture, 0);
 	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, m_MRT_HDR_FBO_High_Texture, 0);
 
+	status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+	if (status != GL_FRAMEBUFFER_COMPLETE) {
+		assert(0);
+	}
 
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0); // attach 후 원상복귀
 
+}
+
+
+
+
+void Renderer::DrawTriangleHDR_Bloom()
+{
+
+	glBindFramebuffer(GL_FRAMEBUFFER, m_MRT_HDR_FBO);
+
+
+	GLenum DrawBuffers[2] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1 };
+	//이떄부터 랜더타겟이 2개라고 가정을 함
+	glDrawBuffers(2, DrawBuffers);
+
+
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glClearDepth(1.1f);
+	glViewport(0, 0, 1024, 1024);
+
+
+	DrawTriangle();
+	// 원상복구
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glViewport(0, 0, 1024, 1024); // 현재 창 크기에 맞게 뷰포트 원상복구
+
+	glDrawBuffer(GL_BACK);
+
+
+	DrawTexture(m_MRT_HDR_FBO_High_Texture, -0.5f, 0.5f, 0.5f, false);  // 왼쪽 위
+	DrawTexture(m_MRT_HDR_FBO_Low_Texture, 0.5f, 0.5f, 0.5f, false);  // 오른쪽 위
+
+
+	
 }
 void Renderer::GetGLPosition(float x, float y, float *newX, float *newY)
 {

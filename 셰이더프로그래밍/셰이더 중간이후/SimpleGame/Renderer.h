@@ -17,6 +17,7 @@ public:
 	bool IsInitialized();
 	void DrawSolidRect(float x, float y, float z, float size, float r, float g, float b, float a);
 	void DrawTriangle();
+	void DrawTriangleHDR_Bloom();
 	void DrawFS();
 	void DrawDummy();
 	void DrawDummy_FBO();

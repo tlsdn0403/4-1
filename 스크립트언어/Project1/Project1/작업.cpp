@@ -55,10 +55,12 @@ int main(){
 		int time, num;
 		cin >> time >> num;
 		timeTable[i] = time;
+		indegree[i] = num;
 		for(int j = 0; j < num; j++) {
 			int work;
 			cin >> work;
-			indegree[i]++;
+			// i ¹ø
+			
 			graph[work].push_back(i);
 		}
 	}
