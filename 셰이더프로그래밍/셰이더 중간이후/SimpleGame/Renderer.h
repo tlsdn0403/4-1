@@ -38,6 +38,8 @@ private:
 	void DrawTexture(GLuint texID, float x, float y, float scale, bool bFlip);
 
 	void GenFBOs();
+	void DrawGaussianBlur(GLuint texID, GLuint targetFBOID, GLuint shader);
+
 	bool m_Initialized = false;
 	
 	unsigned int m_WindowSizeX = 0;
@@ -97,5 +99,10 @@ private:
 	GLuint m_MRT_HDR_FBO_High_Texture = 0; //float texture
 	GLuint m_MRT_HDR_FBO_Low_Texture = 0;  //float texture
 
+	GLuint m_PingpongFBO[2] = {0, 0};
+	GLuint m_PingpongTexture[2] = { 0, 0 };
+	GLuint m_BlurH_Shader = 0;
+	GLuint m_BlurV_Shader = 0;
+	GLuint m_FullRectVBO = 0;
 };
 

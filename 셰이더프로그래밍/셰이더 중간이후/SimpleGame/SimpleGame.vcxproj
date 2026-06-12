@@ -172,6 +172,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Shaders\BluH.fs" />
+    <None Include="Shaders\BluH.vs" />
+    <None Include="Shaders\BluV.fs" />
+    <None Include="Shaders\BluV.vs" />
     <None Include="Shaders\Dummy.fs" />
     <None Include="Shaders\Dummy.vs" />
     <None Include="Shaders\FS.fs" />
