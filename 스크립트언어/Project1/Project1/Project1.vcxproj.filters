@@ -64,8 +64,23 @@
     <Filter Include="소스 파일\Practice_8">
       <UniqueIdentifier>{b119f05b-e8fd-4c65-9ced-9132d802e8b3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\PCCP 공부">
-      <UniqueIdentifier>{8c4297b9-c600-43dd-874c-b7c0ae4bc425}</UniqueIdentifier>
+    <Filter Include="소스 파일\Homework_9">
+      <UniqueIdentifier>{12ed4f78-d982-4d41-aef5-4a306acffee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Practive_7">
+      <UniqueIdentifier>{381b2358-48fd-445c-a179-ef1ec7df4695}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\PCCP_Practice">
+      <UniqueIdentifier>{3be6311e-791c-4cdb-9c67-de9a7517c669}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Practice_9">
+      <UniqueIdentifier>{7c960dfd-e5b1-4759-9ef0-65848e5c7792}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Practice_test3">
+      <UniqueIdentifier>{0975a92a-0561-4aff-a44c-5aa0e23b0074}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Test_3">
+      <UniqueIdentifier>{d42eb2c6-99b7-4cb2-8671-288b65b66cd1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -378,8 +393,83 @@
     <ClCompile Include="크루스칼구현.cpp">
       <Filter>소스 파일\Practice_8</Filter>
     </ClCompile>
-    <ClCompile Include="붕대감기.cpp">
-      <Filter>소스 파일\PCCP 공부</Filter>
+    <ClCompile Include="위상정렬구현.cpp">
+      <Filter>소스 파일\Practice_8</Filter>
+    </ClCompile>
+    <ClCompile Include="선수과목.cpp">
+      <Filter>소스 파일\Homework_8</Filter>
+    </ClCompile>
+    <ClCompile Include="작업.cpp">
+      <Filter>소스 파일\Homework_8</Filter>
+    </ClCompile>
+    <ClCompile Include="두수의합.cpp">
+      <Filter>소스 파일\Homework_9</Filter>
+    </ClCompile>
+    <ClCompile Include="개인정보수집유효기간.cpp">
+      <Filter>소스 파일\Homework_8</Filter>
+    </ClCompile>
+    <ClCompile Include="신규아이디추천.cpp">
+      <Filter>소스 파일\Homework_8</Filter>
+    </ClCompile>
+    <ClCompile Include="최단경로.cpp">
+      <Filter>소스 파일\Practive_7</Filter>
+    </ClCompile>
+    <ClCompile Include="외톨이알파벳.cpp">
+      <Filter>소스 파일\PCCP_Practice</Filter>
+    </ClCompile>
+    <ClCompile Include="목재총량숙제.cpp">
+      <Filter>소스 파일\Homework_9</Filter>
+    </ClCompile>
+    <ClCompile Include="소수회문숙제.cpp">
+      <Filter>소스 파일\Homework_9</Filter>
+    </ClCompile>
+    <ClCompile Include="b진법.cpp">
+      <Filter>소스 파일\Homework_9</Filter>
+    </ClCompile>
+    <ClCompile Include="행성탐사.cpp">
+      <Filter>소스 파일\Practice_9</Filter>
+    </ClCompile>
+    <ClCompile Include="3차\Bronze Cow Party (다익스트라 양방향 탐색).cpp">
+      <Filter>소스 파일\Practice_test3</Filter>
+    </ClCompile>
+    <ClCompile Include="3차\겹치는 건 싫어 (투 포인터).cpp">
+      <Filter>소스 파일\Practice_test3</Filter>
+    </ClCompile>
+    <ClCompile Include="3차\어두운 건 무서워 (2차원 누적합).cpp">
+      <Filter>소스 파일\Practice_test3</Filter>
+    </ClCompile>
+    <ClCompile Include="3차\연료 채우기 (Greedy + 우선순위 큐).cpp">
+      <Filter>소스 파일\Practice_test3</Filter>
+    </ClCompile>
+    <ClCompile Include="3차\유럽여행 (크루스칼 마을 2개로 쪼개기).cpp">
+      <Filter>소스 파일\Practice_test3</Filter>
+    </ClCompile>
+    <ClCompile Include="3차\젖짜기 스케줄링 (위상 정렬 + DP).cpp">
+      <Filter>소스 파일\Practice_test3</Filter>
+    </ClCompile>
+    <ClCompile Include="택배배송다시공부.cpp">
+      <Filter>소스 파일\Practive_7</Filter>
+    </ClCompile>
+    <ClCompile Include="작업공부.cpp">
+      <Filter>소스 파일\Practice_9</Filter>
+    </ClCompile>
+    <ClCompile Include="연료채우기.cpp">
+      <Filter>소스 파일\Test_3</Filter>
+    </ClCompile>
+    <ClCompile Include="사과배달시험.cpp">
+      <Filter>소스 파일\Test_3</Filter>
+    </ClCompile>
+    <ClCompile Include="원피스\문제들\백준 5944번 - Apple Delivery.cpp">
+      <Filter>소스 파일\Practice_8</Filter>
+    </ClCompile>
+    <ClCompile Include="스키코스시험.cpp">
+      <Filter>소스 파일\Test_3</Filter>
+    </ClCompile>
+    <ClCompile Include="물대기시험.cpp">
+      <Filter>소스 파일\Test_3</Filter>
+    </ClCompile>
+    <ClCompile Include="회전초밥시험.cpp">
+      <Filter>소스 파일\Test_3</Filter>
     </ClCompile>
     <ClCompile Include="유전법칙.cpp">
       <Filter>소스 파일\PCCP 공부</Filter>
