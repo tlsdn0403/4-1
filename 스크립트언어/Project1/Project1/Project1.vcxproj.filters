@@ -381,5 +381,8 @@
     <ClCompile Include="붕대감기.cpp">
       <Filter>소스 파일\PCCP 공부</Filter>
     </ClCompile>
+    <ClCompile Include="유전법칙.cpp">
+      <Filter>소스 파일\PCCP 공부</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
