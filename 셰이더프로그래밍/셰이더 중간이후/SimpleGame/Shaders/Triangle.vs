@@ -18,16 +18,37 @@ out vec2 v_Tex;
 const float c_PI = 3.141592;
 const float c_G = -9.8;
 
-
+// 원을 여러 개 그리는 코드
 void Ex1()
 {
 
-	v_Color = vec3(1);
-	gl_Position = vec4(a_Pos,  1);
+	vec4 pos = vec4(0,0,0,1);
+
+	float radius = ceil(a_RV1* 5.0) /5; // 1,2,3,4,5 ceil은 올림
+
+	pos.x  = a_Pos.x + radius*sin(a_RV*2*c_PI);
+	pos.y  = a_Pos.y + radius*cos(a_RV*2*c_PI);
+	v_Color = vec3(0);
+	gl_Position = vec4(pos);
+}
+
+void Ex2()
+{
+
+	vec4 pos = vec4(0,0,0,1);
+
+	float trans = ceil(a_RV1* 5.0)/5; // 0.2, 0.4 , 0.6 0.8,1.0 ceil은 올림
+
+	pos.x = a_Pos.x +(2*a_RV) -1;
+	pos.y = a_Pos.y + 0.2*sin(a_RV*2.0*c_PI)+ trans;
+
+	v_Color = vec3(0);
+	gl_Position = vec4(pos);
+
 }
 void main()
 {
-    Ex1();
+    Ex2();
 }
 
 

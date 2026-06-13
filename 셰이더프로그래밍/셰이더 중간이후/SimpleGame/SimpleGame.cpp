@@ -21,12 +21,12 @@ void RenderScene(void)
 {
 	// attach 된 텍스처 클리어 , 뎁스 버퍼도 정해진 값으로 클리어.
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
 	// Renderer Test
 	//g_Renderer->DrawSolidRect(0, 0, 0, 4, 1, 0, 1, 1);
-	/*g_Renderer->DrawTriangle();*/
-	g_Renderer->DrawTriangleHDR_Bloom();
+	g_Renderer->DrawTriangle();
+	/*g_Renderer->DrawTriangleHDR_Bloom();*/
 	/*g_Renderer->DrawFS();*/
 	/*g_Renderer->DrawAll_FBO();*/
 	/*g_Renderer->DrawMultipleRenderTarget();*/

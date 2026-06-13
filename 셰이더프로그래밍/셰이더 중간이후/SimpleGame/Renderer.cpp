@@ -376,7 +376,7 @@ void Renderer::GenParticles(int count)
 		return;
 	}
 
-	const float size = 0.1f;
+	const float size = 0.025f;
 	const float mass = 1.0f;
 
 	// 파티클 1개 = 정점 6개
