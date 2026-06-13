@@ -18,6 +18,65 @@ out vec2 v_Tex;
 const float c_PI = 3.141592;
 const float c_G = -9.8;
 
+
+void Ex1()
+{
+
+	v_Color = vec3(1);
+	gl_Position = vec4(a_Pos,  1);
+}
+void main()
+{
+    Ex1();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 float random(float x) {
     return fract(sin(x) * 43758.5453123);
 }
@@ -185,9 +244,4 @@ void Shape()
 	
 	v_Color = a_RGB;
 	v_Tex = a_Tex;
-}
-
-void main()
-{
-    Falling();
 }

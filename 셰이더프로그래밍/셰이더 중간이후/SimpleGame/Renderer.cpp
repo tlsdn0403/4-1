@@ -48,6 +48,10 @@ void Renderer::Initialize(int windowSizeX, int windowSizeY)
 		"./Shaders/BluV.vs",
 		"./Shaders/BluV.fs");
 
+	m_AccumShader = CompileShaders(
+		"./Shaders/Accum.vs",
+		"./Shaders/Accum.fs");
+
 	//Load Textures
 	m_RgbTexture = CreatePngTexture("./textures/rgb.png", GL_NEAREST); //0 slot
 	m_NumsTexture = CreatePngTexture("./textures/numbers.png", GL_NEAREST); //1slot
@@ -1252,6 +1256,40 @@ void Renderer::DrawGaussianBlur(GLuint texID, GLuint targetFBOID, GLuint shader)
 
 }
 
+void Renderer::DrawAccumResult(GLuint texOr, GLuint texBlurred, bool bFlip)
+{
+	int shader = m_AccumShader;
+	glUseProgram(shader);
+
+	int uFlip = glGetUniformLocation(shader, "u_Flip");
+	glUniform1i(uFlip, bFlip);
+
+	int uTex = glGetUniformLocation(shader, "u_Tex");
+	glUniform1i(uTex, 0);
+
+	int uTexBlurred = glGetUniformLocation(shader, "u_TexBlurred");
+	glUniform1i(uTexBlurred, 1);
+
+	int uExposure = glGetUniformLocation(shader, "u_Exposure");
+	glUniform1f(uExposure, 2.0);
+
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, texOr);
+
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, texBlurred);
+
+	int aPos = glGetAttribLocation(shader, "a_Pos");
+	glEnableVertexAttribArray(aPos);	
+
+	glBindBuffer(GL_ARRAY_BUFFER, m_TextureVBO);
+	glVertexAttribPointer(aPos, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+
+}
+
+
+	
 
 
 
@@ -1277,7 +1315,7 @@ void Renderer::DrawTriangleHDR_Bloom()
 	DrawGaussianBlur(m_MRT_HDR_FBO_High_Texture, m_PingpongFBO[0], m_BlurH_Shader);
 
 
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 50; i++)
 	{
 		// 0에 그렸다가 1에 그렸다가 스위칭이 된다.
 		DrawGaussianBlur(m_PingpongTexture[0], m_PingpongFBO[1], m_BlurV_Shader);
@@ -1288,7 +1326,10 @@ void Renderer::DrawTriangleHDR_Bloom()
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glViewport(0, 0, 1024, 1024); // 현재 창 크기에 맞게 뷰포트 원상복구
 
-	glDrawBuffer(GL_BACK);
+	GLenum ResetDrawBuffers[1] = { GL_COLOR_ATTACHMENT0 };
+	glDrawBuffers(1 ,ResetDrawBuffers);
+
+	DrawAccumResult(m_MRT_HDR_FBO_Low_Texture, m_PingpongTexture[0], false);
 
 
 	DrawTexture(m_MRT_HDR_FBO_Low_Texture, -0.5f, -0.8f, 0.2f, false);  // 왼쪽 위
