@@ -46,9 +46,24 @@ void Ex2()
 	gl_Position = vec4(pos);
 
 }
+void Ex3()
+{
+
+	vec4 pos = vec4(0,0,0,1);
+
+	// t는 0~2 구간을 반복하는 값
+	float t = fract(u_Time/2.0)*2.0;
+
+	pos.x = a_Pos.x + t-1;
+	pos.y = a_Pos.y+ sin(pos.x * c_PI) ;
+
+	v_Color = vec3(0);
+	gl_Position = vec4(pos);
+
+}
 void main()
 {
-    Ex2();
+    Ex3();
 }
 
 

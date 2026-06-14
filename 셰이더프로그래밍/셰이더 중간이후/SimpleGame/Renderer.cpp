@@ -51,7 +51,9 @@ void Renderer::Initialize(int windowSizeX, int windowSizeY)
 	m_AccumShader = CompileShaders(
 		"./Shaders/Accum.vs",
 		"./Shaders/Accum.fs");
-
+	m_FullScreenColorShader = CompileShaders(
+		"./Shaders/FillFullScreen.vs",
+		"./Shaders/FillFullScreen.fs");
 	//Load Textures
 	m_RgbTexture = CreatePngTexture("./textures/rgb.png", GL_NEAREST); //0 slot
 	m_NumsTexture = CreatePngTexture("./textures/numbers.png", GL_NEAREST); //1slot
@@ -959,6 +961,27 @@ void Renderer::DrawMultipleRenderTarget()
 	DrawTexture(m_MRT_FBO_Texture2, 0.0f, -0.5f, 0.5f, false);  // bottom
 
 
+}
+void Renderer::DrawFullScreenColor(float r, float g, float b, float a)
+{
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	int shader = m_FullScreenColorShader;
+	glUseProgram(shader);
+
+	int uColor = glGetUniformLocation(shader, "u_Color");
+	glUniform4f(uColor, r,g,b,a);
+
+	int aPos = glGetAttribLocation(shader, "a_Pos");
+	glEnableVertexAttribArray(aPos);
+
+	glBindBuffer(GL_ARRAY_BUFFER, m_TextureVBO);
+	glVertexAttribPointer(aPos, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
+
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+
+	glDisable(GL_BLEND);
 }
 void Renderer::DrawDummy_FBO()
 {

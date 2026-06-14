@@ -23,6 +23,7 @@ public:
 	void DrawDummy_FBO();
 	void DrawAll_FBO();
 	void DrawMultipleRenderTarget();
+	void DrawFullScreenColor(float r, float g, float b, float a);
 private:
 	void Initialize(int windowSizeX, int windowSizeY);
 	bool ReadFile(char* filename, std::string *target);
@@ -108,5 +109,8 @@ private:
 	
 	//Accume
 	GLuint m_AccumShader = 0;
+
+	//Fill Full Screen
+	GLuint m_FullScreenColorShader = 0;
 };
 
