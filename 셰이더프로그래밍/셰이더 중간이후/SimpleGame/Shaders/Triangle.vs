@@ -55,7 +55,32 @@ void Ex3()
 	float t = fract(u_Time/2.0)*2.0;
 
 	pos.x = a_Pos.x + t-1;
-	pos.y = a_Pos.y+ sin(pos.x * c_PI) ;
+	pos.y = a_Pos.y+ sin((pos.x +1) * c_PI) ;
+
+	v_Color = vec3(0);
+	gl_Position = vec4(pos);
+
+}
+void Pr1(){
+	vec4 pos = vec4(0,0,0,1);
+	// 원이 5개 그려지도록 해보자 ceil은 오름차순
+	float radius = ceil(a_RV * 5.0)/5.0;
+
+	pos.x  = a_Pos.x +radius * sin(c_PI* 2 * a_RV1);
+	pos.y  = a_Pos.y+ radius * cos( c_PI * 2 * a_RV1);
+	v_Color = vec3(0);
+	gl_Position = vec4(pos);
+}
+
+void P2()
+{
+
+	vec4 pos = vec4(0,0,0,1);
+
+	float trans = ceil(a_RV1* 5.0)/5; // 0.2, 0.4 , 0.6 0.8,1.0 ceil은 올림
+
+	pos.x = a_Pos.x + a_RV*2 -1;
+	pos.y = a_Pos.y + 0.2*sin( (pos.x +1) * 2* c_PI) + trans;
 
 	v_Color = vec3(0);
 	gl_Position = vec4(pos);
@@ -63,7 +88,7 @@ void Ex3()
 }
 void main()
 {
-    Ex3();
+    P2();
 }
 
 

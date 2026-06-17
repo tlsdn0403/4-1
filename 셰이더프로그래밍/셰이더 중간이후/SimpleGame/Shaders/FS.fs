@@ -308,7 +308,7 @@ void Nums()
 
 
 
-/*void FS_01_Q6()
+void FS_01_Q6()
 {
     float tx = fract(v_Tex.x*3);
     float ty = v_Tex.y/3;
@@ -403,15 +403,68 @@ void FS_03_Q10()
     float offsetY = floor(index/5.0)/2.0;
     FragColor = texture(u_NumsTex, vec2(tx + offsetX, ty + offsetY));
     if(FragColor.a == 0) discard;
-}*/
+}
+
+// floor 내림
+// ceil 올림
+// fract 소수점만
+// mod 나머지
+void FS_03_Q7P()
+{
+    float tx = fract(v_Tex.x * 3.0);
+    float ty = v_Tex.y/3.0;
+    float offsetX = 0;
+    float offsetY = fract(ceil(v_Tex.x *3)/3.0) ;
+    FragColor = texture(u_RGBTex, vec2(tx+offsetX, ty+offsetY));
+}
+
+void FS_01_Q7P()
+{
+    float tx = v_Tex.x;
+    float ty = fract(v_Tex.y*3);
+    float offsetX = 0;
+    float offsetY = fract(ceil(v_Tex.y *3)/3);
+    FragColor = texture(u_RGBTex, vec2(tx+offsetX, ty+offsetY));
+}
 
 
+void LineP()
+{
+
+	float periodX = v_Tex.x * 1 * c_PI;
+	float periodY = v_Tex.y * 1 * c_PI;
+
+	float valueX = pow(abs(sin(periodX )),16);
+
+	FragColor = vec4(valueX );
+}
+void FS_03_Q9P()
+{
+    float tx = 2*v_Tex.x/5.0;
+    float ty = v_Tex.y/2.0;
+    float offsetX = 2.0/5.0;
+    float offsetY = 1.0/2.0;
+    FragColor = texture(u_NumsTex, vec2(tx+offsetX, ty+offsetY));
+    if(FragColor.a == 0) discard;
+}
+
+
+void CircleP()
+{	
+	vec2 pos = v_Tex * 2.0 - 1.0;
+    float d = length(pos);
+
+    float ring = fract(d * 5.0);
+    float thickness = 0.03;
+
+    float grey = 1.0 - step(thickness, min(ring, 1.0 - ring));
+
+    FragColor = vec4(vec3(grey), 1.0);
+}
 
 void main()
 {
 	//TextureSampling();    
     
-    FragColor = RainDrop();
-    FragColor1 = Flag();
-    FragColor2 = Flame();
+    FS_01_Q10();
 }
